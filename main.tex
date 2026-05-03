@@ -1,0 +1,4845 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath}
+\usepackage{fullpage}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{verbatim}
+\immediate\write18{texcount -tex -sum  \jobname.tex > \jobname.wordcount.tex}
+\usepackage[ruled,vlined]{algorithm2e}
+\usepackage[titles]{tocloft}%----------------------------------------
+\usepackage{mathrsfs}
+\usepackage{bm}
+\usepackage{enumitem}
+\usepackage{amsthm}
+\usepackage{chngcntr}
+\usepackage{titlesec}
+\usepackage{stfloats}
+\usepackage{hyperref}
+\hypersetup{linktocpage}
+\hypersetup{
+    colorlinks,
+    citecolor=red,
+    filecolor=black,
+    linkcolor=blue ,
+    urlcolor=black
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% new commands and shortcuts
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\usepackage{amsmath}
+\usepackage{fullpage}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{verbatim}
+\immediate\write18{texcount -tex -sum  \jobname.tex > \jobname.wordcount.tex}
+\usepackage[ruled,vlined]{algorithm2e}
+\usepackage[titles]{tocloft}%----------------------------------------
+\usepackage{mathrsfs}
+\usepackage{bm}
+\usepackage{enumitem}
+\usepackage{amsthm}
+\usepackage{chngcntr}
+\usepackage{titlesec}
+\usepackage{stfloats}
+%\usepackage{hyperref}
+%\hypersetup{linktocpage}
+%\hypersetup{
+%    colorlinks,
+%    citecolor=red,
+%    filecolor=black,
+%    linkcolor=blue ,
+%    urlcolor=black
+%}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% new commands and shortcuts
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\newcommand\myeq{\mathrel{\stackrel{\makebox[0pt]{\mbox{\normalfont\tiny ?}}}{=}}}
+\def\X{S}
+% script variables 
+\def\sO{\mathscr{O}}
+%\def\d{\bm d}
+\def\sL{\mathscr{L}}
+\def\sLA{\mathscr{L}^{\mA}}
+\def\sLfA{\mathscr{L}^{\A}}
+\def\sA{\mathscr{A}}
+\def\scrQ{\ensuremath{\mathscr{Q}}}
+\def\rs{\mathscr{R}}
+\def\sW{\mathscr{W}}
+\def\sI{\mathscr{I}}
+\DeclareMathOperator{\Image}{Im}
+% frak variables 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\def\frkJ{\mathfrak{J}}
+\def\frkL{\mathfrak{L}}
+\def\fA{{\mathfrak A}}
+\def\fZ{{\mathfrak Z}}
+\def\fZp{{\mathfrak Z^{'}}}
+\def\fB{{\mathfrak B}}
+\def\fN{{\mathfrak N}}
+\def\fD{{\mathfrak D}}
+\def\fp{\mathfrak{P}}
+\def\Z{\mathfrak{Z}}
+\def\A{\mathfrak{A}}
+%\def\L{\mathfrak{L}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% bold variables 
+\def\bs{\textit{\textbf{s}}}
+\def\bz{{{\bm 0}}}
+\def\Lb{\textit{\textbf{L}}}
+\def\Xb{\textit{\textbf{X}}}
+\def\Lambdab{\bm{\Lambda}}
+\def\Thetab{\bm{\Theta}}
+\def\thetab{\bm{\vartheta}}
+\def\mA{{\bm A}}
+\def\ub{{\bm u}}
+\def\lb{{\bm l}}
+\def\lxb{{\bm l_{\xb}}}
+\def\ax{\bm \alpha_{\xb}} 
+\def\xb{{\bm x}}
+\def\yb{{\bm y}}
+\def\fb{\textit{\textbf{f}}}
+\def\gb{\textit{\textbf{g}}}
+\def\ab{\textit{\textbf{a}}}
+\def\pb{\textit{\textbf{p}}}
+\def\ajb{\overline{a_j}}
+\def\bjb{\overline{b_{j,l}}}
+\def\pjb{\overline{P_{j}}}
+\def\bI{\textbf{I}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% tilde variables 
+\def\jt{\widetilde{J}}
+\def\At{\widetilde{A}}
+\def\Yt{\widetilde{Y}}
+\def\dtt{\widetilde{d}}
+\def\kt{\widetilde{k}}
+\def\Dt{\widetilde{D}}
+%% \def\dt{\widetilde{d}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% greek letters  
+\def\vt{\vartheta}
+\def\d{\delta}
+\def\D{\Delta}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% declare math operator  
+\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\LCM}{LCM}
+\DeclareMathOperator{\J}{J}
+\DeclareMathOperator{\htt}{ht}
+\DeclareMathOperator{\sing}{sing}
+\DeclareMathOperator{\codim}{codim}
+\DeclareMathOperator{\jac}{jac}
+%\DeclareMathOperator{\exp}{exp}
+\DeclareMathOperator{\grad}{grad}
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\reg}{reg}
+\DeclareMathOperator{\rk}{rank}
+\def\minors{\textrm{Minors}(\bm f,s)}
+\def\minorsA{\textrm{Minors}(F^{\mA},s)}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% other math notation shortcuts  
+\def\pa{\partial}
+\newcommand{\softO}{{O^{\sim}}}
+\def\dt{s}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% sets of numbers
+\newcommand{\ZZ}{{\mathbb{Z}}}
+\def\C{\mathbb{C}}
+\def\Q{\mathbb{Q}}
+\def\R{\mathbb{R}}
+\def\K{\mathbb{K}}
+\def\pr{\mathbb{P}}
+\def\P{\mathbb{P}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% polar varieties
+% minors 
+\def\Wi{W(i,\bm f)}
+\def\WiA{W(i,V(\bm f^{\mA}))}
+\def\WifA{W(i,V(\bm f^{\A}))}
+\def\I{\mathfrak{I}}
+\def\IA{\mathfrak{I}^{\mA}}
+\def\IfA{\mathfrak{I}^{\A}}
+\def\Ii{\mathfrak{I}(i,F)}
+\def\IiA{\mathfrak{I}(i,F^A)}
+\def\Ir{\sqrt{\mathfrak{I}}}
+\def\Iir{\sqrt{\mathfrak{I}(i,F)}}
+\def\IiAr{\sqrt{\mathfrak{I}(i,F^{\mA})}}
+\def\IAr{\sqrt{\mathfrak{I}^{\mA}}}
+\def\IfAr{\sqrt{\mathfrak{I}^{\A}}}
+\def\IifAr{\sqrt{\mathfrak{I}(\pi_i,F^{\A})}}
+\def\IifA{\mathfrak{I}(\pi_i,F^{\A})}
+\def\ji{\jac_{\xb}(F,i)}
+\def\jiA{\jac_{\xb}(F^{\mA},i)}
+\def\jifA{\jac_{\xb}(F^{\A},i)}
+%\DeclareMathOperator{\lag}{Lagrange}
+%\DeclareMathOperator{\lag}{Lagrange}
+\def\lag{{\bm{Lagrange}}}
+\def\lagF{{\bm{Lagrange}}(\bm f,i,(L_1,\hdots,L_s))}
+\def\lagFA{{\bm{Lagrange}}(\bm f^{\mA},i,(L_1,\hdots,L_s))}
+\def\lagFAl{{\bm{Lagrange}}(\bm f^{\mA},i,(l_1,\hdots,l_s))}
+\def\lagFfA{{\bm{Lagrange}}(\bm f^{\A},i,(L_1,\hdots,L_s))}
+%\def\W{\mathfrak{I}}
+% lagrange 
+\def\Il{\mathscr{I}_{\ub}}
+\def\Iil{\mathscr{I}_{\ub}(i,\bm f)}
+\def\IilA{\mathscr{I}_{\ub}(i,\bm f^{\mA})}
+\def\IilAnu{\mathscr{I}(i,\bm f^{\mA})}
+\def\IilfA{\mathscr{I}_{\ub}(i,\bm f^{\A})}
+\def\IilfAV{\mathscr{I}_{\bm V}(i,\bm f^{\A})}
+\DeclareMathOperator{\Div}{Div}
+\def\IlfA{\mathscr{I}_{\ub}^{\A}}
+\def\IlA{\mathscr{I}_{\ub}^{\mA}}
+\def\jiA{\jac_{\xb}(F^{\mA},i)}
+\def\Wil{\mathscr{W}_{\ub}(\pi_i,V)}
+\def\WilA{\mathscr{W}_{\ub}(\pi_i,V^{\mA})}
+\def\WilAnu{\mathscr{W}(\pi_i,V^{\mA})}
+\def\WilfA{\mathscr{W}_{\ub}(\pi_i,V^{\fA})}
+\def\Wl{\mathscr{W}_{\ub}}
+\def\WlA{\mathscr{W}_{\ub}^{\mA}}
+\def\udl{\sum_{i=1}^pu_iL_i}
+\def\Vdl{\sum_{i=1}^pV_iL_i}
+\def\Ab{\overline{A}}
+
+\def\fd{\frak{d}}
+\def\fh{\frak{h}}
+\def\fhh{\hat{\frak{h}}}
+
+\def\fK{\frak{K}}
+
+\def\sR {\mathscr{R}}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% brackets
+\def\la{\langle}
+\def\ra{\rangle}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% matrices 
+\def\bbm{\begin{bmatrix}}
+\def\ebm{\end{bmatrix}}
+\def\bmat{\begin{matrix}}
+\def\emat{\end{matrix}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% other shortcuts 
+\newcommand\todo[1]{(\textcolor{red}{{\bf todo}}: #1)}
+\def\td{(\textcolor{red}{{\bf todo}})}
+\def\gip{\Gamma_i^{'}}
+\def\gi{\Gamma_i}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Theorems 
+\newtheorem{theorem}{Theorem}[section]
+%\newtheorem{theorem}{Theorem}[section]
+
+\newtheorem*{theorem*}{Theorem}
+
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{ex}[theorem]{Example}
+\newtheorem{observation}[theorem]{Observation}
+\newtheorem{prop}[theorem]{Proposition}
+\newtheorem*{prop*}{Proposition}
+%\newtheorem*{theorem*}{Theorem}
+
+
+\newtheorem{problem}{Problem}
+\newtheorem*{definition}{Definition}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{fact}[theorem]{Fact}
+\newtheorem{assumption}[theorem]{Assumption}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem*{remark*}{Remark}
+
+\newtheorem{question}{Question}
+%\newtheorem*{ex}{Example}
+\newtheorem{cor}[theorem]{Corollary}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\def\pollambda{{\textcolor{black}{\mathfrak{l}}}}
+\def\polmu{{\textcolor{black}{\mathfrak{m}}}}
+\def\linearmu{{\textcolor{black}{\mathfrak{h}}}}
+\def\polnu{{\textcolor{black}{\mathfrak{n}}}}
+\def\poldelta{{\textcolor{black}{\mathfrak{d}}}}
+%% A simple open set
+\def\singSBasicOpen{{\textcolor{black}{\ensuremath{\mathcal{U}}}}}
+\def\BasicOpen{{\textcolor{black}{\ensuremath{\mathcal{O}}}}}
+\def\UOpen{{\textcolor{black}{\ensuremath{\mathcal{U}}}}}
+\def\openB{{\textcolor{black}{\ensuremath{\mathcal{B}}}}}
+%locally closed set
+\def\lcs{{\textcolor{black}{\ensuremath{V^\circ}}}}
+\def\lcswi{{\textcolor{black}{\ensuremath{Y_i^\circ}}}}
+\def\lcsw{{\textcolor{black}{\ensuremath{Y^\circ}}}}
+\def\SlocallyclosediA{{\textcolor{black}{\ensuremath{S_{i,\mA}^\circ}}}}
+\def\Slocallyclosed{{\textcolor{black}{\ensuremath{S^\circ}}}}
+\def\algxAX{{\textcolor{black}{\mathfrak{X}_{\mA,\x}^\circ}}}
+\def\algiAX{{\textcolor{black}{\mathfrak{X}_{i,\mA}^\circ}}}
+\def\algAX{{\textcolor{black}{\mathfrak{X}_\mA^\circ}}}
+\def\algX{{\textcolor{black}{\mathfrak{X}^\circ}}}
+%notation a changer car dans la section E, \Lambda est utilise comme un polynome 
+\def\lcLambda{{\textcolor{black}{Y^\circ}}}
+%% Zariski closed
+\def\closedX{{\textcolor{black}{X}}}
+\def\closedZ{{\textcolor{black}{Z}}}
+\def\algZ{{\textcolor{black}{Z}}}
+\def\alg2Z{{\textcolor{black}{Z}}}
+\def\Vmp{{\textcolor{black}{V^{mp}}}}
+
+%%Prime ideal
+\def\Prime{{\ensuremath{\mathcal{P}}}}
+
+%%% tau racine de q
+\def\roottau{{\alpha}}
+%%% tau noeud de l'arbre
+\def\nodetau{{\tau}}
+\def\nodeoherletter{{\tilde\tau}}
+%%% rho qui etait utilise dans geosolve-new pour la racine bivarie
+\def\rootrho{{\xi}}
+\def\depth{r}
+
+%% Zariski open for A12
+\def\ZOA12{\ensuremath{\mathscr{E}}}
+\def\ZOpropRK{\ensuremath{\mathscr{A}}}
+\def\ZOdeltapropRK{\ensuremath{\mathcal{U}}}
+\def\ZOK{\ensuremath{\mathscr{K}}}
+\def\ZOomega{\textcolor{black}{\ensuremath{\mathscr{M}}}}
+
+
+
+\def\Clos#1{\ensuremath{{\mathscr{Var}#1}}}
+
+
+\def\scrOpen{{\textcolor{black}{\ensuremath{\mathscr{G}}}}}
+\def\scrIopen{{\textcolor{black}{\ensuremath{\mathscr{I}}}}}
+
+
+
+\def\scrS{\ensuremath{\mathscr{S}}}
+
+%% used to be K_4, becomes K_3
+\def\Klastindex{3}
+%% used to be K_5, becomes K_4
+\def\Klastlastindex{4}
+
+%% used in Section E. Should be changed? 
+\def\scrX{\textcolor{black}{\ensuremath{\mathscr{X}}}}
+
+
+
+\def\scrP{\ensuremath{\mathscr{P}}}
+
+
+\def\degQ{\ensuremath{\kappa}}
+\def\degR{\ensuremath{\gamma}}
+\def\degS{\ensuremath{\sigma}}
+\def\degC{\ensuremath{\mu}}
+\def\degB{\ensuremath{\beta}}
+\def\degfiber{\ensuremath{\gamma}}
+\def\Ar{\sqrt{A}}
+\def\mult{\ensuremath{\mathsf{M}}}
+\def\softO{\ensuremath{{O}{\,\tilde{ }\,}}}
+\def\dalgo{{\ensuremath{c}}}
+%% \def\dalgo{{\ensuremath{\tilde d}}}
+\def\minor{{\ensuremath{m'}}}
+\def\pminor{{\ensuremath{m''}}}
+
+
+
+
+\def\dinit{\ensuremath{{d_{\rho}}}}
+\def\frakD{\ensuremath{\mathfrak{D}}}
+
+\def\Vc{\ensuremath{\mathcal{V}}}
+\def\A {\ensuremath{\mathbb{A}}}
+\def\B {\ensuremath{\mathbb{B}}}
+\def\Co {\ensuremath{\mathbb{C}}}
+\def\CC {\ensuremath{\overline{\mathbf{K}}}}
+\def\PP {\ensuremath{\mathsf{P}}}
+\def\BB {\ensuremath{H}}
+\def\P {\ensuremath{\mathbb{P}}}
+\def\Q {\ensuremath{\mathbb{Q}}}
+\def\N {\ensuremath{\mathbb{N}}}
+\def\Re {\ensuremath{\mathbb{R}}}
+\def\RP {\ensuremath{\tilde{\mathbf{R}}}}
+\def\CP {\ensuremath{\tilde{\mathbf{C}}}}
+\def\Z {\ensuremath{\mathbb{Z}}}
+\def\RR {\ensuremath{\mathbb{K}}}
+\def\k{\ensuremath{\mathbb{k}}}
+\def\kbar{\ensuremath{\bar{\mathbb{k}}}}
+
+\def\K {\ensuremath{\mathbb{K}}}
+\def\Kbar {\ensuremath{\overline{\mathbb{K}}}}
+\def\KKbar {\ensuremath{\overline{\mathbf{K}}}}
+\def\BS {\ensuremath{{B}}}
+\def\CS {\ensuremath{{C}}}
+\def\RS {\ensuremath{\mathsf{R}}}
+\def\LL {\ensuremath{\mathbb{L}}}
+\def\GG {\ensuremath{\mathbf{G}}}
+\def\KK {\ensuremath{\mathbf{K}}}
+\def\D {\ensuremath{\mathbf{D}}}
+\def\n {\ensuremath{\bm {n}}}
+\def\d {\ensuremath{\mathbf{d}}}
+\def\p {\ensuremath{\bm {p}}}
+\def\I {\ensuremath{\mathbf{I}}}
+\def\mI {\ensuremath{\mathbf{I}}}
+\def\mS {\ensuremath{\mathbf{S}}}
+\def\mzero {\ensuremath{\mathbf{0}}}
+\def\mT {\ensuremath{\mathbf{T}}}
+\def\mJ {\ensuremath{\mathbf{J}}}
+\def\JJ {\ensuremath{\mathbf{J}}}
+\def\sfB {\ensuremath{\sf B}}
+
+
+
+\DeclareMathOperator{\End}{End}
+
+
+\def\MM {\ensuremath{\mathbb{M}}}
+\def\mm {\ensuremath{\mathbf{m}}}
+\def\v {\ensuremath{\mathbf{v}}}
+\def\vc {\ensuremath{\mathbf{c}}}
+\def\vd {\ensuremath{\mathbf{d}}}
+
+\def\mA{\ensuremath{{\bm A}}}
+\def\mG{\ensuremath{\mathbf{G}}}
+\def\mH{\ensuremath{\mathbf{H}}}
+\def\mB{\ensuremath{{\bm B}}}
+\def\mC{\ensuremath{\mathbf{B}}}% sinon conflit avec les complexes
+\def\mD{\ensuremath{\mathbf{D}}}
+\def\mR{\ensuremath{\mathbf{R}}}
+\def\mM{\ensuremath{\mathbf{M}}}
+\def\G {\ensuremath{\mathrm{GL}}}
+\def\Mat{\ensuremath{{\rm M}}}
+\def\grad{\ensuremath{{\rm grad}}}
+\def\ker{\ensuremath{{\rm ker}}}
+\def\rank{\ensuremath{{\rm rank}}}
+\def\jac{\ensuremath{{\rm jac}}}
+\def\ext{\ensuremath{{\rm ext}}}
+\def\Zons{\ensuremath{\mathscr{D}}}
+\def\scrG{\ensuremath{\mathscr{G}}}
+\def\scrZ{\ensuremath{\mathscr{Z}}}
+\def\scrA{\ensuremath{\mathcal{A}}}
+\def\scrT{\ensuremath{\mathscr{T}}}
+\def\scrO{\ensuremath{\mathscr{O}}}
+\def\scrG{\ensuremath{\mathscr{G}}}
+\def\scrL{\ensuremath{\mathscr{L}}}
+\def\scrU{\ensuremath{\mathscr{U}}}
+\def\scrV{\ensuremath{\mathscr{V}}}
+\def\scrZ{\ensuremath{\mathscr{Z}}}
+\def\scrR{\ensuremath{\mathscr{R}}}
+\def\scrY{\ensuremath{\mathscr{Y}}}
+\def\scrB{\ensuremath{\mathscr{B}}}
+
+\def\y {\ensuremath{\mathbf{y}}}
+\def\e {\ensuremath{\mathbf{e}}}
+\def\a {\ensuremath{\bm{a}}}
+\def\b {\ensuremath{\bm{b}}}
+\def\z {\ensuremath{\mathbf{z}}}
+\def\x {\ensuremath{{\bm{x}}}}
+\def\w {\ensuremath{\bm{w}}}
+\def\f {\ensuremath{\mathbf{f}}}
+\def\r {\ensuremath{\mathbf{r}}}
+\def\s {\ensuremath{\bm{s}}}
+\def\L {\ensuremath{{\bm L}}}
+\def\F {\ensuremath{\bm{F}}}
+\def\G {\ensuremath{\bm{G}}}
+\def\I {\ensuremath{\bm{I}}}
+\def\E {\ensuremath{\mathbf{E}}}
+\def\X {\ensuremath{{\bm X}}}   
+\def\Y {\ensuremath{{\bm Y}}}
+\def\H {\ensuremath{{\bm H}}}
+\def\bfA {\ensuremath{\mathbf{A}}}
+\def\m {\ensuremath{\mathfrak{m}}}
+\def\v {\ensuremath{{\bm v}}}
+\def\u {\ensuremath{{\bm u}}}   
+\def\q {\ensuremath{\mathbf{q}}}
+\def\U {\ensuremath{\mathbf{S}}}
+\def\V {\ensuremath{\mathbf{B}}}
+\def\S {\ensuremath{\mathbf{S}}}
+\def\R {\ensuremath{\mathbb{R}}}
+\def\t {\ensuremath{{\bm t}}}
+
+
+\def\blambda{{\bm\lambda}}
+\def\bdelta{{\bm\delta}}
+\def\bzeta{{\bm\zeta}}
+\def\bkappa{{\bm\kappa}}
+\def\bmu{{\bm\mu}}
+\def\bmx{{\bm{x}}}
+\def\bmy{{\bm{y}}}
+\def\bmz{{\bm{z}}}
+\def\bsigma{{\bm\sigma}}
+\def\bpsi{{\bm\psi}}
+\def\bphi{{\bm\phi}}
+\def\sbdelta{{\bm\delta}}
+\def\brho{{\bm\rho}}
+\def\bell{{\bm\ell}}
+\def\sbell{{\bm\ell}}
+
+\def\Vfiber{\ensuremath{V''}}
+\def\fiber2{\ensuremath{Q''}}
+\def\fibersing2{\ensuremath{S''}}
+\def\param2{\ensuremath{\mathscr{Q}''}}
+\def\paramsing2{\ensuremath{\mathscr{S}''}}
+
+\def\gcd{\ensuremath{\mathrm{GCD}}}
+
+\def\cstn {\ensuremath{7}}
+\def\CONST {\ensuremath{4}}
+
+
+\def\control{{C}}
+\def\controleps{{C_\eps}}
+
+\def\rmp{{R}}
+\def\rmplift{{R_\eps}}
+\def\rmpproj{{S_\eps}}
+\def\rmpprojspec#1{{S_{#1}}}
+
+\def\limeps {\lim_{\varepsilon\rightarrow 0}}
+\def\eps{\varepsilon}
+\def\Qeps{\mathbf{Q}(\varepsilon)}
+\def\Reps{\mathbf{R}\langle\varepsilon\rangle}
+\def\Ceps{\mathbf{C}\langle\varepsilon\rangle}
+\def\Veps{V_\varepsilon}
+\def\ProjVeps{S_\varepsilon}
+
+\def\liftplus#1{{#1}_+}
+\def\liftmoins#1{{#1}_-}
+\def\lext#1{\mathcal{#1}}
+
+\def\codim {\text{codim}}
+\def\elim {\mathsf{Elim}}
+\def\newn{{k}}
+\def\myr{{r}}
+\def\myrank{{r}}
+\def\newg#1 {\mathsf{ElimLagrange}(#1) }%{{\tilde{\mathbf{g}}}}
+\def\newf#1 {\mathsf{ElimPolar}(#1 ) } % {{\tilde{\mathbf{f}}}}
+\def\frakg{{\tilde{\mathfrak{g}}}}
+\def\frakf{{\tilde{\mathfrak{f}}}}
+\def\bfm{{\mathbf{m}}}
+\def\mybound {\mathscr{B}}
+\def\newset {Y}
+\def\leftkernel {K}
+
+\def\xxx{\textbf{(xxx)}}
+\def\why{\textbf{(why?)}}
+\def\todo#1{(\textbf{todo:} {#1)}}
+\def\check{\textbf{(check!)}}
+\def\adeg{\ensuremath{\varepsilon\deg}}
+
+\def\Bez#1#2{\ensuremath{\mathscr{C}_{#1}(#2)}}
+
+\def\KKbar {\ensuremath{\overline{\mathbf{K}}}}
+ 
+\DeclareBoldMathCommand{\bM}{M}
+\DeclareBoldMathCommand{\bn}{n}
+\DeclareBoldMathCommand{\bbb}{b}
+\DeclareBoldMathCommand{\d}{d}
+\DeclareBoldMathCommand{\bc}{c}
+\DeclareBoldMathCommand{\be}{e}
+\DeclareBoldMathCommand{\bh}{h}
+\DeclareBoldMathCommand{\bu}{u}
+\DeclareBoldMathCommand{\bv}{v}
+\DeclareBoldMathCommand{\bx}{x}
+\DeclareBoldMathCommand{\by}{y}
+\DeclareBoldMathCommand{\btheta}{\vartheta}
+\DeclareBoldMathCommand{\f}{f}
+\DeclareBoldMathCommand{\g}{g}
+\DeclareBoldMathCommand{\h}{h}
+\DeclareBoldMathCommand{\bell}{\ell}
+\DeclareBoldMathCommand{\boldeta}{\eta}
+\DeclareBoldMathCommand{\bbeta}{\beta}
+\DeclareBoldMathCommand{\balpha}{\alpha}
+\def\coeff{\ensuremath{\mathrm{coeff}}}
+\def\mdeg{\ensuremath{\mathrm{mdeg}}}
+\def\pollambda{\lambda}
+\def\roottau{{\alpha}}
+\def\Zeroes{\mathsf{Z}}
+\def\ZL{{\mathscr{Z}}}
+\def\CZL{{\mathscr{C}}}
+
+\def\mult{\ensuremath{\mathrm{mult}}}
+
+%sous-routines
+\def\Lift{{\sf Lift}}
+\def\LiftW{{\sf LiftW}}
+\def\LiftWL{{\sf LiftW}}
+
+\def\CriticalCurve{{\sf CriticalCurve}}
+\def\requiredCriticalPoints{{\sf requiredCriticalPoints}}
+\def\CriticalCurveL{{\sf CriticalCurve}}
+\def\requiredCriticalPointsL{{\sf requiredCriticalPoints}}
+
+\def\ElimLagrange{{\sf ElimLagrange}}
+\def\SingularPoints{{\sf SingularPoints}}
+\def\Lagrange{{\sf FirstOrderLagrange}}
+\def\PolarLagrange{{\sf LagrangeSystem\-For\-Polar\-Variety}}
+\def\SLagrange{{\sf SecondOrderLagrange}}
+\def\Polar{{\sf Polar}}
+\def\QuadPolarPoints{{\sf QuadPolarPoints}}
+\def\CannyPolarPoints{{\sf CannyPolarPoints}}
+\def\PolarCurve{{\sf PolarCurve}}
+\def\CannyPolarCurve{{\sf CannyPolarCurve}}
+\def\PolarParam{{\sf PolarParam}}
+\def\PolarPointsLagrange{{\sf PolarPoints}}
+\def\PolarPointsParameterization{{\sf PolarPointsParameterization}}
+\def\ChangeVariables{{\sf ChangeVariables}}
+\def\Union{{\sf Union}}
+\def\Solve{{\sf Solve}}
+\def\SolveLagrange{{\sf SolveLagrange}}
+\def\SolveLagrangeDimOne{{\sf SolveLagrangeDimensionOne}}
+\def\Projection{{\sf Projection}}
+\def\Fiber{{\sf Fiber}}
+\def\FiberPoints{{\sf FiberPoints}}
+\def\FiberLagrange{{\sf LagrangeSystemForFiber}}
+\def\MainRoadmapLagrange{{\sf MainRoadmap}}
+\def\RoadmapRecLagrange{{\sf RoadmapRecLagrange}}
+\def\CannyRoadmapL{{\sf CannyRoadmap}}
+\def\MainRoadmap{{\sf MainRoadmap}}
+\def\MainRoadmapL
+{{\sf MainRoadmap}}
+
+\def\RoadmapRec{{\sf RoadmapRec}}
+\def\CannyRoadmap{{\sf CannyRoadmap}}
+
+%\newcommand{\mainRoadmap}{\fontfamily{qcr}\selectfont mainRoadmap} % 
+%\newcommand{\modularRoadmap}{\fontfamily{qcr}\selectfont modularRoadmap} % 
+%\newcommand{\solve}{\fontfamily{qcr}\selectfont solve} % 
+%\newcommand{\projection}{\fontfamily{qcr}\selectfont projection} % 
+%\newcommand{\applyChangeOfVariables}{\fontfamily{qcr}\selectfont applyChangeOfVariables} % 
+%\newcommand{\lift}{\fontfamily{qcr}\selectfont lift} % 
+%\newcommand{\union}{\fontfamily{qcr}\selectfont union} % 
+%\newcommand{\liftW}{\fontfamily{qcr}\selectfont liftW} % 
+%\newcommand{\criticalCurve}{\fontfamily{qcr}\selectfont criticalCurve} % 
+%\newcommand{\requiredCriticalPoints}{\fontfamily{qcr}\selectfont requiredCriticalPoints} % 
+
+
+
+
+\def\scrF {\ensuremath{\mathscr{F}}}
+\def\scrW {\ensuremath{\mathscr{W}}}
+\def\myminor{{\ensuremath{\mathbf{m}}}}
+\def\c{{\bm{c}}}
+
+\def\dunder{{\underline{d}}}
+\def\polring#1{#1[X_1, \ldots, X_n]}
+\newcommand{\fbr}[2]{{#1}_{#2}}
+\newcommand{\fbrss}[3]{{#1}^{#2}_{#3}}
+\newcommand{\Wo}{W^\circ}
+\newcommand{\W}{W}
+\newcommand{\Kr}{K}
+
+
+\def\NOTE#1#2{{\begin{quote}\marginpar[\hfill{#1}]{{#1}}{{\textsf{[\![{#2}]\!]}}}\end{quote}}}
+\def\respond#1{\NOTE{\textcircled{\textsc{a}}}{Note:~{#1}}}
+\def\alert#1{\textcolor{red}{#1}}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+% script variables 
+\def\sO{\mathscr{O}}
+\def\sL{\mathscr{L}}
+\def\sLA{\mathscr{L}^{\mA}}
+\def\sLfA{\mathscr{L}^{\A}}
+\def\sA{\mathscr{A}}
+\def\scrQ{\ensuremath{\mathscr{Q}}}
+\def\rs{\mathscr{R}}
+\def\sW{\tilde{W}}
+\def\sI{\mathscr{I}}
+% frak variables 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\def\fA{{\mathfrak A}}
+\def\fZ{{\mathfrak Z}}
+\def\fZp{{\mathfrak Z^{'}}}
+\def\fB{{\mathfrak B}}
+\def\fN{{\mathfrak N}}
+\def\fD{{\mathfrak D}}
+\def\fp{\mathfrak{P}}
+\def\Z{\mathfrak{Z}}
+\def\A{\mathfrak{A}}
+%\def\L{\mathfrak{L}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% bold variables 
+\def\bs{\textit{\textbf{s}}}
+\def\bz{{{\bm 0}}}
+\def\Lb{\textit{\textbf{L}}}
+\def\Xb{\textit{\textbf{X}}}
+\def\Lambdab{\bm{\Lambda}}
+\def\Thetab{\bm{\Theta}}
+\def\thetab{\bm{\vartheta}}
+\def\mA{{\bm A}}
+\def\ub{{\bm u}}
+\def\lb{{\bm l}}
+\def\lxb{{\bm l_{\xb}}}
+\def\ax{\bm \alpha_{\xb}} 
+\def\xb{{\bm x}}
+\def\yb{{\bm y}}
+\def\fb{\textit{\textbf{f}}}
+\def\gb{\textit{\textbf{g}}}
+\def\ab{\textit{\textbf{a}}}
+\def\pb{\textit{\textbf{p}}}
+\def\ajb{\overline{a_j}}
+\def\bjb{\overline{b_{j,l}}}
+\def\pjb{\overline{P_{j}}}
+\def\bI{\textbf{I}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% tilde variables 
+\def\jt{\widetilde{J}}
+\def\At{\widetilde{A}}
+\def\Yt{\widetilde{Y}}
+\def\dtt{\widetilde{d}}
+\def\kt{\widetilde{k}}
+\def\Dt{\widetilde{D}}
+%% \def\dt{\widetilde{d}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% greek letters  
+\def\vt{\vartheta}
+\def\d{\delta}
+\def\D{\Delta}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% declare math operator  
+\def\minors{\textrm{Minors}(F,p)}
+\def\minorsA{\textrm{Minors}(F^{\mA},p)}
+\def\minorsfA{\textrm{Minors}(F^{\A},p)}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% other math notation shortcuts  
+\def\pa{\partial}
+\def\dt{s}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% sets of numbers
+\def\C{\mathbb{C}}
+\def\Q{\mathbb{Q}}
+\def\R{\mathbb{R}}
+\def\K{\mathbb{K}}
+\def\pr{\mathbb{P}}
+\def\P{\mathbb{P}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% polar varieties
+% minors 
+\def\Wi{W(\pi_i,F)}
+\def\WiA{W(\pi_i,V(F^{\mA}))}
+\def\WifA{W(\pi_i,V(F^{\A}))}
+\def\I{\mathfrak{I}}
+\def\IA{\mathfrak{I}^{\mA}}
+\def\IfA{\mathfrak{I}^{\A}}
+\def\Ii{\mathfrak{I}(i,F)}
+\def\IiA{\mathfrak{I}(i,F^A)}
+\def\Ir{\sqrt{\mathfrak{I}}}
+\def\Iir{\sqrt{\mathfrak{I}(i,F)}}
+\def\IiAr{\sqrt{\mathfrak{I}(i,F^{\mA})}}
+\def\IAr{\sqrt{\mathfrak{I}^{\mA}}}
+\def\IfAr{\sqrt{\mathfrak{I}^{\A}}}
+\def\IifAr{\sqrt{\mathfrak{I}(\pi_i,F^{\A})}}
+\def\IifA{\mathfrak{I}(\pi_i,F^{\A})}
+\def\ji{\jac_{\xb}(F,i)}
+\def\jiA{\jac_{\xb}(F^{\mA},i)}
+\def\jifA{\jac_{\xb}(F^{\A},i)}
+\def\lagF{{\bm{Lagrange}}(F,i,(L_1,\hdots,L_c))}
+\def\lagFA{{\bm{Lagrange}}(F^{\mA},i,(L_1,\hdots,L_p))}
+\def\lagFAl{{\bm{Lagrange}}(F^{\mA},i,(l_1,\hdots,l_p))}
+\def\lagFfA{{\bm{Lagrange}}(F^{\A},i,(L_1,\hdots,L_p))}
+%\def\W{\mathfrak{I}}
+% lagrange 
+\def\Il{\mathscr{I}_{\ub}}
+\def\Iil{\mathscr{I}_{\ub}(i,F)}
+\def\IilA{\mathscr{I}_{\ub}(i,F^{\mA})}
+\def\IilAnu{\mathscr{I}(i,F^{\mA})}
+\def\IilfA{\mathscr{I}_{\ub}(i,F^{\A})}
+\def\IilfAV{\mathscr{I}_{\bm V}(i,F^{\A})}
+
+\def\IlfA{\mathscr{I}_{\ub}^{\A}}
+\def\IlA{\mathscr{I}_{\ub}^{\mA}}
+\def\jiA{\jac_{\xb}(F^{\mA},i)}
+\def\Wil{\mathscr{W}_{\ub}(\pi_i,V)}
+\def\WilA{\mathscr{W}_{\ub}(\pi_i,V^{\mA})}
+\def\WilAnu{\mathscr{W}(\pi_i,V^{\mA})}
+\def\WilfA{\mathscr{W}_{\ub}(\pi_i,V^{\fA})}
+\def\Wl{\mathscr{W}_{\ub}}
+\def\WlA{\mathscr{W}_{\ub}^{\mA}}
+\def\udl{\sum_{i=1}^pu_iL_i}
+\def\Vdl{\sum_{i=1}^pV_iL_i}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% brackets
+\def\la{\langle}
+\def\ra{\rangle}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% matrices 
+\def\bbm{\begin{bmatrix}}
+\def\ebm{\end{bmatrix}}
+\def\bmat{\begin{matrix}}
+\def\emat{\end{matrix}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% other shortcuts 
+\def\td{(\textcolor{red}{{\bf todo}})}
+\def\gip{\Gamma_i^{'}}
+\def\gi{\Gamma_i}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Theorems 
+%
+%
+%
+% Keywords command
+\providecommand{\keywords}[1]
+{
+  \small	
+  \textbf{\textit{Keywords---}} #1
+}
+%
+%
+%
+\title{Bit complexity for computing roadmaps in smooth bounded real hypersurfaces}
+
+\author{
+    Jesse Elliott\footnotemark[1]\hspace{2mm}\footnotemark[2]\hspace{2mm}\footnotemark[3]
+    \quad
+    Mohab Safey El Din
+    \quad
+    Éric Schost\footnotemark[2]
+}
+\date{} % Comment this line to show today's date
+%
+%
+%
+\begin{document}
+%
+\maketitle
+%
+%% \tableofcontents
+%% \newpage
+%
+%
+%
+%
+%
+
+
+\footnotetext[1]{Sorbonne Université, Inria, IMJ--PRG, Paris, France.
+Email: \texttt{jesse.elliott@inria.fr}.}
+
+\footnotetext[2]{University of Waterloo, David R. Cheriton School of Computer Science, Waterloo, Canada.
+Emails: \texttt{jakellio@uwaterloo.ca}, \texttt{eschost@uwaterloo.ca}.}
+
+\footnotetext[3]{Corresponding author. Email: \texttt{jakellio@uwaterloo.ca}.}
+
+
+\begin{abstract}
+This is an abstract. 
+\end{abstract}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\textcolor{red}{
+To-Do:
+\begin{itemize}
+    \item Give a deterministic homotopy algorithm for solving zero-dimensional systems. (The goal is to run the algorithm modulo $p$ for small primes and use the Chinese remainder theorem.) 
+    \item Analyze the bit complexity for each subroutine. 
+\end{itemize}
+}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Introduction}\label{sec:chap5Int}
+\subsection{Problem statement and motivation} 
+A \textit{roadmap} of an algebraic set $X$ is a subset $\mathscr{R}\subset X$ of dimension 1 such that each connected component of $X$ has non-empty and connected intersection with $\mathscr{R}$. Roadmaps decide connectivity queries while reducing higher dimensional computations to $1$-dimensional computations. The roadmap is like a skeleton or wire-frame, tracking the connectivity. The efficiency of computation is improved by reducing higher dimensional computations to 1-dimensional computations. 
+
+
+Deciding connectivity in real algebraic sets has applications that include robot motion planning, by deciding if paths exist between points~\cite{SafeyElDinCapcoSchicho2020}. John Canny introduced the roamdap in his PhD thesis ``On the Complexity of Robot Motion Planning'' \cite{canny1988complexity}. 
+
+
+Our starting point is the algorithm introduced by Safey El Din and Schost in \cite{SchostMohabBabySteps2011} (\textit{A baby steps/giant steps probabilistic algorithm for
+computing roadmaps in smooth bounded real
+hypersurface}). Computational costs were given in an algebraic complexity model, and bit complexity questions were left for future work. The algorithm also applies random changes of coordinates to establish certain required genericity properties. The main result roughly states that, for a degree $d$, square-free polynomial $f$ in $\mathbb{Q}[X_1,\hdots,X_n]$ where $V(f) \cap \mathbb{R}^n$ is smooth and bounded, there exists a randomized algorithm that, upon success, if all genericity properties are satisfied, computes a roadmap of $V(f)$ after performing $(nd)^{O(n^{1.5})}$ arithmetic operations. In this Chapter, assuming bounds on: 
+\begin{enumerate}
+    \item the height of $f$, and
+    \item the height of entries in the changes of coordinates we apply to $f$, 
+\end{enumerate}
+we give bit-size estimates showing that the height of the output follows the same order of complexity. 
+
+
+
+
+\begin{remark}
+    In \cite{BaPoRo03}, bit complexity is stated for another algorithm for roadmap computation. The algorithm that we analyze here is one we expect to run efficiently in practice.  
+\end{remark}
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Roadmaps and control points.}
+In \cite{SchostMohabBabySteps2011}, the following definition of a roadmap is used. This definition generalizes roadmaps to higher dimensions, accounting for the recursive nature of the algorithm. 
+\begin{definition}
+    An algebraic set $\mathscr{R} \subset \mathbb{C}^n$ is a roadmap of a variety $V$ if:
+
+\textbf{RM\textsubscript{1}'} Each semi-algebraically connected component of $V \cap \mathbb{R}^n$ has non-empty and connected intersection with $\mathscr{R} \cap \mathbb{R}^n$.
+
+\textbf{RM\textsubscript{2}'} $\mathscr{R}$ is contained in $V$.
+
+In addition,  $\mathscr{R}\) is said to be an $i$-roadmap of $V$ when the following also holds:
+
+\textbf{RM\textsubscript{3}'} The set \(\mathscr{R}\) is either \(i\)-equidimensional or empty.
+\end{definition}
+
+\noindent 
+The algorithm uses a finite set of \textit{control points} $\mathscr{P}$ included in the input along with $V$. These points are used to test if the points of $\mathscr{P}$ are connected on $V \cap \mathbb{R}^n$. 
+
+
+\begin{definition}
+    \(\mathscr{R}\) is a roadmap (resp. \(i\)-roadmap) of \((V, \mathscr{P})\) if in addition:
+
+\textbf{RM\textsubscript{4}'} The set \(\mathscr{R}\) contains \(\mathscr{P} \cap V \cap \mathbb{R}^n\).
+\end{definition}
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Overview of the algorithm.}
+The algorithm uses a \textit{baby steps / giant steps} framework with the following two subroutines:
+%
+\begin{itemize}
+    \item $\CannyRoadmap$~for performing baby steps, based on the original roadmap algorithm from John Canny \cite{canny1988complexity},
+    \item $\MainRoadmap$~for performing giant steps. 
+\end{itemize}
+%
+The algorithms is based on the critical point method and, in particular, the algorithm computes polar varieties. See Section \ref{sec:polarVs} for definitions and notation on polar varieties. 
+%
+\par 
+Assume we have 
+%
+\begin{itemize}
+    \item $f\in \mathbb{Q}[X_1,\hdots,X_n]$ of degree $d$;
+    \item $V = V(f)$ with $V(f) \cap \mathbb{R}^n$ smooth and bounded.
+\end{itemize}
+%
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph*{Canny roadmap.}The original algorithm from John Canny \cite{canny1988complexity} computes the polar variety $W(\pi_2,V)$. Given that  $V(f) \cap \mathbb{R}^n$ is bounded, it then follows that $W(\pi_2,V)$ intersects each connected component of $V \cap \mathbb{R}^n$, but more is required to ensure that these intersections are connected.  Consider choosing
+\[\mathscr{C}' = \{ x_1, \dots, x_N \} \subset \mathbb{R}\] in such a way that the union of $W(\pi_2,V)$ and 
+\[
+\mathscr{C}'' = V \cap \pi_1^{-1}(\mathscr{C}')
+\]
+is a roadmap of $V$ of dimension $n - 2$. Canny proved that given 
+\begin{itemize}
+    \item $\mathscr{C} = K(\pi_1, W(\pi_2,V)),$ and
+    \item $\mathscr{C}' = \pi_1(\mathscr{C});$
+\end{itemize}
+then $\mathscr{C}'$ is an $(n - 2)$-roadmap of $V$ of degree $d^{O(n)}$. Canny's algorithm then recursively constructs a roadmap in 
+\begin{itemize}
+    \item $\mathscr{C}'' = V \cap \pi_1^{-1}(\mathscr{C}')$
+\end{itemize}
+following the same process. Geometrically this is equivalent to performing a recursive call with the input \[f(x_i, X_2, \dots, X_n), \quad \forall x_i \in \mathscr{C}'.\]  
+At each recursive call the number of control points computed is therefore multiplied by $d^{O(n)}$ while the dimension of the input decreases by one. The depth of the recursion is $n$, and therefore the roadmap obtained from Canny's algorithm has degree $d^{O(n^2)}.$
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph*{Main roadmap.}
+To obtain the improved complexity of $(nd)^{O(n^{1.5})},$ Safey El Din and Schost show how to reduce the number of recursive calls from $n$ to $\sqrt{n}$ using higher dimensional polar varieties. Put
+\begin{itemize}
+    \item $\mathscr{C} := K(\pi_1, W(\pi_i,V))$, 
+    \item $\mathscr{C}' := \pi_{i-1},(\mathscr{C})$, and 
+    \item $\mathscr{C}'' := V \cap \pi_{i-1}^{-1}(\mathscr{C}')$.
+\end{itemize}
+They show that, for $i\approx \sqrt{n}$, under some genericity assumptions,
+\[
+W(\pi_i,V) \cup \mathscr{C}''
+\]
+is a roadmap of $V$ of dimension $\max(i - 1, n - i)$. Since the depth of the recursion decreases from $n$ to $\sqrt{n},$ the degree of the output decreases to \[(d^{O(n)})^{\sqrt{n}} = (d^{O(n^{1.5})}).\] 
+%This connectivity result is the basis of their algorithm and its complexity improvement. 
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Data structures}
+\paragraph*{Zero-dimensional parameterizations.}
+The algorithm processes zero- and one-dimensional algebraic sets represented through parameterizations.
+
+
+Consider a zero-dimensional algebraic set $S \subset \C^n$ defined over $\mathbb{Q}$. A \emph{zero-dimensional parametrization} 
+\[
+\scrQ = ((q, v_1, \ldots, v_n), \lambda),
+\]
+of $S$ is a data structure with
+%
+\begin{itemize}
+    \item univariate polynomials $q \in \Q[T]$, monic and squarefree, and $v_i \in \Q[T]$ with $\deg(v_i) < \deg(q)$;
+    \item a $\mathbb{Q}$-linear form $\lambda$ in the variables $ X_1, \dots, X_n$,
+\end{itemize}
+%
+such that:
+\begin{enumerate}
+    \item $\lambda(v_1, \dots, v_n) = T q' \bmod q\),
+    \item 
+    $
+    S = \left\{\left(
+    \frac{v_1(\tau)}{q'(\tau)}, \dots, \frac{v_n(\tau)}{q'(\tau)}\right)
+    \ \mid \ q(\tau) = 0 \right\}.
+    $
+\end{enumerate}
+
+%
+The constraint on $\lambda$ ensures that the roots of $q$ are the values taken by $\lambda$ on $S$; we call these $\lambda$ \textit{separating}.
+
+%
+Given a zero-dimensional parameterization $\scrQ,$ the defining algebraic set $V$ is written $\Zeroes(\scrQ).$ 
+%We denote the degree of $V$ as $\delta_Q = |V|.$ 
+%\begin{remark}
+ %   Polynomials in $\scrQ$ have degree at most $\deg(V)^{O(1)}.$    
+%\end{remark}
+
+
+%\begin{remark}
+%Any finite algebraic set of degree $d$ can be represented with a zero-dimensional parameterization, requiring $\Theta(n d)$ field coefficients. If $q = 1$ then the set is empty.    
+%\end{remark}
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph*{One-dimensional parameterizations.}
+The output of the main algorithm is a data structure representing an algebraic curve called a one-dimensional parameterization. 
+
+Let $C \subset \C^n$ be a one-dimensional algebraic set defined over $\mathbb{Q}$ (a curve). A \emph{one-dimensional parametrization} is a pair
+\[
+\scrQ = ((q, v_1, \ldots, v_n), (\lambda,\lambda')),
+\]
+with
+%
+\begin{itemize}
+    \item bi-variate polynomials $(q, v_1, \ldots, v_n) \in \mathbb{Q}[T,U] \), $q$ square-free and monic in $T$ and $U$, with $\gcd(q,v_1)=1$ and  $\deg(v_i) < \deg(q)$;
+    \item $\lambda= \lambda_1X_1 + \hdots + \lambda_nX_n, \lambda'=\lambda_1'X_1 + \hdots + \lambda_n'X_n$ linear forms in $X_1, \dotsc, X_n$, with
+    \begin{itemize}
+        \item \[
+\lambda(v_1, \dots, v_n) = T \frac{\partial q}{\partial T} \mod q;
+\]
+        \item 
+\[
+\lambda'(v_1, \dots, v_n) = U \frac{\partial q}{\partial T} \mod q.
+\]
+    \end{itemize}
+
+\end{itemize}
+Then $C$ is the Zariski closure 
+\[
+\Zeroes(\scrQ) :=\overline{
+\left\{ \left( \frac{v_1(\tau,\rho)}{\partial q / \partial T(\tau,\rho)}, \ldots, \frac{v_n(\tau,\rho)}{\partial q / \partial T(\tau,\rho)} \right) \in \mathbb{Q}^n \mid q(\tau,\rho) = 0, \frac{\partial q}{\partial T}(\tau,\rho) \neq 0 \right\}}.
+\]
+\begin{remark}
+    The proof of the main result is based on geometric analysis without actually referring to data structures (until bounding the height of the data structure in the output). The proof could be written without reference to zero-dimensional parameterizations. 
+\end{remark}
+
+
+
+%
+%We denote the degree of $V$ as $\delta_Q.$ 
+%
+
+%\td{Do I use $\delta_Q$?}
+
+%\begin{remark}
+%    Polynomials in $\scrQ$ have degree at most $\deg(V)^{O(1)}.$
+%\end{remark}
+%
+%\begin{remark}
+%For a curve of degree $d$, storing $\scrQ$ %requires $\Theta(n d^2)$ field coefficients. %Again, if $q = 1$ then this set is empty.    
+%\end{remark}
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\paragraph*{Changes of variables.} 
+%Let $\mathscr{Q} = ((q, v_1, \dots, v_n), \lambda)$ %be a zero-dimensional parametrization of the %algebraic set $S \subset \mathbb{C}^n$, and $\mA \in %\GL(n,\mathbb{Q})$ a change of coordinates. Then %$\mathscr{S}^A$ is defined as $((\widetilde{q}, %\widetilde{v}_1, \dots, \widetilde{v}_n), %\widetilde{\lambda})$, 
+%where $\widetilde{\lambda} = \lambda(\mathbf{A}X)$, %$\widetilde{q} = q$, and 
+%$\widetilde{v}_1, \dots, \widetilde{v}_n$ correspond %to the entries of 
+%$\mathbf{A}^{-1}[v_1 \cdots v_n]^{\perp}$. %Consequently,
+%\[\Zeroes(\scrQ^{\bm A}) = S^{\bm A}.\]
+
+%Similarly, let $\scrQ = ((q, v_1, \dots, v_n), %\lambda, \lambda')$ be a one-dimensional %parametrization of a curve $C$, then 
+%$\scrQ^A$ is $((\widetilde{q}, \widetilde{v}_1, %\dots, \widetilde{v}_n), \widetilde{\lambda}, %\widetilde{\lambda}')$
+%where $\widetilde{\lambda} = \lambda(\mathbf{A}X)$, %$\widetilde{\lambda}' = \lambda'(\mathbf{A}X)$, 
+%$\widetilde{q} = q$, and $\widetilde{v}_1, \dots, %\widetilde{v}_n$ are the components of 
+%$\mathbf{A}^{-1}[v_1 \cdots v_n]^{\perp}$. %Consequently,
+%\[\Zeroes(\scrQ^{\bm A}) = C^{\bm A}.\]
+
+
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Main result}
+The following are definitions of height for rational numbers and polynomials with rational coefficients. 
+\begin{itemize}
+    \item The height of a rational number $r = u/v$ in $\mathbb{Q} \setminus \{0\}$, denoted $\htt(r)$, is the maximum of $\log |u|$ and $\log v$, where $u \in \mathbb{Z}$ and $v \in \mathbb{N}$ are coprime.
+    
+    \item The height of a polynomial with rational coefficients $f \in \mathbb{Q}[X_1,\hdots,X_n]$, denoted $\htt(f)$, where $v \in \mathbb{N}$ is the smallest common denominator of its nonzero coefficients, is the maximum of $\log v$ and the logarithms of the absolute values of the integer coefficients of $vf$.
+\end{itemize}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\paragraph*{Lagrangian modeling.} 
+By using the Lagrangian modeling of polar varieties we obtain equations that are a complete intersection, and we are then able to apply techniques using intersection theory and the \textit{arithmetic Chow ring} from \cite{EN} to obtain our height bounds. For a polynomial system $\bm f = (f_1,\hdots,f_s)$ in $\mathbb{Q}[X_1,\hdots,X_n],$ the Lagrangian formulation involves a generically chosen vector of integers $\bm u$ in $\mathbb{Z}^{s}$, which defines the linear form
+\[
+\sum_{i=1}^{s}u_iL_i-1
+\]
+where $(L_1,\hdots,L_s)$ are the corresponding Lagrange multipliers. We let $h_{\bm u}$ bound the height of coefficients in this linear form.
+
+
+
+\noindent 
+Our main result is the following. 
+%
+
+
+
+
+
+\begin{theorem}\label{theorem:mainHeight} (Main result)
+     Consider a square-free polynomial $f$ in $\mathbb{Q}[X_1, \dots, X_n]$ of degree $d$ and height $h$, such that $V(f) \cap \mathbb{R}^n$ is smooth and bounded. Also let $\mathscr{P}$ be a set of control points  of degree $\frak{d}$ and height $\frak{h}$. Then, upon success, if all genericity properties are satisfied, the height of the one-dimensional parameterization of the $1$-roadmap of $(V(f),\mathscr{P})$ in the output of \cite[MainRoadmap]{SchostMohabBabySteps2011} is
+\[
+O^{\sim}\left( \frak{h}d^{24n^{3/2}} + \frak{d}(h+h_{\mA}+h_{\bm u} + h_{\mA^{-1}})d^{30n^{3/2}+1}\right)
+\]
+    where 
+\begin{itemize}
+    \item $h_{\mA}$ bounds the height of entries in the change of coordinates matrix $\mA$; 
+    \item $h_{\bm u}$ bounds the height of the coefficients in the linear forms of the Lagrange systems; 
+    \item $h_{\mA^{-1}}$ bounds the height of entries in the inverse change of coordinates matrix $\mA^{-1}$.
+\end{itemize}
+\begin{remark}
+    The asymptotic notation in the main result uses soft-O notation, $O^{\sim}(\cdot)$, which ignores polylogarithmic factors. 
+\end{remark}
+\begin{remark}
+    The height is as expected with exponent $O(n^{1.5})$. 
+\end{remark}
+\end{theorem}
+%
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\paragraph*{Related work.}
+%\td
+
+
+
+%\paragraph*{Overview.}
+%\td
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Preliminaries}
+
+
+
+
+%%%%%%%%%%%%%%%%%%
+%\paragraph*{Chow forms.} Here we provide the definition of the Chow form of a zero-dimensional algebraic set. 
+%
+%\begin{definition}
+%    Let $\mathbb{K}$ be a field and $V \subset \mathbb{A}^n(\overline{\mathbb{K}})$ be a zero dimensional variety. The \textit{Chow form} of $V$ is the homogeneous polynomial
+%    \[
+%  C_{V,c} =  c\prod_{\alpha \in V} \left(X_0+\alpha_1X_1 + \cdots + \alpha_n X_n \right)
+%    \]
+%    of degree $\deg(V)$ where $c \in \mathbb{K}.$
+%\end{definition}
+%
+%\noindent
+%If the variety $V$ is defined over the rational numbers, then for $a$ in $\mathbb{Q}$, $C_{V,a}$ is in $\mathbb{Q}[T_0, \dots, T_N]$. After clearing denominators and removing contents, only two are primitive polynomials in $\mathbb{Z}[T_0, \dots, T_N]$ and they differ by a sign; these are the \textit{primitive} Chow forms of $V$.
+
+%\begin{remark}
+%Given a Chow form $C_{V,c}$ for a zero-dimensional algebraic set $V \subset \mathbb{C}^n,$ we can form a zero-dimensional parameterization $\scrQ=((q,v_1,\dots,v_n),\lambda)$ by taking 
+%\begin{align*} 
+%q(T)   
+        %&= \frac{1}{c}C_{V,c}%(T,\lambda_1,\hdots,\lambda_n) \\
+        %&= \frac{1}{c}\prod_{y \in V} %\left(\lambda_1y_1 + \hdots + \lambda_ny_n - %X_0 \right),\\
+%v_i     &= -\frac{1}{c}\frac{\partial E_V}{\partial %U_i}(T,\lambda_1,\hdots,\lambda_n), i=1\hdots,n. 
+%\end{align*}
+    
+%\end{remark}
+
+
+%\td{this last part is not needed}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+%\subsection{Height and Mahler measure}
+
+
+%To prove our main result and obtain our height bounds, we use several results from \cite{EN}, which incorporate height, the Mahler measure, and \textit{canonical mixed height}.
+
+
+%We relate the height of a polynomial $f \in \C[X_1,\hdots,X_n]$ with the \textit{Mahler measure}
+%\[m(f)=\int_{S_1^{n+1}}\log(|f|)d\mu,\] 
+%which is with respect to the Haar measure $\mu$ of mass $1$ on the complex unit circle $S_1$. Consider the following proposition illustrating the relationship with Mahler measure and height.
+%
+%\begin{prop} (\cite[Lemma 1.1]{SharpEstimatesForTheEffectiveN})
+%    Consider a polynomial $f \in \C[X_1,\hdots,X_n]$. and let $d$ be the degree of $f$. Then
+%    \[
+%    -\log(n+1)d \leq m(f) - \log |f| \leq \log (n+1)d.
+%    \]
+%\end{prop}
+%In particular 
+%\[
+%\log |f|-\log(n+1)d \leq m(f) \leq \log(n+1)d + \log |f|
+%\]
+%and
+%\[
+%m(f)-\log(n+1)d \leq\log |f| \leq \log(n+1)d + m(f).
+%\]
+ 
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Projective geometry}
+
+
+The following preliminaries on projective geometry are based on \cite[Chapter 1]{silverman}. 
+    
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph*{Projective space.} 
+Let $k$ be a field. \textit{Projective \(n\)-space over $k$}, denoted $\mathbb{P}^n$ or $\mathbb{P}^n(\bar{k})$ when the field needs to be specified, is defined as the sets of all lines in affine space through the origin. Consider the set of all $(n+1)$-tuples
+\[
+(x_0, \dots, x_n) \in \mathbb{A}^{n+1}(k)
+\]
+with the requirement that not all coordinates are zero. Consider these tuples modulo an equivalence relation defined as
+\[
+(x_0, \dots, x_n) \sim (y_0, \dots, y_n)
+\]    
+when there exists \(\lambda \in \bar{k}^*\) and \[(x_0,\hdots,x_n) = \lambda (y_0,\hdots,y_n).\] 
+%
+Let $[x_0, \dots, x_n]$ be the equivalence class
+\[
+\{ (\lambda x_0, \dots, \lambda x_n) : \lambda \in \bar{k}^* \}.
+\]
+The variables  $ X = (X_0, \dots, X_n)$ are  called \textit{homogeneous coordinates}. 
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph*{Projective varieties.}
+Consider a degree $d$ polynomials 
+\[
+f \in \bar{k}[X] = \bar{k}[X_0, \dots, X_n]\] with the property that, for all $\lambda \in \bar{k}$, 
+\[
+f(\lambda X_0, \dots, \lambda X_n) = \lambda^d f(X_0, \dots, X_n).
+\]
+We call these polynomial \textit{homogeneous}, and we call an ideal generated by homogeneous polynomials a \textit{homogeneous ideal}.
+
+
+Given a non-homogeneous degree $d$ polynomial 
+\[
+f = \sum_{\alpha} c_{\alpha} X_1^{\alpha_1} X_2^{\alpha_2} \dots X_n^{\alpha_n} \in k[X_1,\hdots,X_n],
+\]
+the \textit{homogenization} of $f$, denoted $f^h \in k[X_0,\hdots,X_n]$, is a homogeneous polynomial where
+each monomial of $f$:
+\[
+c_{\alpha} X_1^{\alpha_1} X_2^{\alpha_2} \dots X_n^{\alpha_n},
+\] is replaced with 
+\[
+c_{\alpha} X_0^{d - |\alpha|} X_1^{\alpha_1} X_2^{\alpha_2} \dots x_n^{\alpha_n},
+\]
+where \[|\alpha| = \sum_{i=1}^{n} \alpha_i\] is the total degree of the monomial. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%V_I := 
+Now let $f$ be a homogeneous polynomial and let $P$ be a point in $\mathbb{P}^n$. A \textit{projective algebraic set} is an algebraic set of the form
+\[
+\{ P \in \mathbb{P}^n : f(P) = 0 \text{ for all homogeneous } f \in I \}
+\]
+for a homogeneous ideal $I$. 
+
+
+
+
+
+Consider an affine algebraic set $V \subset \mathbb{A}^n(k) \) with ideal $I(V)$, and consider $V$ as a subset of $\mathbb{P}^n$. Then, the \textit{projective closure} of $V$, denoted by $\bar{V}$, is the projective algebraic set with homogeneous ideal $I(\bar{V})$ generated by
+\[
+\{ f^h(X) : f \in I(V) \},
+\]
+%where $f^h$ is the \textit{homogenization of} $f$ with respect to $X_i:$
+%\[
+%f^*(X_0, \dots, X_n) = X_i^{\deg f} f \left( \frac{X_0}{X_i}, \frac{X_1}{X_i}, \dots, \frac{X_{i-1}}{X_i}, \frac{X_{i+1}}{X_i}, \dots, \frac{X_n}{X_i} \right).
+%\]
+ 
+
+
+%(See \cite{EN})
+\paragraph*{Ruled joins.} 
+For $i \in \{1, 2\}$, consider irreducible algebraic sets $A_i \subset \P^{n_i}_\C$ for integers $n_i,$ and let  $I(A_i) \subset \C[X_i]$ denote the ideal of $A_i$. Then, the ruled join $A_1\#A_2$ is the irreducible subvariety of $\P
+^{n_1+n_2+1}_\C$ defined by the
+homogeneous ideal which is  generated by \[I(A_1)\cup I(A_2) \subset \C[X_1, X_2].\]
+%\par 
+%The \textit{affine version} of the ruled join is obtained by taking the projective ruled join $A_1 \# A_2$ and setting the homogenization variable $X_0 = 1$.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The arithmetic Chow ring}
+We use the arithmetic Chow ring to provide our bit-size estimates, introduced by D’Andrea, Krick, and Sombra in~\cite{EN}. Consider the ring of truncated power series 
+\[
+A^*(\mathbb{P}^{n}(\overline{k})) = \mathbb{Z}[\theta] / \langle \theta^{n+1} \rangle;
+\]
+this is the \textit{Chow ring} of the projective space $\mathbb{P}^{n}(\overline{k})$, a tool developed for the study of intersection theory. Our height bounds are based on an extended, arithmetic version, the \textit{arithmetic Chow ring of $\mathbb{Q}$}:
+\[
+A^*(\mathbb{P}^{n}(\overline{\mathbb{Q}}), \mathbb{Z}) = \mathbb{R}[\eta, \theta] / \langle \eta^2, \theta^{n+1}\rangle.
+\]
+
+%
+\begin{remark}
+Since the field will be clear in our context, we will use the simpler notations $A^*(\mathbb{P}^{\mathbf{n}})$ and $A^*(\mathbb{P}^{\mathbf{n}}, \mathbb{Z})$ respectively for Chow rings and arithmetic Chow rings.    
+\end{remark}
+%
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Canonical height}\label{sec:CanonicalH}
+Consider a $0$-dimensional algebraic set $V \subset \mathbb{P}^n$ defined over $\mathbb{Q}$. The class of $V:$
+\[
+[V]_{\mathbb{Z}} \in \mathbb{R}[\eta, \theta] / \langle \eta^2, \theta^{n+1}\rangle
+\]
+is associated to a homogeneous polynomial of degree $n:$
+\[
+[V]_{\mathbb{Z}} = \hat{h}(V) \eta \theta^{n-1} + \deg(V) \theta^{n}.
+\]
+The degree, $\deg(V)$, is its degree as an algebraic set. The definition of \textit{canonical height}, $\hat{h}(V)$, is given in \cite{EN}. For simplicity, we do not define canonical height explicitly. Instead we only state the properties we use, which are as follows.
+
+\begin{enumerate}
+    \item $\hat{h}(V) \geq 0$; and thus $[V]_{\mathbb{Z}} \geq 0$, where inequalities in arithmetic Chow rings should be interpreted coefficientwise.
+
+    %\item If \(V\) and \(V'\) are both \(r\)-equidimensional and without irreducible components in common, \([V \cup V']_{\mathbb{Z}} = [V]_{\mathbb{Z}} + [V']_{\mathbb{Z}}\) (this is clear for the degree and follows from \([11, \text{Definition } 2.40]\) for the height). We could remove the assumption above, but this would require us to talk about cycles, for which we will have no use below.
+
+    \item For a square-free and primitive polynomial 
+    \[
+    f \in \mathbb{Z}[X_1,\hdots,X_n],
+    \]
+    it follows from \cite[Proposition 2.53]{EN} that
+    \[
+    [V(f)]_{\mathbb{Z}} = m(f) \eta + \deg(f) \theta
+    \]
+    where \[m(f) = \int_{S_1^{n+1}} \log(|f|) d\mu^{n+1}\] 
+
+    
+    is the \textit{Mahler measure} of \(f\) with respect to the Haar measure \(\mu\) of mass 1 on the complex unit circle \(S_1\).
+
+    \item     
+    Consider a polynomial 
+    \[
+    f \in \mathbb{Z}[X_1,\hdots,X_n].
+    \]
+    From Corollary 2.61 and Lemma 2.30 in \cite{EN},
+    \[
+    [V \cap V(f^h)]_{\mathbb{Z}} \leq [V]_{\mathbb{Z}} \cdot 
+    \left( 
+    (\htt(f^h)+\log(n+1)\deg(f^h))\eta + \deg(f^h)\theta
+    \right).
+    \]
+\end{enumerate}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\section{Solving polynomial systems}
+
+
+
+\begin{comment}
+    
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Homotopy methods}
+
+
+
+\td{write in different words}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph*{A multi-homogeneous B\'ezout bound.}
+
+
+Consider a sequence of variable groups $\bm X=(\bm X_1, \ldots, \bm X_\ell)$, where each $\bm X_i = (X_{i,1}, \ldots, X_{i, n_i})$ contains $n_i$ variables. Define $N$ as the total number of variables, $N = \sum_{i=1}^{\ell} n_i$.
+
+Consider a polynomial $f \in \C[\bm X_1, \ldots, \bm X_\ell]$. We define its \emph{multi-degree} with respect to $\bm X_1, \ldots, \bm X_\ell$ as
+\[
+\mdeg(f)=(\deg(f, \bm X_1), \ldots, \deg(f, \bm X_\ell)).
+\]
+We say multi-degree for short when the partition of variables is understood from the context. For a tuple $\bm d=(d_1, \ldots, d_\ell)$ of integers, we say that $f$ has multi-degree at most $\bm d$ if $\deg(f, \bm X_i) \leq d_i$ for all $1 \leq i \leq \ell$. 
+%When $\ell=2$, the multi-degree is called the \emph{bi-degree}.
+
+Now, consider a system of polynomials $\h = (h_1, \ldots, h_P) \subset \C[\bm X_1, \ldots, \bm X_\ell]$, where $P \leq N$, and assume that for each $h_i$, we have:
+\[
+\mdeg(h_i) \leq \bm d_i = (d_{i,1}, \ldots, d_{i, \ell}).
+\]
+Define $\bm d$ as the sequence of multi-degrees $(\bm d_1, \dots, \bm d_P)$. 
+
+Consider the following two polynomials defined over $\Z[\zeta_1, \ldots, \zeta_\ell]$ and $\Z[\eta, \zeta_1, \ldots, \zeta_\ell]$:
+\[
+  \mathscr{D}(\bm d,\bm X) = \prod_{i=1}^P
+  (d_{i,1}\zeta_1+\cdots+d_{i,\ell}\zeta_{i,\ell}) \mod \langle
+  \zeta_{1}^{n_1+1},\ldots,\zeta_\ell^{n_\ell+1} \rangle,
+\]
+\[
+  \mathscr{D}'(\bm d, \bm X) = \prod_{i=1}^P (\eta +
+  d_{i,1}\zeta_1+\cdots+d_{i,\ell}\zeta_{i,\ell}) \mod \langle \eta^2,
+  \zeta_{1}^{n_1+1}, \ldots,\zeta_\ell^{n_\ell+1} \rangle.
+\]
+For a polynomial $f$ with integer coefficients, let $\|f\|_1$ denote the sum of the absolute values of its coefficients. Note that
+\[
+\|\mathscr{D}(\bm d,\bm X)\|_1 \leq \|\mathscr{D}'(\bm d,\bm X)\|_1.
+\]
+
+Now, the next statement uses $\mathscr{D}(\bm d,\bm X)$ and is an extension of the multi-homogeneous B\'ezout bound on the degrees of algebraic sets. 
+%
+%%%%%%%%%%%%%
+\begin{prop}\label{prop:mhbezout} \cite[Proposition~I.1]{ss-road-jacm}
+  Given $\h$ and $\bm d$ as above, let $Z$ be the union of irreducible components of $V(\h)$ where the Jacobian matrix $\jac(\h)$ has rank $P$. The degree of $Z$ satisfies:
+\[
+\deg(Z) \leq \|\mathscr{D}(\bm d,\bm Y)\|_1.
+\]
+\end{prop}
+%
+%
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph*{Algorithms and complexity}
+
+Homotopy methods solve polynomial systems by continuously deforming a given system into a simpler one with known solutions. A start system with an explicit solution is connected to the target system through a homotopy. Our algorithms for solving zero dimensional polynomial systems are based on Homotopy methods. 
+
+
+
+
+When $P=N$, the classical multi-homogeneous B\'ezout theorem gives an upper bound on the number of isolated solutions of $\h$:
+%
+\begin{prop}
+  Under the same assumptions as Proposition \ref{prop:mhbezout}, when $P=N$, the number of isolated solutions to $\h=\bm{0}$ with multiplicities is at most $\|\mathscr{D}(\bm d,\bm X)\|_1$.
+\end{prop}
+%
+\begin{proof}
+%
+Let $\h=(h_1,\dots,h_N)$ satisfy $\mdeg(h_i)\le \bm d_i$. In~\cite[Eq.~8.4.13]{SoWa05}, Sommese and Wampler construct polynomials $\g=(g_1,\dots,g_N) \subset \mathbb{Q}[\bm X]$ with $\mdeg(g_i)=\bm d_i$, whose solutions number exactly $\|\mathscr{D}(\h,\Y)\|_1$, all of them isolated and with multiplicity one. Their approach relies on homotopy continuation, ensuring an efficient computation of these solutions.
+
+To transition from $\g$ to $\h$, we define a homotopy:
+\[
+\f(T,\Y) = (1-T) \g(\Y) + T \h(\Y),
+\]
+and apply~\cite[Proposition~12]{HSSV19}, which establishes our lemma. The required assumptions—absence of solutions at infinity for the homogenized system and unit multiplicities—are satisfied by construction. While the result in~\cite{HSSV19} formally requires $\deg(h_i) = \deg(g_i)$, it remains valid when $\deg(h_i) \leq \deg(g_i)$, as confirmed in~\cite[Lemma~19]{HSSV19}.
+
+Finally,~\cite{HSSV19} provides a homotopy-based method to compute a zero-dimensional parametrization of isolated points in $V(\h)$. Given a multi-degree sequence $\bm d=(\bm d_1,\dots,\bm d_P)$, define:
+\[
+\mathcal{E}(\bm d,\bm X)=\sum_{i=1}^P \mathscr{E}(\bm d_i,\bm X),
+\]
+where $\mathscr{E}(\bm d_i,\bm Y)={{d_{i,1} + n_1} \choose {n_1}} \cdots {{d_{i,\ell} + n_\ell} \choose {n_\ell}}$ counts the maximum number of monomials in a polynomial with multi-degree $\bm d_i$.
+\end{proof}
+
+
+
+
+
+
+
+%
+\begin{prop}\label{prop:mhbR}
+  A randomized algorithm \textsc{RSolve} takes as input polynomials $\h=(h_1,\dots,h_N)$ in $\mathbb{Q}[\Y]$, where $|\bm X|=N$ and $\mdeg(h_i)\le \bm d_i$ for all $i$, and uses \[( \|\mathscr{D}'(\bm d, \Y)\|_1 \mathcal{E}(\bm d,\Y))^{O(1)}\] operations in $\mathbb{Q}$. If successful, it returns a zero-dimensional parametrization of the isolated points in $V(\h)$.
+\end{prop}
+%
+\begin{proof}
+  In~\cite[Section~2.2]{SchostMohabMultiH2017}, one finds the details of a homotopy
+  algorithm that returns within the prescribed runtime a related
+  output, namely a zero-dimensional parameterization of the points in
+  $V(\h)$ where the Jacobian determinant of $\h$ does not vanish. To
+  obtain a description of the isolated points of $V(\h)$, we instead
+  use the algorithm of~\cite[Proposition~20]{HSSV19}, which returns
+  this output in time polynomial in the geometric degree of the
+  so-called ``homotopy curve'', the number of variables, and the
+  length of a straight-line program that encodes both $\g$ and $\h$.
+  The first quantity is bounded above by
+$\|\mathscr{D}'(\bm d,\bm X)\|_1$~\cite[Lemma~5]{SaSc18}, and the other two are
+$\mathscr{E}(\bm d,\bm X)^{O(1)}$.
+\end{proof}
+
+
+
+\begin{prop}\label{prop:mhb}
+  A deterministic algorithm \textsc{Solve} takes as input polynomials $\h=(h_1,\dots,h_N)$ in $\mathbb{Q}[\bm X]$, where $|\bm X|=N$ and $\mdeg(h_i)\le \bm d_i$ for all $i$, and uses \td operations in $\mathbb{Q}$. It returns a zero-dimensional parametrization of the isolated points in $V(\h)$.
+\end{prop}
+%
+\begin{proof}
+  In~\cite[Section~2.2]{SchostMohabMultiH2017}, one finds the details of a homotopy
+  algorithm that returns within the prescribed runtime a related
+  output, namely a zero-dimensional parameterization of the points in
+  $V(\h)$ where the Jacobian determinant of $\h$ does not vanish. To
+  obtain a description of the isolated points of $V(\h)$, we instead
+  use the algorithm of~\cite[Proposition~21]{HSSV19}, which returns
+  this output in time polynomial in the geometric degree of the
+  so-called ``homotopy curve'', the number of variables, and the
+  length of a straight-line program that encodes both $\g$ and $\h$.
+  The first quantity is bounded above by
+$\|\mathscr{D}'(\bm d,\bm X)\|_1$~\cite[Lemma~5]{SchostMohabMultiH2017}, and the other two are
+$\mathscr{E}(\bm d,\bm X)^{O(1)}$.
+
+The algorithm of~\cite[Proposition~20]{HSSV19} is randomized as a consequence of randomly to choosing a \textit{well-separating} linear form $\lambda$ with high probability. To make the algorithm deterministic, we can use the algorithm \cite[Naivewell-sepElement]{rouillier2000finding} with complexity \td. Therefore the total complexity is 
+\[
+(\|\mathscr{D}'(\bm d,\bm X)\|_1+\td)+\mathscr{E}(\bm d,\bm X)^{O(1)}.
+\]
+\end{proof}
+
+
+
+\color{red}
+\begin{enumerate}
+    \item $|U'| \leq (n-1)d^{2n}$
+    \begin{enumerate}
+        \item cost of ChecksepElement (Compare the degree of the square-free part of the minimal polynomial of the multiplication by u (abusing notation and identifying u and its image in K[X1, . . . , Xk]/I)
+and $|Z(S)|$. If these two numbers are equal return true, otherwise return false)
+\item Compute the NRUR associated to u
+    \end{enumerate}
+    \item constant ?
+    \item $O(d^3)$ \cite{GaGe13}
+    \item Constant
+\end{enumerate}
+\color{black}
+
+
+%\begin{prop}
+%    Quant bound on $\lambda$ separating
+%\end{prop}
+
+
+
+%\begin{prop}
+%    Quant bound on $\lambda$ well-separating
+%\end{prop}
+
+%\begin{prop}
+%%    Complexity of deterministic algorithm
+%\end{prop}
+
+
+
+
+
+
+
+
+\end{comment}
+
+
+
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{The algorithm}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Genericity assumptions}
+The algorithm applies randomly chosen changes of coordinates to genericity ensure certain desirable geometric properties. 
+
+
+
+Let $\bm f = (f_1,\hdots,f_s) \in  \mathbb{Q}[X_1,\hdots,X_n]^s$ be a sequence of degree $d$ polynomials. Consider the following genericity properties originally defined in \cite{SchostMohabBabySteps2011}. 
+\begin{description}
+\item [$\bm H(1):$] the ideal $\langle \bm f \rangle$ is squarefree; 
+\item [$\bm H(2):$] $V = V(\bm f)$ is equidimensional of positive dimension $n-s$;
+\item [$\bm H(3):$] $\sing(V)$ is finite;
+\item [$\bm H(4):$] $V \cap \mathbb{R}^n$ is bounded. 
+\end{description}
+%
+For $i \in \{2,\hdots,n-s\}$:
+%
+%
+\begin{description}
+\item [$\bm H_i'(1):$] $V$ is in Noether position for $\pi_{n-s}$; 
+\item [$\bm H_i'(2):$] either $W_i$ is empty or $(i-1)$-equidimensional and in Noether position for $\pi_{i-1}$;
+\item [$\bm H_i'(3):$] $K(1,V)$ is finite;
+\item [$\bm H_i'(4):$] $K(1,W(i,V))$ is finite; 
+\item [$\bm H_i'(5):$] for $\bm x \in W(i,V)-\sing(V), \jac_{\bm x}([\bm f, \Delta],[X_1,\hdots,X_n])$ has rank $n-(i-1),$
+\[
+\Delta = [\partial f / \partial X_i~|~i \in [e+i+1,\hdots,n]]
+\]
+\end{description}
+%
+%
+
+    
+Safey El Din and Schost also prove the following Lemmas specifying the genericity assumptions of the algorithm.
+%
+\begin{itemize}
+    \item \cite[Lemma 31:]{SchostMohabBabySteps2011} Suppose that $n - s - e > 1$ and that $[f, Q]$ satisfies $\bm H$. After a generic change of variables in $\operatorname{GL}(n, e)$, the system $[f, Q]$ satisfies $\bm H'_2$ as well.
+    \item \cite[Lemma 34.]{SchostMohabBabySteps2011} Suppose that $n - e > i$ and that $[f, Q]$ satisfies $\bm H$. After a generic change of variables in $\operatorname{GL}(n, e)$,
+    \begin{enumerate}\renewcommand{\labelenumi}{(\alph{enumi})}
+        \item $[f, Q]$ satisfies $\bm H$ and $\bm H'_i$;
+        \item $[f, Q]$ satisfies $\bm H$.
+    \end{enumerate}
+\end{itemize}
+
+
+
+
+
+\begin{comment}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Quantitative analysis}
+%Here we give quantitative versions of \cite[Lemma 31]{SchostMohabBabySteps2011}, and \cite[Lemma 34]{SchostMohabBabySteps2011}, (respectively for for Canny roadmap and Main roadmap). 
+%
+%\begin{prop}\label{prop:QuantGenIEqualTwo}
+%For $n-s-e>1$, there exists a hypersurface $\Delta \subset \C[(\frak{A}_{k,m})_{1 \le k,m \le n}]$ with degree at most \td such that if $\Delta(\mA) \not = 0$ then $[\bm f^\mA,Q]$ satisfies $H_2'$.
+%\end{prop}
+%
+%\begin{prop}\label{prop:QuantGenIGreaterThanTwo}
+%For $i$ in $\{2,\hdots,(d+3)/2\}$, there exists a hypersurface $\Gamma \subset \C[(\frak{A}_{k,m})_{1 \le k,m \le n}]$ with degree at most \td such that if $\Gamma(\mA) \not = 0$ then 
+%\begin{enumerate}
+%    \item $[f^\mA,Q]$ satisfies $H$ and $H_i'$;
+%    \item $[\bm f^\mA,Q]$ satisfies $H$.
+%\end{enumerate}
+%\end{prop}
+%
+Note, many of the genericity properties for the roadmap algorithm in this chapter are the same from Chapter \ref{Chap:BitCompProblem1}. Indeed the quantitative analysis of genericity properties from Chapter \ref{Chap:BitCompProblem1} can be used again here. Of the remaining genericity properties to analyze, $\bm H_i'(4)$ is non-trivial. Here we prove the following proposition. 
+%
+\begin{prop}\label{prop:finitenessPolarVarietyOfPolarVariety}
+Let $\bm{f} = (f_1,\hdots,f_s)  \in \C[X_1,\hdots,X_n]^s$ with degrees at most $d$. There exists a hypersurface $\Delta$ in $\C[(\frak{A}_{k,m})_{1 \le k,m \le n}]$ of degree at most $n(2d)^{s+n}(s+n)^{d+1}$ with the property that $W(1,W(i,\bm{f}^\mA))$ is finite when $\Delta(\mA) \neq 0$, for all $i$ in $\{2,\hdots,\lfloor (d+3)/2 \rfloor\}$.
+%
+\end{prop}
+
+
+\color{red}
+\begin{remark}
+    What to do about the finite number of singularities when reusing the analysis from Chapter \ref{Chap:BitCompProblem1} where $V$ is assumed to be smoooth?
+\end{remark}
+\color{black}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Proof of Proposition \ref{prop:finitenessPolarVarietyOfPolarVariety}}
+
+\td{$d$ should be dimension}
+
+Let $i\in\{2,\hdots,d' \}$ with $d':=\lfloor (d+3)/2\rfloor.$ First we prove the following proposition.
+%
+\begin{prop}\label{prop:finitenessPolarVarietyOfPolarVarietyi}
+Let $\bm{f} = (f_1,\hdots,f_s)  \in \C[X_1,\hdots,X_n]^s$ with degrees at most $d$. For $i\in\{2,\hdots,d',$ there exists $\Delta_i \in \C[(\frak{A}_{k,m})_{1 \le k,m \le n}]$ with degree at most $n(s+n-i)^i(2d)^{s+n}$ such that $W(1,W(i,\bm{f}^\mA))$ is finite when $\Delta_i(\mA) \neq 0$.
+\end{prop}
+%
+\noindent 
+Let $\bm g_i = (g_1,\hdots,g_i) \in \C[X_1,\hdots,X_n]^i$, and let $\rho_{\bm g}$ be the map: 
+\begin{align*}
+\mathbb{C}^i &\rightarrow \C[X_1,\hdots,X_n]\\
+(x_1,\hdots,x_i) &\mapsto g_1x_1 + \hdots + g_ix_i.    
+\end{align*}
+Consider the set 
+\[
+X^o = \left\{ (\bm A,\bm x,\bm g) ~|~ \bm A \in \color{red}K_3\color{black}, \bm x \in W(i,V^\mA), \rho_{\bm g} \circ \pi_i \textrm{ vanishes on } T_{\bm x}W(i,V^\mA) \right\}. 
+\]
+Let $\sigma$ denote the map: $(\mA,\bm x,\bm g) \mapsto (\mA,\bm g)$ and consider the set 
+\[Y = \overline{\{(\mA,\bm g)~|~\sigma^{-1}(\mA,g) \cap X^o \textrm{ is infinite}\}}.\]
+Our goal is to bound the degree of $Y$, which contains unlucky points. We prove the degree of $Y$ is at most  $n$ times the degree of $X^o$. Then we bound the degree of $X^o.$
+%
+\begin{prop}\label{prop:degYatMostnDegXo}
+The degree of $Y$ is at most $n\deg X^o$.
+\end{prop}
+%
+\begin{prop}\label{prop:degreeOfXo}
+The degree of $X^o$ is at most $(s+n-i)^i(2d)^{s+n}$.
+\end{prop}
+%
+\begin{corollary}\label{cor:degY}
+The degree of $Y$ is at most $n(s+n-i)^i(2d)^{s+n}$.
+\end{corollary}
+%
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph*{Proof of Proposition \ref{prop:degYatMostnDegXo}.}
+By \cite[Section D.2]{TWT}, the dimension of $X^o$ is equal to $\delta := i + n^2$. Let $\pi_\delta$ be the mapping: \[(x_1,\hdots,x_{n+\delta}) \mapsto (x_1,\hdots,x_\delta)\] and let $Z$ be an irreducible component $X^o$. 
+%
+\begin{theorem} (Theorem of the Dimension of Fibres\cite[Chapter 1.6.3]{Shafarevich77})
+For a generic $\alpha \in \C^{\delta}$, $\pi_{\delta}^{-1}(\alpha) \cap Z$ is finite. 
+\end{theorem} 
+%
+\noindent 
+If $\pi_\delta(Z) \subset \C^{\delta}$ is not dense then almost all fibers are empty. Non-empty fibers are contained in the image \[\pi_{\delta}(Z) \subset \overline{\pi_{\delta}(Z)} \subsetneqq \C^{\delta}\] where $\deg \left( \overline{\pi_{\delta}(Z)} \right) \leq \deg Z \leq \deg X^o.$ Now consider that $\pi_\delta(Z)$ is dense.
+%
+\begin{lemma}
+Let $Z \subset \C^{\delta + n}$ be irreducible with dimension $\delta$ and $\pi_\delta(Z)$ dense. There exists a hypersurface $\Delta \subset \C^{\delta}$ with $\deg \Delta \leq \deg Z$ and $\pi_\delta^{-1}(\alpha) \cap Z$ finite when $\alpha \in \C^\delta-\Delta$. 
+\end{lemma}
+%
+\begin{proof}
+For $\delta+1 \leq i \leq\delta + n,$ let $\Psi_i$ denote the mapping 
+%
+\begin{align*}
+Z &\rightarrow \C^{\delta+1} \\
+(x_1,\hdots,x_{n+\delta}) &\mapsto (x_1,\hdots,x_\delta,x_i) \C^{\delta+1}.
+\end{align*}
+%
+The algebraic closure of the image $\overline{\Image(\Psi_i)}$ is a hypersurface. Indeed, $\Psi_i(Z)$ cannot have dimension greater than $\delta < \delta+1 = \dim \C^{\delta + 1}$ because the dimension of $Z$ is $\delta$. And the dimension of $\Psi_i(Z)$ is at least $\delta$ because $\pi_\delta(Z)$ is dense and irreducible ($Z$ is irreducible). Now, let $M_i \in \C[ X_1,\hdots,X_\delta,X_i]$ denote the corresponding irreducible polynomial defining the image $\overline{\Image(\Psi_i)}$ with \[
+M_i = \sum_{j=0}^{d_i} m_{i,j} X_i^j, m_{i,j} \in \C[\bm X_\delta].\]
+%
+\begin{lemma}
+For $\alpha \in \C^\delta,$ if $m_{i,d_i}(\alpha) \not = 0$ for all $i$ then $\pi_\delta^{-1}(\alpha) \cap Z$ is finite. 
+\end{lemma}
+%
+\begin{proof}
+Take $(\alpha_1,\hdots,\alpha_\delta,\beta_{\delta+1},\hdots,\beta_n)$ in $\pi_\delta^{-1}(\alpha)$ so that \[\Psi_i(\alpha_1,\hdots,\alpha_\delta,\beta_{\delta+1},\hdots,\beta_n)
+\in \overline{\Image(\Psi_i)}.\]
+Therefore $M_i(\alpha_1,\hdots,\alpha_\delta,\beta_i)=0$ and $\beta_i$ is a root of the univariate polynomial \[M_{i,\alpha} := \sum_{j=1}^{d_i} m_{i,j}(\bm \alpha_\delta)X_i^j \in \C[X_i]-\{0\}\] which means there are finitely many choices for $\beta_i$ (finitely many options for each coordinate) because by assumption $m_{i,d_i}(\alpha) \not = 0$. 
+\end{proof}
+%
+\noindent
+Now take \[P := \prod_{i = \delta+1}^{\delta + n} m_{i,d_i} \in \C[X_1,\hdots,X_\delta]\]
+so that if $\alpha \in \C^\delta - V(P)$ then $\pi_{\delta}^{-1}(\alpha) \cap Z$ is finite.  The degree of $P$ is bound by the degree of $Z$ times $n$ because $\deg \left(\overline{\Image(\Psi_i)} \right)\leq \deg Z$ which implies that $\deg M_{i,\alpha} \leq \deg Z$ and degree of $m_{i,d_i} \leq  \deg Z$; hence $\deg P \leq n\deg Z.$
+\end{proof}
+%the leading term is bounded above by the degree of $Z$; 
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph*{Proof of Proposition \ref{prop:degreeOfXo}.}
+Fix $i \in \{2,\hdots,(d+3/2)\}$ 
+ and let $\mathcal{X}^o$ denote
+\[
+ \left\{ (\bm A,\bm x,\bm l, \bm g) ~|~ \bm A \in K_3\color{black}, (\bm x, \bm l) \in \mathcal{W}(i,V^\mA), \rho_{\bm g} \circ \pi_i \textrm{ vanishes on } T_{(\bm x,\bm l)}\mathcal{W}(i,V^\mA) \right\} \subset \C^{n^2 + n + s + i}. 
+\]
+%
+\begin{lemma}\label{lemma:XoAndLagXo} 
+Let $\pi_{\frak{A},\bm X, \frak{g}}$ be the projection mapping
+%
+\begin{align*}
+\C^{\delta + n + s} &\rightarrow \C^{\delta + n}\\    
+(x_1,\hdots,x_{\delta + n+s}) &\mapsto (x_1,\hdots,x_{\delta+n})    
+\end{align*}
+%
+Then, $X^o = \overline{\pi_{\frak{A},\bm X, \frak{g}}(\mathcal{X}^o)}.$
+\end{lemma} 
+%
+%
+\begin{proof}
+It is clear that $X^o \subset \overline{\pi_{\frak{A},\bm X, \frak{g}}(\mathcal{X}^o)}.$ Now, For $\bm A \in K_3\color{black}$, $T_{\bm x}W ^{\bm A} = \pi_{\bm X} \left( T_{(\bm x, \bm l)} \mathcal{W}^{\bm A}\right),$ and it follows that $\overline{\pi_{\frak{A},\bm X, \frak{g}}(\mathcal{X}^o)} \subset X^o.$
+\end{proof}
+%
+\noindent
+If follows from Lemma \ref{lemma:XoAndLagXo} that $\deg X^o \leq \deg \mathcal{X}^o.$ 
+
+Now, for simplicity let $\frak{A} = (\frak{A}_{k,m})_{1 \le k,m \le n}$, and put
+\[
+\mathscr{W}^{\frak{A}} =\mathscr{W}(i,V^{\frak{A}}) \subset\C^{n^2+n+s}, 
+\]
+and 
+\[
+\frak{G}^{\frak{A}} = \left(\bm f^{\frak{A}},\bm L_s\cdot \jac_{\bm X}(\bm f^{\frak{A}},i) \right) \in \C[X_1,\hdots,X_n, L_1,\hdots,L_p, \frak{A}_{1,1},\hdots,\frak{A}_{n,n}]^{s+n-i}.
+\]
+Note the rank of $\jac_{(\bm x, \bm l)}\frak{G}^{\frak{A}}$ equals $s + n-i$
+which is the number of rows (number of equations).
+%
+\begin{lemma}
+Considering $\mathcal{X}^o$, the degree contribution of $\rho_{\bm g} \circ \pi_i$ vanishing on  $T_{(\bm x,\bm l)}\mathcal{W}^{\frak{A}}$ is $\left((n+s-i)(2d)\right)^i.$
+%
+\end{lemma}
+%
+\begin{proof}
+%
+\begin{align*}
+    &\rho_{\bm g} \circ \pi_i \textrm{ vanishes on } T_{(\bm x,\bm l)}\mathcal{W}^{\frak{A}} = \ker \left(\jac_{(\bm x, \bm l)} \frak{G}^\frak{A} \right)\\
+    iff~& \lambda = 
+\begin{bmatrix}
+\frak{g}_1 \cdots \frak{g}_i ~0 \cdots 0
+\end{bmatrix} \textrm{ vanishes on }\ker \left(\jac_{(\bm x, \bm l)} \frak{G}^\frak{A} \right)\\
+    iff~&
+    \rank 
+    \begin{bmatrix}
+    \jac_{(\bm x, \bm l)} \frak{G}^\frak{A}\\
+    \lambda 
+    \end{bmatrix}
+    =\rank \left( \jac_{(\bm x, \bm l)} \frak{G}^{\frak{A}}\right) =s+n-i\\  
+    iff~& \textrm{ all }(s + n-i)\textrm{-minors of }\jac_{(\bm x, \bm l)} \frak{G}^\frak{A} \textrm{ vanish.}
+\end{align*}
+%
+The degree of an $(s + n-i)$-minor is $(s + n-i)(2d),$ and therefore the degree contribution is
+\[
+((s + n-i)(2d))^{\dim \mathcal{W}^{\frak{A}}}
+=
+((s + n-i)(2d))^i.
+\]
+\end{proof}
+%
+%
+\begin{lemma} 
+Considering $\mathcal{X}^o$, the degree contribution of $(\bm x, \bm l) \in \mathscr{W}^{\frak{A}}$ is $(2d)^{s+n-i}.$
+\end{lemma}
+%
+%
+\begin{proof}
+Since $\deg f_i^{\frak{A}} \leq (2d),$ the claim follows from B\'ezout.
+\end{proof}
+%
+\noindent 
+Henceforth, we have proven Proposition \ref{prop:degreeOfXo}: \[\deg X^o \leq \deg \mathcal{X}^o \leq ((s + n-i)(2d))^i \deg \mathscr{W}^{\frak{A}} \leq (s+n-i)^i(2d)^{s+n}.\]
+Consequently, the degree of $Y$ is at most $n(s+n-i)^i(2d)^{s+n}$, proving proposition \ref{prop:finitenessPolarVarietyOfPolarVariety}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph*{Proof of Propositions \ref{prop:finitenessPolarVarietyOfPolarVariety}.}
+Now take $\Delta := \prod_{i=2}^{d'}\Delta_i$ and bound the degree of $\Delta.$ Then
+\begin{align*}
+    \deg(\Delta) &= \sum_{i=2}^{d'} \deg (\Delta_i)\\
+    &\leq n(2d)^{s+n}\sum_{i=1}^{d'} (s+n)^i\\
+    &\leq n(2d)^{s+n}\left((s+n)\frac{(s+n)^d-1}{(s+n)-1}\right)\\
+    &\leq n(2d)^{s+n}(s+n)^{d+1}.
+\end{align*}
+This concludes the proof of Proposition \ref{prop:finitenessPolarVarietyOfPolarVariety}. 
+
+
+
+\end{comment}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Fibers of projections}
+%%%%%%%%%%%%%%%%%%
+\begin{comment}
+The algorithm proceeds recursively where at level $i$ of recursion, the output of the algorithm is the union of two algebraic sets $\mathscr{R}_1$ and $\mathscr{R}_2$:
+\begin{itemize}
+    \item When non-empty, $\mathscr{R}_1$ is the algebraic set $W(\pi_i,V)$, which is $(i-1)$-equidimensional;
+    \item when non-empty, $\mathscr{R}_2$ is defined by a pair $[\bm f, Q]$ where $\bm f = (f_1,\hdots,f_s) \in \mathbb{Q}[X_1,\hdots,X_n]$ is a sequence of polynomials of dimension $n-s$ and $Q = Q(X_1, \dots, X_{i-1})$ is a zero-dimensional parametrization: 
+    \[
+    \mathscr{R}_2 = V \cap \pi_{i-1}^{-1}(Z(Q))
+    \]
+    is the union of the fibers 
+    \[
+    V \cap \Pi_{i-1}^{-1}(\bm x), \bm x \in \Zeroes(Q)
+    \]
+    which are $(n-s - i + 1)$-equidimensional.
+\end{itemize}
+\end{comment}
+
+
+Let $\bm f = (f_1,\hdots,f_s) \in  \mathbb{Q}[X_1,\hdots,X_n]^s$ be a sequence of polynomials and $Q=Q(X_1,\hdots,X_e)$ a zero-dimensional parameterization. The algorithms are recursive, processing pairs of the form $[\bm f, Q]$ where 
+\[
+V ([\bm f, Q]) = V \cap \pi_e^{-1}(\Zeroes(Q)),
+\]
+which restricts $X_1,\hdots,X_e$ to a finite number of values described by $Q$. Also let $P=P(X_1,\hdots,X_n)$ be a zero-dimensional parameterization for the set of control points $\mathscr{P}.$ 
+
+
+
+%Following the approach in \cite{SchostMohabBabySteps2011}, we consider pairs $[\bm f, Q]$, where $\bm f = (f_1, \dots, f_s)$ is a system of polynomials and $Q(X_1, \dots, X_e)$ defines a zero-dimensional parametrization. This notation is used to extend results such as Theorem 14 in \cite{SchostMohabBabySteps2011} to handle fibers of projections throughout the recursive iterations of the algorithm. 
+
+%Let $V = V(\bm f)$ and, following \cite{SchostMohabBabySteps2011}, define 
+%\[
+%V([\bm f, Q]) = V \cap \pi_e^{-1}%(\Zeroes(Q)).\] 
+
+To analyze fibers of projections throughout the recursion, following the original work in~\cite{SchostMohabBabySteps2011}, we introduce the following notation. For $\bm x = (x_1, \dots, x_e) \in \mathbb{C}^e$ and $1 \leq j \leq s$, define 
+\[
+f_{j,\bm x} = f_j(x_1, \dots, x_e, X_{e+1}, \dots, X_n)
+\]
+and 
+\[
+\bm f_x = (f_{1,\bm x}, \dots, f_{s,\bm x}). 
+\]
+The pair $[\bm f, Q]$ is said to satisfy $\bm H$ if, for all $\bm x \in \Zeroes(Q)$, the system $\bm f_x$ satisfies $\bm H$ in $\mathbb{C}[X_{e+1}, \dots, X_n]$. In particular, the variety $V([\bm f, Q])$ is equidimensional of dimension $n - e - s > 0$. Assuming $n-s \geq 2$ and fixing an integer $i \in \{2, \dots, n-s\}$, $[\bm f, Q]$ satisfies $\bm H'_i$ if, for all $\bm x \in \Zeroes(Q)$, the system $\bm f_x$ satisfies $\bm H'_i$ in $\mathbb{C}[X_{e+1}, \dots, X_n]$.
+
+
+
+\noindent 
+Recall that we use the Lagrangian modeling of polar varieties when obtaining our height estimates. 
+
+
+%
+Let $\pi_{e,i}$ denote the projection
+\begin{align*}
+\C^n~~~~~ &\rightarrow~~~~~ \C^i \\
+(x_1,\hdots,x_n) &\mapsto  (x_e,\hdots,x_i).    
+\end{align*} 
+
+\begin{remark}
+    Notice $\pi_i = \pi_{0,i}$. 
+\end{remark}
+
+Based on the approach from \cite{SchostMohabBabySteps2011} (and using notation introduced in Chapter \ref{chap:preliminaries}), we define 
+\begin{itemize}
+    \item $w_{i,Q} := w(\pi_{e,i},V[\bm f,Q]),$
+    \item $W_{i,Q} := \overline{w_{i,Q}},$ and
+    \item $\mathscr{W}_{\bm u,i,Q} := \mathscr{W}_{\bm u}(\pi_{e,i},V([\bm f,Q]))$
+    %\item $\mathcal{P}_Q = \mathcal{P} \cap \pi_e^{-1}(\Zeroes(Q));$
+\end{itemize}
+
+
+
+and define
+%
+\begin{itemize}
+    \item $\mathscr{C}_Q = K(\pi_{e,1}, V([\bm f,Q]))$, 
+    \item $\mathscr{C}_Q' = \pi_{e+i-1}(\mathscr{C}_Q)$
+    \item $\mathscr{C}_Q'' = V \cap \pi_{e+i-1}^{-1}(\mathscr{C}'_{Q'})$.
+\end{itemize}
+%
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Subroutines}
+
+Based directly on the notation and definitions from \cite{SchostMohabBabySteps2011}, we define the following subroutines. 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%5
+\paragraph*{Unions of parameterizations.}
+Consider zero-dimensional (resp. one-dimensional) parameterizations $Q$ and $Q'$ of zero-dimensional (resp. one-dimensional) algebraic sets. Then, \Union$(Q,Q'$) computes a parameterization of $\Zeroes(Q)\cup \Zeroes(Q')$.  
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph*{Polynomial system solving.}
+Let $\Solve(\bm f, Q, j)$ be the subroutine that return a parametrization of the $j$-dimensional component of $V([\bm f, Q])$, with $j \in \{0,1\}$.
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph*{Projections.}
+For $1 \leq r < k \leq n$, let {\Projection}($Q,[X_{r},\hdots,X_{k}]$) denote the subroutine that computes a parameterization $R(X_{r},\hdots,X_{k})$ with $\Zeroes(R) = \pi_{r,k}(\Zeroes(Q)).$
+
+
+%Recall from the introduction Proposition \ref{prop:Lag}:
+%\textit{Let $\bm f = (f_1,\hdots,f_p)$ be a sequence of polynomials in $\C[X_1,\hdots,X_n]^p$ and let $\bm u \in \C^{p}$ be chosen generically . Then, for $i \in \{1,\hdots,n-p+1\},$
+%\[
+%\pi_{\bm X}\left(\sW_{\bm u}(i,V(\bm f))\right) = W(i,V(\bm f)).
+%\]
+%}
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph*{Changes of variables.} 
+Consider polynomials $\bm f = (f_1,\hdots,f_s) \in \C[X_1,\hdots,X_n]^s$ and a matrix $\bm A \in \Z^{n \times n}.$ We let {\ChangeVariables}$(\bm A, \bm f)$ denote the subroutine that computes $\bm f^\mA.$ 
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph*{Fibers.}
+Consider zero-dimensional parameterizations $Q= Q(X_1,\hdots,X_e)$ and $P = P(X_1,\hdots,X_n)$. The subroutine {\Lift}$(P,Q)$ returns a zero-dimensional parameterization of the set \[\Zeroes(P) \cap \pi_e^{-1}(\Zeroes(Q)).\] 
+\noindent 
+Recall we let 
+%
+\begin{itemize}
+    \item $\mathscr{C}_Q = K(\pi_{e,1}, V([\bm f,Q]))$, 
+    \item $\mathscr{C}_Q' = \pi_{e+i-1}(\mathscr{C}_Q)$
+    \item $\mathscr{C}_Q'' = V \cap \pi_{e+i-1}^{-1}(\mathscr{C}'_{Q'})$.
+\end{itemize}
+%
+
+Consider polynomials $\bm f = (f_1,\hdots,f_s) \in \Q[X_1,\hdots,X_n]^s$ and a zero-dimensional parameterization $Q=Q(X_1,\hdots,X_e)$ satisfying $\bm H$ and $\bm H_i'$. Also consider a zero-dimensional parameterization $Q'(X_1,\hdots,X_{e+i-1})$ of $\mathscr{C}'_Q.$ The subroutine {\LiftW}($\bm f, Q'$) returns a zero-dimensional parameterization $R$ with 
+\[
+W_{i, Q} \cap \pi_{e+i-1}^{-1}(Z(Q')) \subset \Zeroes(R).
+\]
+%\color{black}
+
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph*{Critical set computations.} The roadmap subroutines compute a variety of critical sets. Again let $\bm f = (f_1,\hdots,f_s) \in \mathbb{Q}[X_1,\hdots,X_n]^s$ be a sequence of polynomials and $Q=Q(X_1,\hdots,X_e)$ be a zero-dimensional parameterization. 
+The subroutine {\CriticalCurve}($\bm f, Q$) returns a one-dimensional parameterization of $W_{2, Q}$, assuming $\bm f$ and $Q$ satisfy $\bm H$ and $\bm H_2'$. The subroutine {\requiredCriticalPoints}($\bm f,Q,i$) computes a zero-dimensional parameterization of the set 
+\[ 
+K(\pi_{e,1},W_{i,Q})
+\]
+\begin{remark}
+    In the baby steps / giant steps paper by Safey El Din and Schost~\cite{SchostMohabBabySteps2011}, $\requiredCriticalPoints(\bm f, Q)$ returns a parameterization of the set 
+    \[
+K(\pi_{e,1},V([\bm f,Q])) \cup 
+K(\pi_{e,1},W_{i,Q}).
+    \]
+    However, it was shown in \cite{prébet2024computingroadmapsunboundedsmooth} that computing $K(\pi_{e,1},W_{i,Q})$ alone is sufficient. 
+\end{remark}
+
+
+
+
+
+
+
+
+
+%\subsection{Canny roadmap}
+%\subsection{Main roadmap}
+
+
+
+\begin{comment}
+\subsection{Lagrange reformulations}
+\td{Comment about why you use Lagrange systems}
+\begin{itemize}
+    \item \td we use Lagrangian modeling to get the height estimates 
+\end{itemize}
+\td{Cite \cite{SchostMohabBabySteps2011} and explain these subroutines exist }
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%5
+%\paragraph*{Unions of parameterizations.}
+%Let $Q$ and $Q'$ be zero-dimensional (resp. one-dimensional) parameterizations of zero-dimensional (resp. one-dimensional) algebraic sets. Then, \Union$(Q,Q'$) computes a parameterization of $\Zeroes(Q)\cup \Zeroes(Q')$.  
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph*{Projections.}
+
+
+Recall from the introduction Proposition \ref{prop:Lag}:
+\textit{Let $\bm f = (f_1,\hdots,f_p)$ be a sequence of polynomials in $\C[X_1,\hdots,X_n]^p$ and let $\bm u \in \C^{p}$ be chosen generically . Then, for $i \in \{1,\hdots,n-s+1\},$
+\[
+\pi_{\bm X}\left(\sW_{\bm u}(i,V(\bm f))\right) = W(i,V(\bm f)).
+\]
+}
+
+\td{more detail?}
+
+
+\td{What is $\bm X$?}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\paragraph*{Changes of variables.} 
+%For a sequence of polynomials $\bm f = (f_1,\hdots,f_s) \in \C[X_1,\hdots,X_n]^s$ and a matrix $\bm A \in \Q^{n \times n},$ we let {\ChangeVariables}$(\bm A, \bm f)$ denote the subroutine that computes $\bm f^\mA$. 
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph*{Fibers.}
+Recall we have 
+\begin{itemize}
+    \item $\mathscr{P}_Q$ \td?
+    \item $\mathscr{C}_Q = K(\pi_{e,1}, V([\bm f,Q])) \cup K(\pi_{e,1}, W_{i,Q})$, 
+    \item $\mathscr{C}_Q' = \pi_{i-1}(\mathscr{C}_Q)$
+    \item $\mathscr{C}_Q'' = V \cap \pi_{i-1}^{-1}(\mathscr{C}'_{Q'})$.
+\end{itemize}
+
+We need to compute 
+\[
+\mathscr{C}_{Q}'' \cap W_{i,Q} = W_{i,Q} \cap \pi_{e+i-1}^{-1}(\Zeroes(Q'))
+\]
+where $\bm f$ and $Q$ satisfy $\bm H$ and $\bm H_i'$, and $Q'(X_1,\hdots,X_{e+i-1})$ is a zero dimensionaal parameterization of $\mathscr{C}_Q$. Theorem 19.5 in \cite{SchostMohabBabySteps2011} shows that 
+\[
+W_{i,Q} \cap \pi_{e+i-1}^{-1}(\Zeroes(Q')))
+\]
+is finite. 
+We let {\LiftWL}($\bm f, Q'$) denote the subroutine that returns a zero-dimensional parameterization of this set. 
+
+Since 
+\[
+\mathscr{W}_{\bm u, i, Q} \cap \pi_{e+i-1}^{-1}(Z(Q')) 
+=
+W_{i,Q} \cap \pi_{e+i-1}^{-1}(Z(Q')) 
+\]
+then we do not need the Lagrange version?
+
+\begin{itemize}
+    \item Problem because $Q'$ does not have Lagrange variables
+    Don't change subrouitine but say $W_{i,Q}$ has a Lagragian modeling
+\end{itemize}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph*{Critical set computations.}
+We let {\CriticalCurveL}($\bm f, Q$) be the subroutine that
+\begin{enumerate}
+    \item Computes a one-dimensional parameterization of 
+    \[
+    \mathscr{W}_{\bm u, 2, Q}
+    \]
+    \item Computes a parameterization of the projection
+    \[
+    W_{2, Q} = \Projection(\mathscr{W}_{\bm u, 2, Q},[X_1,\hdots,X_n]),
+    \]
+\end{enumerate}
+assuming that $\bm f$ and $Q$ satisfy $\bm H$ and $\bm H_2'$. 
+
+We let {\requiredCriticalPointsL}($\bm f,Q,i$) be the subroutine that 
+%
+\begin{enumerate}
+    \item computes a zero-dimensional parameterization $\mathscr{W}$ of the set \[\mathscr{W}_{\bm v}(\pi_{e,1},\mathscr{W}_{\bm u,i,Q})\]
+    \item returns 
+    \[W = \Projection(\mathscr{W}_{\bm v}(\pi_{e,1},\mathscr{W}_{\bm u,i,Q}),[X_1,\hdots,X_{n}])\]
+    which outputs a zero-dimensional parameterization $W$ of 
+    \[
+    W( 1,W_{i,Q})
+    \]
+    so that 
+    \[
+    \Zeroes(W) = W( 1,W_{i,Q}).
+    \]
+    \item Computes a zero-dimensional parameterization $L$ of the Largrange system
+    \[
+    f_1,\hdots,f_s,[\frak{L}_1,\hdots,\frak{L}_s]\cdot\jac(\bm f),\sum_{i=1}^{s}u_i\frak{L}_i-1
+    \]
+    for Lagrange multipliers $[\frak{L}_1,\hdots,\frak{L}_s]$ and $\bm u \in \mathbb{Z}^s$.
+    \item Computes the parameterization 
+    \[
+    L' = \Projection(L,[X_1,\hdots,X_{n-e}])
+    \]
+    so that 
+    \[
+    \Zeroes(L') = \sing(V([\bm f,Q]))
+    \]
+    \item Finally, the subroutine return 
+    \[
+    \Union(L',W)
+    \]
+\end{enumerate}
+%
+\td{Don't want 
+\[
+\sing(W_{i,Q})
+\]
+instead?}
+
+.
+
+
+\color{black}
+
+
+
+
+
+\end{comment}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph*{Roadmap subroutines.}\label{sec:Canny}
+Algorithm \ref{alg:CannyRoadmap} presents pseudocode of Canny's algorithm as given in \cite{SchostMohabBabySteps2011}, and   Algorithm \ref{alg:MainRoadmap} presents pseudocode of the main roadmap subroutine in \cite{SchostMohabBabySteps2011}. While letting the pseudocode be a guide, we analyze both subroutines, bounding the height of the output. 
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{algorithm}[tbh]
+    \DontPrintSemicolon
+	\LinesNumbered
+	\caption{Canny Roadmap}\label{alg:CannyRoadmap}
+
+    \KwIn{a sequence of polynomials $\bm f = (f_1,\hdots,f_s) \in \Q[X_1,\hdots,X_n]^s,$ and zero-dimensional parameterizations $Q=Q(X_1,\hdots,X_e)$ and  $P=P(X_1,\hdots,X_n)$}
+    \KwOut{a one-dimensional parameterization of a roadmap $\mathscr{R}$ of $(V([\bm f, Q]),\Zeroes(P))$}
+    \vspace*{1mm}
+    \hrule
+    \vspace*{1mm}
+    %\;
+    \If{$n-s-e = 1$}{
+        \Return ~\Solve($\bm f, Q,1$)
+    }
+    Let $\mA$ be a random matrix in $\GL(n,e)$\;
+    Let $\bm f \gets $\ChangeVariables$(\mA,\bm f$)\;
+    Let $P \gets $\ChangeVariables$(\mA,P$)\;
+    $P \gets $\Lift$(P,Q)$\;
+    %\tcp*{$\Zeroes(P) = \mathscr{P}_Q$}
+    $C \gets $\Union(\requiredCriticalPoints($\bm f,Q,2),P$)\;
+    %\tcp*{$\Zeroes(C) = \mathscr{C}_Q$}
+    $Q' \gets ${\Projection}$(C,[X_1,\dots,X_{e+1}])$ \;
+    %\tcp*{$\Zeroes(Q') = \mathscr{C}_Q'$}
+    $P' \gets $\Union(\LiftW($\bm f, Q'),P)$\;
+    %\tcp*{$\Zeroes(P')$ contains $(\mathscr{C}_Q'' \cap \mathscr{W}_{\bm u, 2, Q}) \cup \mathscr{P}_Q$}
+    \eIf{$C \not = -1$}{ 
+                    $\mathscr{R} \gets$ \CannyRoadmap($\bm f,Q',P')$\;
+                    %\tcp*{$V([\bm f,Q']) = \mathscr{C}_Q''$ and $e \gets e+1$}
+                   }{
+                    $\mathscr{R} \gets (-1)$\;
+                    %\tcp*{$\mathscr{C}=\emptyset$}
+                    }
+    $\mathscr{R}' \gets $\CriticalCurve($\bm f, Q$)\;
+    %\tcp*{$Z(\mathscr{R}') = \mathscr{W}_{\bm u,2,Q}$}
+    $\mathscr{R}'' \gets $\Union$(\mathscr{R},\mathscr{R}')$\;
+    
+%% result %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \Return {\ChangeVariables}($\mA^{-1},\mathscr{R}'')$
+%\end{multicols}
+\end{algorithm}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{comment}
+\begin{algorithm}[tbh]
+    \DontPrintSemicolon
+	\LinesNumbered
+	\caption{Main Roadmap}\label{alg:MainRoadmap}
+	
+	
+	\SetKwInOut{Input}{Input}
+	\SetKwInOut{Output}{Output}
+	\SetKw{Return}{Return}
+
+    \KwIn{a square-free polynomial $f \in \C[X_1,\hdots,X_n],$ zero-dimensional parameterizations $Q=Q(x_1,\hdots,x_e)$ and  $P$, and an integer $i = \lceil\sqrt{n} \rceil$}
+    \KwOut{Roadmap $\mathcal{R}$ of $V(f)\cap \pi_e^{-1}(Q)$}
+    \vspace*{1mm}
+    \hrule
+    \vspace*{1mm}
+    %\;
+    \uIf{$n-e \leq i$}{
+    \Return  {\CannyRoadmap}($f,Q)$\;
+    }
+    Let $\mA$ be a random matrix in $\GL(n,e)$\;
+    Let $f \gets ${\ChangeVariables}$(\mA,f$)\;
+    Let $P \gets ${\ChangeVariables}$(\mA,P$)\;
+    $P \gets $\Lift$(P,Q)$
+    \tcp*{$Z(P) = \mathscr{P}_Q$}
+    $C \gets $\Union(\requiredCriticalPoints($f,Q,\lceil\sqrt{n}\rceil),P$)
+    \tcp*{$Z(C) = \mathscr{C}_Q$}
+    $Q' \gets ${\Projection}$(Q,[X_1,\dots,X_{e+1}])$
+    \tcp*{$Z(Q') = \mathscr{C}_Q'$}  
+    $P' \gets $\Union(\LiftW($f, Q'),P)$
+    \tcp*{$Z(P')$ contains $(\mathscr{C}_Q'' \cap \mathscr{W}_{\bm u, 2, Q}) \cup \mathscr{P}_Q$}
+\eIf{$C \neq -1$}{ 
+    $R \gets \texttt{mainRoadmap}(f,Q',P',i)$\;
+    \tcp{$V([f,Q']) = \mathscr{C}_Q''$ and $k$ increases by $i= \lceil\sqrt{n} \rceil$}
+}{
+                    $R \gets (-1)$
+                    \tcp*{$\mathscr{C}=\emptyset$}
+                    }
+    $\Delta \gets\big[\frac{\partial f}{\partial x_i}~|~ i \in [e+\lceil\sqrt{n}\rceil+1,\hdots,n]\big] , \bm f \gets (f,\Delta)$\;
+    $R' \gets $\CannyRoadmap$(\bm f, Q,P')$
+    \tcp*{$V([\bm f, Q]) = \mathcal{W}_{\bm u,\lceil\sqrt{n}\rceil,Q}$}
+    $\mathcal{R}'' \gets $\Union$(\mathcal{R},\mathcal{R}')$\;
+%% result %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \Return {\ChangeVariables}($\mA^{-1},\mathcal{R}'')$
+%\end{multicols}
+\end{algorithm}
+\end{comment}
+
+
+
+
+
+
+
+
+\begin{algorithm}[tbh]
+    \DontPrintSemicolon
+	\LinesNumbered
+	\caption{Main Roadmap}\label{alg:MainRoadmap}
+	
+	
+	\SetKwInOut{Input}{Input}
+	\SetKwInOut{Output}{Output}
+	\SetKw{Return}{Return}
+
+    \KwIn{a square-free polynomial $f \in \Q[X_1,\hdots,X_n],$ zero-dimensional parameterizations $Q=Q(X_1,\hdots,X_e)$ and  $P=P(X_1,\hdots,X_n)$, and an integer $i = \lceil\sqrt{n} \rceil$}
+    \KwOut{a one-dimensional parameterization of a roadmap $\mathscr{R}$ of $(V([f, Q]),\Zeroes(P))$}
+    \vspace*{1mm}
+    \hrule
+    \vspace*{1mm}
+    %\;
+    \uIf{$n-e \leq i$}{
+    \Return  {\CannyRoadmap}($f,Q)$\;
+    }
+    Let $\mA$ be a random matrix in $\GL(n,e)$\;
+    Let $f \gets ${\ChangeVariables}$(\mA,f$)\;
+    Let $P \gets ${\ChangeVariables}$(\mA,P$)\;
+    $P \gets $\Lift$(P,Q)$\;
+    %\tcp*{$Z(P) = \mathscr{P}_Q$}
+    $C \gets $\Union(\requiredCriticalPointsL($f,Q,\lceil\sqrt{n}\rceil),P$)\;
+    %\tcp*{$Z(C) = \mathscr{C}_Q$}
+    $Q' \gets ${\Projection}$(Q,[X_1,\dots,X_{e+1}])$\;
+    %\tcp*{$Z(Q') = \mathscr{C}_Q'$}  
+    $P' \gets $\Union(\LiftWL($f, Q'),P)$\;
+    %\tcp*{$Z(P')$ contains $(\mathscr{C}_Q'' \cap \mathscr{W}_{\bm u, 2, Q}) \cup \mathscr{P}_Q$}
+\eIf{$C \neq -1$}{ 
+    $R \gets \MainRoadmap(f,Q',P',i)$\;
+    %\tcp{$V([f,Q']) = \mathscr{C}_Q''$ and $e$ increases by $i= \lceil\sqrt{n} \rceil$}
+}{
+                    $R \gets (-1)$
+     %               \tcp*{$\mathscr{C}=\emptyset$}
+                    }
+    $\Delta \gets\big[\frac{\partial f}{\partial x_i}~|~ i \in [e+\lceil\sqrt{n}\rceil+1,\hdots,n]\big] , \bm f \gets (f,\Delta)$\;
+    $R' \gets $\CannyRoadmapL$(\bm f, Q,P')$\;
+    %\tcp*{$V([\bm f, Q]) = \mathscr{W}_{\bm u,i,Q}$}
+    $\mathscr{R}'' \gets $\Union$(\mathscr{R},\mathscr{R}')$\;
+%% result %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \Return {\ChangeVariables}($\mA^{-1},\mathscr{R}'')$
+%\end{multicols}
+\end{algorithm}
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Proof of Theorem \ref{theorem:mainHeight}}
+To bound the height of the output of the roadmap subroutines, a straightforward application of the \textit{arithmetic B\'ezout theorem} (see \cite{SharpEstimatesForTheEffectiveN}) is insufficient. The problem arises from solving polynomial equations with a special shape. The variables are divided into two separate blocks, each subject to different constraints:
+\begin{itemize}
+    \item $X_1,\hdots,X_e$ with high degree and bit-size;
+    \item $X_{e+1},\hdots,X_n$ with low degree and bit-size. 
+\end{itemize}
+We use projective height techniques that involve the arithmetic Chow ring (see \cite{EN}) which precisely allow the two blocks to be handled separately.
+
+To apply these techniques, we use the Lagrangian modeling of polar varieties, as their equations form a complete intersection. 
+
+
+
+
+
+
+
+\begin{remark}
+    In what follows, $\log$ refers to the natural logarithm. 
+\end{remark}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Nested Lagrange systems}\label{sec:nestedPolarVs}
+Recall from Chapter \ref{chap:preliminaries}, for $\bm u \in \mathbb{Z}^s$ and $i \in \{1,\hdots,n-s+1\}$, we let $\Iil$ denote the polynomials 
+\[
+\left( \bm f, \lag(\bm f,i,(L_1,\hdots,L_s)), \sum_{i=1}^s u_iL_i-1\right) \in \mathbb{C}[X_1,\hdots,X_n,L_1,\hdots,L_s]^{s+n-i+1},
+\]
+and we let $\mathscr{W}_{\bm u}(\pi_i,V(\bm f))$ denote the Lagrange polar variety
+\[
+\mathscr{W}_{\bm u}(\pi_i,V(\bm f)) = V(\Iil)\subset \C^{n+s}.
+\]
+Recall again, from Proposition 3.1 in Chapter \ref{Chap:BitCompProblem1}, and the discussion above the statement of Proposition 3.1, for a {\em
+  generic} choice of $\bm u\in \mathbb{Z}^s$, the Zariski closure of the projection of
+the zero-set of $\mathscr{W}_{\bm u}(\pi_i, \bm f)$ on the $X_1,\dots,X_n$-space is the polar variety
+$W(\pi_i,V(\bm f))$.
+\begin{remark}
+    Note that $\Iil$ is a polynomial system with
+    \begin{itemize}
+        \item $s+n-i+1$ equations, and
+        \item $s+n$ unknowns. 
+    \end{itemize}
+\end{remark}
+%
+\noindent 
+Now, for $\bm v \in \mathbb{Z}^{s+n-i+1}$, consider the polar variety \[\mathscr{W}_{\bm v}(\pi_1,\mathscr{W}_{\bm u}(\pi_i,V(\bm f))) \subset \C^{2s+2n-i+1},\]
+defied by polynomials 
+\begin{align*}
+\mathscr{I}_{\bm v}(1,\mathscr{I}_{\bm u}(i,\bm f)) = \left(\mathscr{I}_{\bm u}(i,\bm f),\lag(\mathscr{I}_{\bm u}(i,\bm f),1,[L_1'\cdots L_{s+n-i+1}']),\sum_{i=1}^{s+n-i+1}v_iL_i' -1\right) 
+\end{align*}
+in 
+$\C[X_1,\hdots,X_n,L_1,\hdots,L_s,L_1,\hdots,L_{s+n-i+1}]$. 
+%
+By the discussion given previously regarding the Lagrangian modelling of polar varieties, but where this time we apply Proposition 3.1 from Chapter \ref{Chap:BitCompProblem1} twice, for generic choices of both $\bm u$ and $\bm v$,  the polar variety $W(\pi_1,W(\pi_i,V(\bm f)))$ is equal to the Zariski closure of the projection on the $X_1,\hdots,X_n$ variables of the algebraic set defined by the vanishing of equations $\mathscr{I}_{\bm v}(1,\mathscr{I}_{\bm u}(i,\bm f)).$
+
+%
+\begin{remark}
+    Note that $\mathscr{I}_{\bm v}(1,\mathscr{I}_{\bm u}(i,\bm f))$ is a polynomial system with
+    \begin{itemize}
+        \item $2(s+n)-i+1$ equations, and
+        \item $2(s+n)-i+1$ unknowns. 
+    \end{itemize}
+\end{remark}
+%
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph*{After fixing $e$ variables.}
+Once $e$ variables are fixed,
+\[
+\lag(\bm f,i,(L_1,\hdots,L_s)) = 
+[L_1,\hdots,L_s]\cdot\left[ 
+\begin{array}{ccc}
+\frac{\pa f_1}{\pa X_{i+1}}&\hdots& \frac{\pa f_1}{\pa X_{n}} \\
+\vdots& &\vdots\\
+\frac{\pa f_s}{\pa X_{i+1}}&\hdots& \frac{\pa f_s}{\pa X_{n}} 
+\end{array}
+\right]
+\]
+is further truncated to 
+\begin{align*}
+\lag([\bm f,Q],i,(L_1,\hdots,L_s)) := 
+[L_1,\hdots,L_s]\cdot
+\left[ 
+\begin{array}{ccc}
+\frac{\pa f_1}{\pa X_{e+i+1}}&\hdots& \frac{\pa f_1}{\pa X_{n}} \\
+\vdots& &\vdots\\
+\frac{\pa f_s}{\pa X_{e+i+1}}&\hdots& \frac{\pa f_p}{\pa X_{n}} 
+\end{array}
+\right]
+\end{align*}
+so that $\mathscr{W}_{\bm u,i,Q}$ is defined by the equations 
+\[
+\mathscr{I}_{\bm u}(i,[\bm f,Q]) := \left( \bm f, \lag([\bm f,Q],i,(L_1,\hdots,L_s)), \sum_{i=1}^s u_iL_i-1\right),
+\]
+in 
+\[
+\mathbb{C}[X_{e+1},\hdots,X_{n},L_1,\hdots,L_s]^{s+n-e-i+1}. 
+\]
+%
+\begin{remark}
+    Note that $\mathscr{I}_{\bm u}(i,[\bm f,Q])$ is a polynomial system with
+    \begin{itemize}
+        \item $s+n-e-i+1$ equations, and
+        \item $s+n-e$ unknowns. 
+    \end{itemize}
+\end{remark}
+%
+Now, for $\bm v \in \mathbb{Q}^{s+n-e-i+1}$, consider the polar variety \[\mathscr{W}_{\bm v}(\pi_{e,1},\mathscr{W}_{\bm u,i,Q}) \subset \C^{2s+2n-i+1},\]
+defied by polynomials 
+\begin{align*}
+&\mathscr{I}_{\bm v}(1,\mathscr{I}_{\bm u}(i,[\bm f,Q]))\\ 
+=~& 
+\left(\mathscr{I}_{\bm u}(i,[\bm f,Q]),\lag(\mathscr{I}_{\bm u}(i,[\bm f,Q]),1,[L_1'\cdots L_{s+n-e-i+1}']),\sum_{i=1}^{s+n-e-i+1}v_iL_i' -1\right) 
+\end{align*}
+in 
+$\C[X_{e+1},\hdots,X_{n},L_1,\hdots,L_{s},L_1,\hdots,L_{s+n-e-i+1}]$. 
+
+Again, by the discussion given previously  regarding the Lagrangian modelling of polar varieties, but where this time we apply Proposition 3.1 from \ref{Chap:BitCompProblem1} twice, if $\bm u$ and $\bm v$ are chosen generically, $W(1,W(i,V([\bm f,Q])))$ is equal to the Zariski closure of the projection on the $X_{e+1},\hdots,X_{n}$ variables of the algebraic set defined by the vanishing of equations $\mathscr{I}_{\bm v}(1,\mathscr{I}_{\bm u}(i,[\bm f,Q])).$ 
+%
+\begin{remark}
+    Note that $\mathscr{I}_{\bm v}(1,\mathscr{I}_{\bm u}(i,[\bm f,Q]))$ is a polynomial system with
+    \begin{itemize}
+        \item $2(s+n-e)-i+1$ equations, and
+        \item $2(s+n-e)-i+1$ unknowns. 
+    \end{itemize}
+\end{remark}
+%
+
+
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Canny roadmap: degree and canonical height}
+Please refer to Algorithm \ref{alg:CannyRoadmap} throughout this section. 
+
+
+Let $\bm f = (f_1,\hdots,f_s) \in \Q[X_1,\hdots,X_n]^s$ be a sequence of polynomials, with $\deg f_i \leq d,\htt(f_i) \leq h$, and let $Q = Q(X_1,\hdots,X_e)$ and $P = P(X_1,\hdots,X_n)$ be zero-dimensional parameterizations where
+\begin{itemize}
+    \item $d_{Q,i}, h_{Q,i},\hat{h}_{Q,i}$, and
+    \item $d_{P,i}, h_{P,i},\hat{h}_{P,i}$
+\end{itemize}
+are the degrees, heights, and canonical heights, respectively, of $\Zeroes(Q)$ and $\Zeroes(P),$ and
+where $i$ is the current level of recursion, running from $0$ to $n-e-s$. 
+
+
+Here we give degree and canonical height bounds for the roadmap computed in the subroutine $\CannyRoadmapL(\bm f, Q)$. In what follows we go through the steps of Algorithm \ref{alg:CannyRoadmap}, bounding degree and canonical height at each step.
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph*{Canny analysis.}
+
+\begin{itemize}
+    %%%%%%%%%%%%%%%%%%%%%%%%
+    %\item If $n-s-e=1$, return $\Solve(\bm f, Q, 1)$
+%    \td{Do I need to say what is the height of the output of \Solve?} 
+
+
+
+
+    %%%%%%%%%%%%%%%%%%%%%%%%
+    \item Let $\bm A \in \GL(n,e)$ be a random matrix with entries of height at most $h_{\mA}$, and assume the inverse of $\bm A$ has entries with height at most $h_{\bm A^{-1}}$.
+
+
+
+
+    %%%%%%%%%%%%%%%%%%%%%%%%
+    \item Apply the change of coordinates $\bm f= \ChangeVariables(\bm A, \bm f)$, and let 
+     \[
+     H = h + nh_{\bm A}.
+     \]
+     There are at most $n$ levels of recursion, and therefore multiplying by $n$ gives a bound on the accumulative cost of applying the change of coordinates at each level. 
+
+
+
+    \item Apply the change of coordinates $P = \ChangeVariables(\bm A, P)$. The degree will not change, but canonical height will increase.
+    %
+    \begin{prop}\label{prop:coordinateChange}
+        Canonical height increases by: \[\hat{h}_{P,i} \gets \hat{h}_{P,i}+n(12\log(2n+1)+h_{\mA})d_{P,i}.\]
+    \end{prop}
+    %   
+    \begin{proof}
+        First, given at most $n$ levels of recursion, multiplying by $n$ is sufficient for the accumulated cost of applying the change of coordinates. 
+        Second, consider the following three steps.
+        \begin{enumerate}
+            \item By \cite[Proposition 2.39(5)]{EN}, 
+            \[
+            \htt(P) \leq \hat{h}(P) + \frac{7}{2}\log(n+1)d_{P,i}.
+            \]
+            \item By \cite[Proposition 2.4]{SharpEstimatesForTheEffectiveN},
+            \[
+            \htt(P^{\bm A}) \leq h_{P,i} + (h_{\bm A} + 8\log(2n+1))d_{P,i}.
+            \]
+            \item Therefore, by \cite[Proposition 2.39(5)]{EN},
+            \begin{align*}
+            \hat{h}(P^{\bm A}) &\leq \frac{7}{2}\log(n+1)d_{P,i} + \htt(P^{\bm A})\\
+            &\leq \frac{7}{2}\log(n+1)d_{P,i} + \left(h_{P,i} + (h_{\bm A} + 8\log(2n+1))d_{P,i}\right)\\
+            &\leq \hat{h}_{P,i}+(12\log(2n+1)+h_{\mA})d_{P,i}.
+            \end{align*}
+        \end{enumerate}
+    \end{proof}
+
+
+    %%%%%%%%%%%%%%%%%%%%%%%%
+    \item Now, $P = \Lift(P, Q)$. Both degree and height will not change:
+\begin{itemize}
+    \item $d_{P,i} \gets d_{P,i}$
+    \item $\hat{h}_{P,i} \gets \hat{h}_{P,i}$.
+\end{itemize}
+Degree will not increase; intersection can only reduce a finite set. From \cite[Proposition 2.64]{EN} we see canonical height will also not increase.
+
+
+    %%%%%%%%%%%%%%%%%%%%%%%%
+    \item 
+Next, $C = \Union(\requiredCriticalPointsL(\bm f,Q(X_1,\hdots,X_e),2),P)$. 
+\newline 
+
+\begin{enumerate}
+    \item 
+
+Let $C$ first be the zero-dimensional parameterization returned by 
+\[
+C = \requiredCriticalPointsL(\bm f,Q(X_1,\hdots,X_e),2).
+\]
+
+
+$C$ is a zero-dimensional parameterization of 
+\[
+W(\pi_{e,1},W_{2,Q}) \cup \sing(W_{2,Q}).
+\]
+We therefore bound the degree and height of both 
+\begin{itemize}
+    \item $W(\pi_{e,1},W_{2,Q})$ and 
+    \item $\sing(W_{2,Q})$;
+\end{itemize}
+then, the sum of their respective degrees and heights gives the 
+degree and height of $C$.
+\begin{enumerate}
+    \item First we bound the degree and height of  $W(\pi_{e,1},W_{2,Q})$; we use the Lagrangian formulation of Polar varieties. Consider the Lagrangian polar variety
+\begin{equation}\label{LW1LW2}
+%
+\mathscr{W}_{\bm v}(\pi_{e,1},\mathscr{W}_{\bm u,2,Q}) \subset \C^{2(s+n-e)-1}.
+\end{equation}
+(Recall the Lagrangian modeling was introduced in Section \ref{chap:preliminaries}, and reviewed in Section \ref{sec:nestedPolarVs}.) 
+%
+After computing the partial derivatives in the Jacobian matrix, the height grows by at
+most another factor of $\log (d)$. In addition, we make generic choices for $\bm u$ and $\bm v$ and assume their heights are both bound by $h_{\bm u}$. Put 
+\[
+H := h + n(h_{\bm A} + h_{\bm u}  + \log(d)). 
+\]
+The degree of equations defining (\ref{LW1LW2}) are at most $d$ and height at most $H$.
+
+%
+Recall from Section \ref{sec:nestedPolarVs} that $\mathscr{W}_{\bm v}(\pi_{e,1},\mathscr{W}_{\bm u,2,Q})$ is defined by a polynomial system with
+    \begin{itemize}
+        \item $2(s+n-e)-1$ equations, and
+        \item $2(s+n-e)-1$ unknowns. 
+    \end{itemize}
+\noindent 
+Let 
+\[
+N := 2n+2s-2e-1 \leq 4n-2e-1 \leq 4n.
+\]
+\begin{remark}
+We assume $n \geq 2$
+\end{remark}
+By Property (2) from Section \ref{sec:CanonicalH}, in System (\ref{LW1LW2}), each equation defines a hypersurface whose class is, entrywise, at most  
+%
+\[
+(\log(N+1)d + H)\eta + d\theta.
+\]
+
+
+
+
+
+
+Let $S \subset \P_{\C}^e$ denote the projective closure of $Q(X_1,\hdots,X_e)$ so that $|S| \leq d_{Q,i}$ and canonical height of $S$ is at most $\hat{h}_{Q,i}$. 
+We obtain a cylinder containing the points $Q(X_1,\hdots,X_e)$ by taking the ruled join of $S$ and $\P_{\C}^{N-e-1}$, introducing additional variables to describe the cylinder. The ruled join in the bigger projective space is defined by the same equations defining $S$ but for a larger polynomial ring; it consists in the same equations defining $S$ in addition to new variables defining a cylinder. Consider the class of $S:$ 
+%
+\begin{equation}\label{eq:cylCanny}
+    [S]_{\ZZ} = \hat{h}_{Q,i}\eta \theta^{e-1} + d_{Q,i} \theta^e \in \mathbb{R}[\eta,\theta]/(\eta^2,\theta^{e+1}).
+\end{equation}
+%
+The ruled join of $S$ and $\P^{N-e-1}$ is the projectivve algebraic set \[S \# \P_{\C}^{N-e-1} \subset \P_{\C}^{e + (N-e-1) +1}
+=
+\P_{\C}^N,\] 
+which has degree 
+%
+\[
+\deg (S \# \P_{\C}^{N-e-1}) = \deg( S) \cdot \deg (\P_{\C}^{N-e-1})= d_{Q,i} \cdot 1 = d_{Q,i}.
+\] 
+%
+Note that $[ \P_{\C}^{N-e-1}]_{\ZZ}=1$ (see \cite[Proposition 1.10 (2)]{EN}). Therefore, the polynomial representing \[[S \# \P_{\C}^{N-e-1}]_{\ZZ}\] is equal to the polynomial representing $[S]_{\ZZ}$, and our cylinder containing $Q(X_1,\hdots,X_e)$ is represented by $[S]_{\ZZ}$.
+%
+%
+\begin{remark}
+    To apply the intersection theory tools from \ref{sec:CanonicalH}, we need to homogenize the equations first. Doing so will not increase degree or height. 
+\end{remark}
+%
+Now by Property (3) from Section \ref{sec:CanonicalH}, the intersection of $Q$ with the equations defining (\ref{LW1LW2}) give entriwise degree and canonical height bounds as follows:
+\begin{align*}
+    &[S]_{\ZZ}\cdot ((\log(N+1)d + H)\eta + d\theta)^{N} \\
+    &\equiv(\hat{h}_{Q,i}\eta \theta^{e-1} + d_{Q,i} \theta^e) \cdot \left( Nd^{N-1}((\log(N+1)d + H))\eta \theta^{N-1} + d^{N} \theta^{N}\right) \\
+    &\mod (\eta^2,\theta^{N+1})) \\
+    &\equiv \left(\hat{h}_{Q,i}d^{N} + d_{Q,i} Nd^{N-1}((\log(N+1)d + H))\right)\eta \theta^{(N+e)-1} + d_{Q,i} d^{N} \theta^{(N+e)} \\
+    &\mod (\eta^2,\theta^{(N+e)+1}),
+\end{align*}
+%
+so that  
+\begin{itemize}
+    \item $d_{C,i} \leq d_{Q,i}d^{N}$
+    \item $\hat{h}_{C,i} \leq (\hat{h}_{Q,i}d^{N} + d_{Q,i} Nd^{N}((\log(N+1)d + H))$.
+\end{itemize}
+%
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+\item 
+We also bound the height of the singular points $\sing(W_{2,Q})$. First note \[\sing(W_{2,Q}) \subset \sing(V([\bm f, Q])),\] and therefore we need only compute $\sing(V([\bm f, Q]))$; they have the following Lagrangian modeling:
+\begin{equation}\label{eqSingPointsCanny}
+    \bm f,[\frak{L}_1,\hdots,\frak{L}_s]\cdot\jac(\bm f,e),\sum_{i=1}^{s}u_i\frak{L}_i-1
+\end{equation}
+for a randomly chosen vector of integers $\bm  u \in \mathbb{Z}^{s}$ and new Lagrangian multipliers $[\frak{L}_1,\hdots,\frak{L}_s]$. This is an overdetermined system with
+%
+\begin{itemize}
+    \item $n-e+s-1$ equations
+    \item $n-e+s$ unknowns.
+\end{itemize}
+%
+To obtain the degree bound, we can apply \cite[Proposition 2.3]{Heintz1980} where $E_1$ is taken to be the cylinder above  $Q$ obtained by 
+\[
+Q \times \mathbb{A}^{N-e} \subset \mathbb{A}^{N} 
+\]
+
+
+and $E_2,\hdots,E_{N+1}$ correspond to the equations defining \ref{eqSingPointsCanny}; the degree is bounded by 
+\[
+d_{Q,i}d^N.
+\]
+Next, to obtain a bound on the height of the singular points, we apply \cite[Corollary 2.10]{SharpEstimatesForTheEffectiveN}. To set up the application of this Corollary, let
+\begin{itemize}
+    \item Let $V\subset \mathbb{A}^n$ be the affine part of \[S \# \mathbb{P}^{n-e-1} \subset \mathbb{P}^n,\] with degree equal to the degree of $S\# \mathbb{P}^{n-e-1}$ which is $d_{Q,i}$, and height (by Proposition 2.39(5) \cite{EN}):\[h_{Q,i} \leq \hat{h}_{Q,i} + \frac{7}{2}\log(n+1)d_{Q,i}.\]
+    \item Set $V' = V \times \mathbb{{A}}^s\subset \mathbb{A}^{n+s}$. The degree and height of $V'$ remain the same as the degree and height of $V$.
+\end{itemize}
+%
+It then follows by \cite[Corollary 2.10]{SharpEstimatesForTheEffectiveN} that 
+\begin{align*}
+&\htt(V' \cap V(\bm f,[\frak{L}_1,\hdots,\frak{L}_s]\cdot\jac(\bm f),\sum_{i=1}^{s}u_i\frak{L}_i-1)\\
+\leq& d^N\left((\hat{h}_{Q,i} + \frac{7}{2}\log(n+1)d_{Q,i}) + NHd_{Q,i} + N\log(N+1)d_{Q,i} \right)\\
+\leq& (\hat{h}_{Q,i}d^{N} + d_{Q,i} Nd^{N}((\log(N+1)d + H)).
+\end{align*}
+
+
+
+\
+
+
+Therefore after adding both respective degrees and heights we obtain:
+
+\begin{itemize}
+    \item $d_{C,i} \leq 2d_{Q,i}d^{N}$
+    \item $\hat{h}_{C,i} \leq 2(\hat{h}_{Q,i}d^{N} + d_{Q,i} Nd^{N-1}((\log(N+1)d + H))$.
+\end{itemize}
+
+
+
+\end{enumerate}
+
+
+
+
+
+\item Now we take the union $C = \Union(C,P)$:
+
+
+\end{enumerate}
+
+
+\begin{itemize}
+    \item $d_{C,i} \leq 2d_{Q,i}d^{N} + d_{P,i}$
+    \item $\hat{h}_{C,i} \leq 2\left(\hat{h}_{Q,i}d^{N} + d_{Q,i} Nd^{N-1}(\log(N+1)d + H)\right) \\+  (\hat{h}_{P,i}+n(12\log(2n+1)+h_{\mA})d_{P,i})$.
+\end{itemize}
+%
+
+
+
+
+
+
+\item We obtain $Q' = \Projection(C, [X_1, \hdots , X_{e+1}])$:
+%
+%
+\begin{itemize}
+    \item $d_{Q',i} \leq d_{C,i} \leq 2d_{Q,i}d^{N} + d_{P,i}$
+    \item $\hat{h}_{Q',i} \leq  \hat{h}_{C,i}$.
+\end{itemize}
+%
+
+
+
+\item We next obtain $P' = \Union ( \LiftWL(\bm f, Q'),P)$ where 
+\begin{enumerate}
+    \item 
+    
+    First, $L = \LiftWL(\bm f, Q')$ is a parameterization containing 
+        \[
+        W_{2, Q} \cap \pi_{e+2-1}^{-1}(\Zeroes(Q')) \subset \Zeroes(R).
+        \] 
+        %
+
+
+Again, we use the Lagrangian modeling to obtain degree and height bounds. Consider the Lagrangian polar variety
+%
+\begin{equation}\label{eq:LW2}
+\mathscr{W}_{\bm u,2,Q} \subset \mathbb{C}^{n-e+s}.
+\end{equation}
+%
+Recall there are \[M:=n+s-e+1 \leq 2n\] equations defining the Lagrange polar variety (\ref{eq:LW2}). 
+%
+
+        
+Let $S'$ denote the projective closure of $Q'$. We obtain a cylinder containing the points $Q'$ by taking the ruled join of $S'$ and $\P_{\C}^{M-e-1}$. Consider the class of $S':$ 
+%
+\begin{equation}\label{eq:cylCanny}
+    [S']_{\ZZ} = \hat{h}_{Q',i}\eta \theta^{e-1} + d_{Q',i} \theta^e \in \mathbb{R}[\eta,\theta]/(\eta^2,\theta^{e+1}).
+\end{equation}
+%
+The ruled join of $S'$ and $\P^{M-e-1}$ is the projective variety \[S' \# \P_{\C}^{M-e-1} \subset \P_{\C}^{e + (M-e-1) +1}
+=
+\P_{\C}^M,\] 
+which has degree 
+%
+\[
+\deg (S' \# \P_{\C}^{M-e-1}) = \deg( S') \cdot \deg (\P_{\C}^{M-e-1})= d_{Q',i} \cdot 1 = d_{Q',i}.
+\] 
+%
+%
+By Property (2) from \ref{sec:CanonicalH}, in System (\ref{eq:LW2}), each equation defines a hypersurface whose class is, entrywise, at most  
+%
+\[
+(\log(M+1)d + H)\eta + d\theta.
+\]
+%
+By Property (3) from \ref{sec:CanonicalH}, the intersection of $Q'$ with the equations defining (\ref{eq:LW2}) obtains entriwise height bounds as follows.   
+%
+\begin{align*}
+    &[S']_{\ZZ}\cdot ((\log(M+1)d + H)\eta + d\theta)^{M}
+    \\
+    &\equiv(\hat{h}_{Q',i}\eta \theta^{e-1} + d_{Q',i} \theta^e) \cdot \left( Md^{M-1}((\log(M+1)d + H))\eta \theta^{M-1} + d^{M} \theta^{M}\right) \\
+    &\mod (\eta^2,\theta^{M+1})) \\
+    &\equiv \left(\hat{h}_{Q',i}d^{M} + d_{Q',i} Md^{M-1}(\log(M+1)d + H)\right)\eta \theta^{(M+e)-1} + d_{Q',i} d^{M} \theta^{(M+e)} \\
+    &\mod (\eta^2,\theta^{(M+e)+1}),
+\end{align*}
+and therefore
+
+
+
+        %
+    \begin{itemize}
+        \item $d_{L,i} \leq d_{Q',i}d^{M}$
+        \item $\hat{h}_{L,i} \leq \left(\hat{h}_{Q',i}d^{M} + d_{Q',i} Md^{M-1}(\log(M+1)d + H)\right)$.
+    \end{itemize}
+        %
+
+    \item Now $P' = \Union ( \LiftWL(\bm f^{\mA}, Q'),P)$:
+        %
+        \begin{itemize}
+            \item $d_{P',i} \leq d_{L,i}+d_{P,i} \leq d_{Q',i}d^{M} + d_{P,i}$
+            \item $\hat{h}_{P',i} \leq \hat{h}_{L,i}+ (\hat{h}_{P,i}+(12\log(2n+1)+h_{\mA})d_{P,i}) \leq $
+            \[
+            \left(\hat{h}_{Q',i}d^{M} + d_{Q',i} Md^{M-1}(\log(M+1)d + H)\right) + (\hat{h}_{P,i}+n(12\log(2n+1)+h_{\mA})d_{P,i}).
+            \]
+        \end{itemize}
+        %
+
+    
+\end{enumerate}
+
+
+
+
+
+\item We now enter the recursive step with $R = \CannyRoadmapL(\bm f, Q', P')$ and obtain the following recurrences:
+%
+%\renewcommand{\labelenumi}{\arabic{enumi}.}
+\begin{itemize} % Forces Arabic numbering
+    \item $d_{Q,i+1} = d_{Q',i}\leq 2d_{Q,i}d^{4n} + d_{P,i}$
+    \item $\hat{h}_{Q,i+1} = \hat{h}_{Q',i}\leq \hat{h}_{C,i}\leq$
+    \[
+    2(\hat{h}_{Q,i}d^{4n} + d_{Q,i} (4n)d^{4n-1}(\log(4n+1)d) + H)) + (\hat{h}_{P,i}+n(12\log(2n+1)+h_{\mA})d_{P,i})  
+    \]
+    \item $d_{P,i+1} = d_{P',i} \leq d_{Q',i}d^{2n}+d_{P,i}\leq (2d_{Q,i}d^{4n} + d_{P,i})d^{2n}+d_{P,i}$
+    \[
+    \leq 2d_{Q,i}d^{4n+2n}+d_{P,i}d^{2n}+d_{P,i}
+    \]
+    \item $\hat{h}_{P,i+1} = \hat{h}_{P',i}\leq \hat{h}_{L,i}+(\hat{h}_{P,i}+n(12\log(2n+1)+h_{\mA})d_{P,i})$
+    \[
+    \leq \left(\hat{h}_{Q',i}d^{2n} + d_{Q',i} (2n)d^{2n-1}(\log(2n+1)d + H)\right)
+    +(\hat{h}_{P,i}+n(12\log(2n+1)+h_{\mA})d_{P,i}).  
+    \]
+\end{itemize}
+To solve the recurrence for the degree, assume $d_{i}\geq \max\{d_{Q,i},d_{P,i}\}$, and then notice
+%
+\begin{align*}
+    d_{Q,i+1} &\leq d_{P,i+1}\\
+    &\leq 2d_{Q,i}d^{6n}+d_{P,i}d^{2n}+d_{P,i}\\
+&\leq d_i(2d^{6n} + d^{2n} + 1)\\
+&= d_iK
+\end{align*}
+%
+where we define  $K = (2d^{6n}+d^{2n}+1)$. Now, setting 
+\[
+d_0 = \max\{d_{Q,0},d_{P,0}\}
+\]
+and
+\[
+d_{i+1} = d_iK,
+\]
+it follows that 
+\begin{itemize}
+    \item $d_{Q,i+1} \leq d_{i+1}$
+    \item $d_{P,i+1} \leq d_{i+1},$
+\end{itemize}
+and therefore
+\[
+d_i = d_0K^i.
+\]
+
+
+
+
+
+
+
+
+
+
+
+
+%\color{red}
+%\begin{itemize}
+    %\item Delete red $K_4$
+    %\item Change $K_4$ to $K_3$
+%\end{itemize}
+%\color{black}
+Now, to solve the recurrence for the height, assume $\hat{h}_i \geq \max\{\hat{h}_{Q,i},\hat{h}_{P,i}\}$, 
+define
+\begin{itemize}
+    \item $K_1 = (\log(4n+1)d+H)(4n)$
+    \item $K_2 = n(12\log(2n+1)+h_{\mA})$
+    %\item $K_3 = (\log(2n+1)d+H)(2n) \leq K_1$
+    %\item \color{red}$K_4 = d_0(K_1+K_2+2K_3)$\color{black}
+    %\item $K_3 = d_0(2K_1+2K_2)$
+    \item $K_3 = 2(2K_1+K_2)$,
+\end{itemize}
+%\begin{itemize}
+%    \item $\hat{h}_{Q,i} \leq \hat{h}_i$
+%    \item $\hat{h}_{P,i} \leq \hat{h}_i$,
+%\end{itemize}
+%
+and notice
+\begin{itemize}
+    \item $\hat{h}_{Q,i+1} = \hat{h}_{Q',i}\leq \hat{h}_{C,i}\leq$
+    \begin{align*}
+    &2(\hat{h}_{Q,i}d^{4n} + d_{Q,i} (4n)d^{4n-1}(\log(4n+1)d + H)) + (\hat{h}_{P,i}+n(12\log(2n+1)+h_{\mA})d_{P,i})\\
+    \leq& 
+    2\hat{h}_{Q,i}d^{4n} + d_0K^i(2K_1+K_2)d^{4n}+\hat{h}_{P,i}
+    \end{align*}
+    \item $\hat{h}_{P,i+1} = \hat{h}_{P',i}\leq \hat{h}_{L,i}+(\hat{h}_{P,i}+(12\log(2n+1)+h_{\mA})d_{P,i})$
+    \begin{align*}
+    \leq & \left(\hat{h}_{Q',i}d^{2n} + d_{Q',i} (2n)d^{2n}(\log(2n+1)d + H)\right)
+    +(\hat{h}_{P,i}+n(12\log(2n+1)+h_{\mA})d_{P,i})  
+    \\
+    \leq & \hat{h}_{Q',i}d^{2n} + d_{Q',i} d^{2n}K_1
+    +\hat{h}_{P,i}+K_2d_{P,i}
+    \\
+    \leq & (2\hat{h}_{Q,i}d^{4n} + d_0K^i(2K_1+K_2)d^{4n}+\hat{h}_{P,i})d^{2n} + (d_0K^{i+1}) d^{2n}K_1
+    +\hat{h}_{P,i}+K_2d_{P,i}\\
+    \leq & 2\hat{h}_{Q,i}d^{6n} + d_0K^i(2K_1+K_2)d^{6n}+\hat{h}_{P,i}d^{2n} + (d_0K^{i+1})d^{2n}K_1
+    +\hat{h}_{P,i}+K_2(d_0K^i)
+    \\
+    \leq & (2\hat{h}_{Q,i}d^{6n} + \hat{h}_{P,i}d^{2n}+ \hat{h}_{P,i})\\
+    &+ d_0K^i(2K_1+K_2)d^{6n}+ (d_0K^{i+1})d^{2n}K_1
+    +K_2(d_0K^i)
+    \\
+    \leq & (2\hat{h}_{Q,i}d^{6n} + \hat{h}_{P,i}d^{2n}+ \hat{h}_{P,i})\\
+    &+ d^{6n}(d_0K^i(2K_1+K_2)+ (d_0K^{i+1})K_1+K_2(d_0K^i))
+    \\
+    \leq & (2\hat{h}_{Q,i}d^{6n} + \hat{h}_{P,i}d^{2n}+ \hat{h}_{P,i})\\
+    &+ d^{6n}(d_0K^{i+1}(2K_1+K_2)+ (d_0K^{i+1})K_1+K_2(d_0K^{i+1}))\\
+    \leq & \hat{h}_iK + d^{6n}(d_0K^{i+1})(4K_1+2K_2)\\
+    \leq & \hat{h}_iK + (d_0K^{i+2})(4K_1+2K_2)\\
+    = & \hat{h}_iK + (d_0K^{i+2})K_3.
+    %\\
+    %\color{red}\leq &\hat{h}_{Q',i}d^{6n}+ \hat{h}_{P,i}d^{2n} +\hat{h}_{P,i} \\
+    %&+ d^{6n}d_{0}K^iK_1+d^{2n}(d_0K^{i+1})(K_2+2K_3)  
+    %\color{black}
+    \end{align*}
+\end{itemize}
+%
+Setting
+\[
+\hat{h}_0 = \max\{\hat{h}_{Q,0},\hat{h}_{P,0}\}
+\]
+%
+and
+%
+\begin{align*}
+\hat{h}_{i+1} := &\hat{h}_iK + d_0K^{i+2}K_3 
+= K(\hat{h}_i + d_0K^{i+1}K_3),
+\end{align*}
+%
+it follows that
+\begin{itemize}
+    \item $\hat{h}_{Q,i+1} \leq \hat{h}_{i+1}$
+    \item $\hat{h}_{P,i+1} \leq \hat{h}_{i+1}$
+\end{itemize}
+and 
+\[
+\hat{h}_i = K^{i+1}d_0K_3i+h_0K^i. 
+\]
+
+
+
+
+
+
+\item Now we compute $R' = \CriticalCurve(\bm f,Q)$. Then, by Property (3) in Section \ref{sec:CanonicalH}, the intersection of $Q$ with the equations defining (\ref{eq:LW2}) obtain entriwise degree and canonical height bounds as follows. 
+%
+\begin{align*}
+    &[S]_{\ZZ}\cdot ((\log(M+1)d + H)\eta + d\theta)^{M}
+    \\
+    &\equiv \left(\hat{h}_{Q,i}d^{M} + d_{Q,i} Md^{M-1}(\log(M+1)d + H)\right)\eta \theta^{(M+e)-1} + d_{Q,i} d^{M} \theta^{(M+i)} \\
+    &\mod (\eta^2,\theta^{(M+e)+1}),
+\end{align*}
+%
+and therefore 
+\begin{itemize}
+    \item $d_{R',i} \leq d_{Q,i}d^{M} \leq d_id^{2n} = d_0K^id^{2n} \leq d_0K^{i+1}$
+    \item $\hat{h}_{R',i} \leq $
+    \begin{align*}
+    & \hat{h}_{Q,i}d^{M} + d_{Q,i}Md^{M-1}(\log(M+1)d+H)  \\
+    \leq & \hat{h}_{i}d^{M} + d_{i}d^{M-1}K_1 \\
+    \leq & (K^{i+1}d_0K_3i+\hat{h}_0K^i)d^{2n} + (d_0K^i)K_1d^{2n}\\
+    \leq & K^{i+2}d_0K_3i+\hat{h}_0K^{i+1} + d_0K^{i+1}K_1d^{2n}\\
+    =&K^{i+2}d_0K_3i + K^{i+1}(\hat{h}_0+d_0K_1d^{2n}).
+    %\\
+    %\leq & 
+    %K^{i+2}(K_4i+d_0K_3) + h_0K^{i +1}.
+    \end{align*}
+\end{itemize}
+%   
+
+
+
+
+\item Now $R'' = \Union(R,R')$, and the degree and height of $R''$ increase by at most a factor of the depth $i$:
+\begin{itemize}
+    \item $d_{R'',i} \leq i d_{R',i} \leq$ 
+    \[
+    id_0K^{i+1}
+    \]
+    \item $\hat{h}_{R'',i} \leq i \hat{h}_{R',i} \leq$
+    \[
+    i\left(K^{i+2}d_0K_3i + K^{i+1}(\hat{h}_0+d_0K_1d^{2n})\right).
+    \]
+\end{itemize}
+
+
+
+
+
+\item In the last step we invert the change of coordinates: $\ChangeVariables(\mA^{-1},R'').$ 
+\newline 
+Degree does not change; height increases: 
+\begin{itemize}
+        \item $d_{R'',i} \leq d_{R'',i}$  
+        \item $\hat{h}_{R'',i} \gets \hat{h}_{R'',i}+(15\log(2n+1)+h_{\mA^{-1}})d_{R'',i}$.
+\end{itemize}
+%
+The proof for the bound on the height follows the same logic as Proposition \ref{prop:coordinateChange}. We define 
+\[
+K_4 = (15\log(2n+1)+h_{\mA^{-1}}).
+\]
+%
+\end{itemize}
+
+
+
+
+
+
+
+Noting that at step 1 of  $\CannyRoadmap$ (Algorithm \ref{alg:CannyRoadmap}), the algorithm halts when $n-s-e=1$, we have proven the following proposition. 
+\begin{prop}\label{prop:CannyComplexity}
+    Given a sequence of polynomials $\bm f = (f_1,\hdots,f_s) \in \mathbb{Q}[X_1,\hdots,X_n]^s$ of degree $d$ and height $h$, and zero-dimensional parameterizations $Q(X_1,\hdots,X_e)$  and $P(X_1,\hdots,X_n)$ with degree and canonical height at most $d_0$ and $\hat{h}_0,$ the output of $\CannyRoadmapL$ on input $(\bm f, Q, P)$ is a roadmap $R$ with degree and canonical height at most
+    \begin{itemize}
+        \item $d_{R} \leq nd_0K^{(n-s-e)+1}$
+        \item $\hat{h}_R \leq n(K^{n-s-e+2}d_0K_3n + K^{n-s-e+1}(\hat{h}_0+d_0K_1d^{2n})+K_4d_0K^{n-s-e+1})$
+    \end{itemize} 
+    where 
+    \begin{itemize}
+    \item $K = 2d^{6n} + d^{2n} + 1$
+    \item $K_1 = (\log(4n+1)d+H)(4n)$
+    \item $K_2 = n(12\log(2n+1)+h_{\mA})$
+    \item $K_3 = 2(2K_1+K_2)$
+    \item $K_4 = (15\log(2n+1)+h_{\mA^{-1}})$
+    \item $H = h + n(h_{\bm A} + h_{\bm v} + \log(d)).$
+\end{itemize}
+\end{prop}
+
+
+
+\begin{remark}
+When \CannyRoadmap~ is called by \MainRoadmap~ then the depth is equal to
+    \[
+    n-s-e=n-(n-e-\sqrt{n})-e = \sqrt{n}.
+    \]
+\end{remark}
+
+
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Main roadmap: degree and canonical height}
+Please refer to Algorithm \ref{alg:MainRoadmap} throughout this section. 
+
+
+Let $f \in \Q[X_1,\hdots,X_n]$ be a squarefree polynomial with $\deg f \leq d,\htt(f) \leq h$, and let $Q = Q(X_1,\hdots,X_e)$ and $P = P(X_1,\hdots,X_n)$ be zero-dimensional parameterizations where
+\begin{itemize}
+    \item $\frak{d}_{Q,j}, \frak{h}_{Q,j},\hat{\frak{h}}_{Q,j}$, and 
+    \item $\fd_{P,j}, \fh_{P,j},\hat{\frak{h}}_{P,j}$
+\end{itemize}
+are the degrees, heights, and canonical heights, respectively, of $\Zeroes(Q)$ and $\Zeroes(P),$ and
+where $j$ is the current level of recursion, running from $0$ to $\sqrt{n}$. As $j$ increases by $1$ the number of steps increases by $\lceil\sqrt{n}\rceil$. Therefore after roughly $\sqrt{n}$ steps, $\sqrt{n}\cdot\sqrt{n}=n$ is achieved. 
+
+
+Here we give degree and canonical height bounds for the roadmap computed in the subroutine $\MainRoadmap(f, Q)$. In what follows we go through the steps of Algorithm \ref{alg:MainRoadmap}, bounding degree and canonical height at each step.
+
+The analysis is very similar to the one for Canny. To avoid unnecessary repitition, some of the claims will be stated without justification. 
+
+ 
+
+\paragraph*{Main analysis.}
+%%%%%%%%%%%
+\begin{itemize}
+    %\item If $n-e \leq \lceil \sqrt{n} \rceil$ then return $\CannyRoadmapL(f,Q)$
+
+    
+    %%%%%%%%%%%%%%%%%%%%%%%%
+    \item Let $\bm A \in \GL(n,e)$ be a random matrix with the same height bounds $h_{\mA}$, and $h_{\bm A^{-1}}$.
+    
+    %%%%%%%%%%%%%%%%%%%%%%%%
+    \item $f= \ChangeVariables(\bm A, f)$, $H = h + nh_{\bm A}.$
+    
+     \item $P = \ChangeVariables(\bm A, P)$:
+        \begin{itemize}
+        \item $\fd_{P,j} \gets \fd_{P,j}$
+        \item $\hat{\fh}_{P,j} \gets \hat{\fh}_{P,j}+(12\log(2n+1)+h_{\mA})\fd_{P,j}$.
+        \end{itemize}
+
+        %%%%%%%%%%%%%%%%%%%%%%%%
+        \item $P = \Lift(P, Q)$: 
+    \begin{itemize}
+        \item $\fd_{P,j} \gets \fd_{P,j}$
+        \item $\hat{\fh}_{P,j} \gets \hat{\fh}_{P,j}$. 
+    \end{itemize}
+
+
+
+
+
+
+    
+    %%%%%%%%%%%%%%%%%%%%%%%%
+    \item 
+$C = \Union(\requiredCriticalPointsL(f,Q(X_1,\hdots,X_e),\lceil \sqrt{n} \rceil ),P)$. 
+\newline
+
+
+\begin{enumerate}
+    \item First, $C = \requiredCriticalPointsL( f,Q(X_1,\hdots,X_e),\lceil \sqrt{n} \rceil )$, where $C$ is a zero-dimensional parameterization of \[W(\pi_{e,1},W_{\lceil \sqrt{n} \rceil ,Q}) 
+\cup 
+\sing(W_{\lceil \sqrt{n} \rceil ,Q}).
+\]
+We therefore bound the degree and height of both 
+\begin{itemize}
+    \item 
+    $W(\pi_{e,1},W_{\lceil \sqrt{n} \rceil ,Q})$ and 
+    \item $\sing(W_{\lceil \sqrt{n} \rceil ,Q})$;
+\end{itemize}
+then, the sum of their respective degrees and heights gives the 
+degree and height of $C$.
+
+\begin{enumerate}
+    \item 
+
+First we bound the degree and height of  $W(\pi_{e,1},W_{\lceil \sqrt{n} \rceil ,Q})$. We again use the Lagrangian formulation. 
+\begin{equation}\label{eqMainLW2Wi}
+\mathscr{W}_{\bm v}(\pi_{e,1},\mathscr{W}_{\bm u,\lceil \sqrt{n} \rceil ,Q}) \subset \C^{2(1+n-e)-\lceil \sqrt{n} \rceil +1}.
+\end{equation}
+
+
+As with Canny, take 
+\[
+H = h + n(h_{\bm A} + h_{\bm u} + \log(d)). 
+\]
+%
+\begin{itemize} 
+    \item
+    The degree of equations defining (\ref{eqMainLW2Wi}) are at most  $d$; and
+    \item the height of equations defining (\ref{eqMainLW2Wi}) are at most $H$. 
+\end{itemize}
+%
+
+
+%
+Recall from Section \ref{sec:nestedPolarVs} that $\mathscr{W}_{\bm v}(\pi_{e,1},\mathscr{W}_{\bm u,\lceil \sqrt{n} \rceil ,Q})$ is defined by a polynomial system with
+    \begin{itemize}
+        \item $2(1+n-e)-\lceil \sqrt{n} \rceil +1$ equations, and
+        \item $2(1+n-e)-\lceil \sqrt{n} \rceil +1$ unknowns. 
+    \end{itemize}
+
+
+
+    
+\noindent 
+Let 
+\[
+\mathscr{N} := 2n+2-2e-\lceil \sqrt{n} \rceil+1 \leq 2n+2-2e \leq 4n
+\]
+In System (\ref{eqMainLW2Wi}), by Property (2) in Section \ref{sec:CanonicalH}, each equation defines a hypersurface whose class is, entrywise, at most  
+\[
+(\log(\mathscr{N}+1)d + H)\eta + d\theta.
+\]
+
+
+
+
+
+
+As with Canny, we obtain a cylinder containing the points $Q(X_1,\hdots,X_e)$ by taking the ruled join of $S$ and $\P_{\C}^{\mathscr{N}-e-1}$, introducing additional variables to describe the cylinder. The ruled join of $[S]_{\ZZ}$ and $[\P^{\mathscr{N}-e-1}]_{\ZZ}$ is the projective variety 
+\[
+S \# \P_{\C}^{\mathscr{N}-e-1} \subset \P_{\C}^{e + (\mathscr{N}-e-1) +1}
+=
+\P_{\C}^\mathscr{N},
+\] 
+which has degree 
+\[
+\deg (S \# \P_{\C}^{\mathscr{N}-e-1}) = \deg( S) \cdot \deg (\P_{\C}^{n-e-1})= \fd_{Q,j} \cdot 1 = \fd_{Q,j}.
+\] 
+
+Consider the class of $S:$ 
+\begin{align*}
+    [S]_{\ZZ} = \hat{\fh}_{Q,j}\eta \theta^{e-1} + \fd_{Q,j} \theta^e \in \mathbb{R}[\eta,\theta]/(\eta^2,\theta^{e+1}).
+\end{align*}
+%\label{eq:cylCanny}
+%
+
+The polynomial representing \[[S \# \P_{\C}^{\mathscr{N}-e-1}]_{\ZZ}\] is equal to the polynomial representing $[S]_{\ZZ}$, so that our cylinder containing $Q(X_1,\hdots,X_e)$ is represented by $[S]_{\ZZ}$.
+%
+
+
+
+
+
+
+Now by Property (3) from Section \ref{sec:CanonicalH}, the intersection of $Q$ with the equations defining (\ref{eqMainLW2Wi}) obtain 
+%
+\begin{align*}
+    &[S]_{\ZZ}\cdot ((\log(\mathscr{N}+1)d + H)\eta + d\theta)^{\mathscr{N} } \\
+    &\equiv(\hat{\fh}_{Q,j}\eta \theta^{e-1} + \fd_{Q,j} \theta^e) \cdot \left( \mathscr{N}d^{\mathscr{N}-1}((\log(\mathscr{N}+1)d + H))\eta \theta^{\mathscr{N}-1} + d^{\mathscr{N}} \theta^{\mathscr{N}}\right) \\
+    &\mod (\eta^2,\theta^{\mathscr{N}+1})) \\
+    &\equiv \left(\hat{\fh}_{Q,j}d^{\mathscr{N}} + \fd_{Q,j} \mathscr{N}d^{\mathscr{N}-1}((\log(\mathscr{N}+1)d + H))\right)\eta \theta^{(\mathscr{N}+e)-1} + \fd_{Q,j} d^{\mathscr{N}} \theta^{(\mathscr{N}+e)} \\
+    &\mod (\eta^2,\theta^{(\mathscr{N}+e)+1}).
+\end{align*}
+\item The singular points have the following Lagrangian formulation:
+%
+    \begin{equation}    
+    f,\frak{L}\cdot \nabla_{(X_{e+1},\hdots,X_n)} f,u\frak{L}-1
+    \end{equation}
+%
+    with $\frak{L}$ a Lagrange variable and $u$ a non-zero integer.
+
+    The degree and canonical height of the singular points are obtained in the same way as was done in the Canny Analysis. After adding with the degree and canonical height of the critical points we obtain: 
+%
+\end{enumerate}
+%
+\begin{itemize}
+    \item $\fd_{C,j} \leq 2\fd_{Q,j}d^{\mathscr{N}}$
+    \item $\hat{\fh}_{C,j} \leq 2(\hat{\fh}_{Q,j}d^{\mathscr{N}} + \fd_{Q,j} \mathscr{N}d^{\mathscr{N}-1}((\log(\mathscr{N}+1)d + H)$).
+\end{itemize}
+%
+
+\item Now, $C = \Union(C,P):$
+\begin{itemize}
+    \item $\fd_{C,j} \leq 2\fd_{Q,j}d^{\mathscr{N}} + \fd_{P,j}$
+    \item $\hat{\fh}_{C,j} \leq 2\left(\hat{\fh}_{Q,j}d^{\mathscr{N}} + \fd_{Q,j} \mathscr{N}d^{\mathscr{N}-1}(\log(\mathscr{N}+1)d + H)\right) \\+  (\hat{\fh}_{P,j}+n(12\log(2n+1)+h_{\mA})\fd_{P,j})$
+\end{itemize}
+%
+\end{enumerate}
+
+
+
+
+
+
+
+\item $Q' = \Projection(C, [X_1, \hdots , X_{e+\lceil \sqrt{n} \rceil+1}])$:
+%
+%
+\begin{itemize}
+    \item $\fd_{Q',j} \leq \fd_{C,j} \leq 2\fd_{Q,j}d^{\mathscr{N}} + \fd_{P,j}$
+    \item $\hat{\fh}_{Q',j} \leq  \hat{\fh}_{C,j}$.
+\end{itemize}
+%
+
+\item $P' = \Union(\LiftWL(f^{\mA},Q'),P)$: 
+\begin{enumerate}
+    \item First, $L = \LiftWL(f^{\mA},Q')$ is a parameterization containing 
+        \[
+        W_{\lceil \sqrt{n} \rceil , Q} \cap \pi_{e+\lceil \sqrt{n} \rceil -1}^{-1}(Z(Q')) \subset \Zeroes(R).
+        \] 
+        %
+
+        
+%
+Recall that there are 
+\[
+\mathscr{M}:=n+1-e+1 \leq 2n
+\]
+
+equations defining 
+%
+\begin{equation}\label{eq:LW2m}
+\mathscr{W}_{\bm u,\lceil \sqrt{n} \rceil,Q} \subset \mathbb{C}^{n-e+1}.
+\end{equation}
+%
+
+
+
+
+
+Let $S'$ denote the projective closure of $Q'$. We obtain a cylinder containing the points $Q'$ by taking the ruled join of $S'$ and $\P_{\C}^{\mathscr{M}-e-1}$. Consider the class of $S':$ 
+%
+\begin{equation}\label{eq:cylCannym}
+    [S']_{\ZZ} = \hat{\fh}_{Q',e}\eta \theta^{e-1} + \fd_{Q',e} \theta^e \in \mathbb{R}[\eta,\theta]/(\eta^2,\theta^{e+1}).
+\end{equation}
+%
+The ruled join of $[S']_{\ZZ}$ and $[\P^{\mathscr{M}-e-1}]_{\ZZ}$ is the projective variety \[S' \# \P_{\C}^{\mathscr{M}-e-1} \subset \P_{\C}^{e + (\mathscr{M}-e-1) +1}
+=
+\P_{\C}^\mathscr{M},\] 
+which has degree 
+\[
+\deg (S' \# \P_{\C}^{\mathscr{M}-e-1}) = \deg( S') \cdot \deg (\P_{\C}^{\mathscr{M}-e-1})= \fd_{Q',e} \cdot 1 = \fd_{Q',e}.
+\] 
+
+
+
+By Property (2), Section \ref{sec:CanonicalH}, the equations in System (\ref{eq:LW2}) each define a hypersurface whose class is, entrywise, at most  
+%
+\[
+((\log(\mathscr{M}+1)d + H)\eta + d\theta.
+\]
+%
+By Property (3), Section \ref{sec:CanonicalH}, the intersection of $Q'$ with the equations in (\ref{eq:LW2m}) obtains
+%
+\begin{align*}
+    &[S']_{\ZZ}\cdot ((\log(\mathscr{M}+1)d + H)\eta + d\theta)^{\mathscr{M}}
+    \\
+    &\equiv(\hat{\fh}_{Q',j}\eta \theta^{e-1} + \fd_{Q',j} \theta^e) \cdot \left( \mathscr{M}d^{\mathscr{M}-1}((\log(\mathscr{M}+1)d + H))\eta \theta^{\mathscr{M}-1} + d^{\mathscr{M}} \theta^{\mathscr{M}}\right) \\
+    &\mod (\eta^2,\theta^{\mathscr{M}+1})) \\
+    &\equiv \left(\hat{\fh}_{Q',j}d^{\mathscr{M}} + \fd_{Q',j} \mathscr{M}d^{\mathscr{M}-1}(\log(\mathscr{M}+1)d + H)\right)\eta \theta^{(\mathscr{M}+e)-1} + \fd_{Q',j} d^{\mathscr{M}} \theta^{(M+e)} \\
+    &\mod (\eta^2,\theta^{(M+e)+1}).
+\end{align*}
+%
+        %
+    \begin{itemize}
+        \item $\fd_{L,j} \leq \fd_{Q',j}d^{M}$
+        \item $\hat{\fh}_{L,j} \leq \left(\hat{\fh}_{Q',j}d^{M} + \fd_{Q',j} Md^{M-1}(\log(M+1)d + H)\right)$
+    \end{itemize}
+   
+
+
+
+
+
+
+
+
+
+
+    
+    \item Now $P' = \Union(L,P)$:
+    \begin{itemize}
+        \item $\fd_{P',j} \leq \fd_{Q',j} d^\mathscr{M} + \fd_{P,j}$
+        \item $\hat{\fh}_{P',j} \leq \left(\hat{\fh}_{Q',j}d^{\mathscr{M}} + \fd_{Q',j} \mathscr{M}d^{\mathscr{M}-1}(\log(\mathscr{M}+1)d + H)\right)+(\hat{\fh}_{P,j}+n(12\log(2n+1)+h_{\mA})\fd_{P,j}).$  
+    \end{itemize}
+\end{enumerate}
+
+
+
+
+
+
+
+\item We obtain the same recurrences as we did with the Canny analysis. \[R = \MainRoadmapL(f,Q',P',\lceil \sqrt{n} \rceil ):\] 
+
+
+\begin{itemize} % Forces Arabic numbering
+    \item $\fd_{Q,j+1} = \fd_{Q',j}\leq 2\fd_{Q,j}d^{4n} + \fd_{P,j}$
+    \item $\hat{\fh}_{Q,j+1} = \hat{\fh}_{Q',j}\leq \hat{\fh}_{C,j}$
+    \[
+    2(\hat{\fh}_{Q,j}d^{4n} + \fd_{Q,j} (4n)d^{4n-1}(\log(4n+1)d + H)) + (\hat{\fh}_{P,j}+(12\log(2n+1)+h_{\mA})\fd_{P,j})
+    \]
+    \item $\fd_{P,j+1} = \fd_{P',j} \leq \fd_{Q',j}d^{2n}+\fd_{P,j}\leq (2\fd_{Q,j}d^{4n} + \fd_{P,j})d^{2n}+\fd_{P,j}$
+    \[
+    \leq 2\fd_{Q,j}d^{4n+2n}+\fd_{P,j}d^{2n}+\fd_{P,j}.
+    \]
+    \item $\hat{\fh}_{P,j+1} = \hat{\fh}_{P',j}\leq \hat{\fh}_{L,j}+(\hat{\fh}_{P,j}+(12\log(2n+1)+h_{\mA})\fd_{P,j})$
+    \[
+    \leq 2\left(\hat{\fh}_{Q',j}d^{2n} + \fd_{Q',j} (2n)d^{2n-1}(\log(2n+1)d + H)\right)
+    +(\hat{\fh}_{P,j}+(12\log(2n+1)+h_{\mA})\fd_{P,j}).  
+    \]
+\end{itemize}
+%%%%%%%%%%%%%%%%%%%
+
+Let 
+%
+\begin{itemize}
+    \item $\fK = (2d^{6n}+d^{2n}+1)$
+    \item $\fK_1 = (\log(4n+1)d+H)(4n)$
+    \item $\fK_2 = n(12\log(2n+1)+h_{\mA})$
+    \item $\fK_3 = 2(2\fK_1+\fK_2)$.
+\end{itemize}
+\begin{remark}
+    The values of $\fK,\fK_1,\fK_2,\fK_3$ are the same as $K,K_1,K_2,K_3$ from the Canny analysis. However, to separate the two analyses, we choose to use separate notation. 
+\end{remark}
+Then, with
+\begin{itemize}
+    \item $\fd_0 = \max\{\fd_{Q,0},\fd_{P,0}\}$
+    \item $\fhh_0 = \max\{\fhh_{Q,0},\fhh_{P,0}\}$,
+\end{itemize}
+
+we obtain
+\begin{itemize}
+    \item $\fd_j = \fd_0\fK^j$
+    \item $\hat{\fh}_j = \fK^{j+1}\fd_0\fK_3j+\fh_0\fK^j.$
+\end{itemize}
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\item Next, $R' = \CannyRoadmapL(\bm f, Q, P')$,  
+where
+\begin{enumerate}
+    \item $\bm f = [f,\Delta]$
+    \item $\Delta = [\partial f / \partial X_i~|~i \in [e+i+1,\hdots,n]]$.
+\end{enumerate}
+
+Entries in $\bm f$ have 
+\begin{itemize}
+    \item degree at most $d$
+    \item height at most $H$.
+\end{itemize}
+
+
+%
+We call Proposition \ref{prop:CannyComplexity} with
+\begin{itemize}
+    \item $s = n-e-\lceil\sqrt{n}\rceil $  
+    \item $d_0 = \max\{\fd_{Q,j}\fd_{P',j}\}=\fd_{P',j}\leq \fd_0\fK^{j+1}$
+    \item $\hat{h}_0 = \max\{\hat{\fh}_{Q,j}\hat{\fh}_{P',j}\}=\hat{\fh}_{P',j}\leq \fK^{j+2}\fK_4(j+1)+\hat{\fh}_0\fK^{j+1}$.
+\end{itemize}
+We obtain 
+\begin{enumerate}
+    \item $\fd_{R'} \in$
+    \[
+        O(n\frak{d}_0d^{24n^{3/2}}) 
+    \]
+    \item $\hat{\fh}_{R'}\in$
+    \[
+    O\left((\frak{d}_0\fK_4+\hat{\fh}_0)nd^{24n^{3/2}} + (\fK_4\sqrt{n}+\frak{d}_0\fK_1+n\fK_3)nd^{30n^{3/2}}\right)
+    \]
+    \begin{itemize}
+    \item $\fK = 2d^{6n} + d^{2n} + 1$
+    \item $\fK_1 = (\log(4n+1)d+H)(4n)$
+    \item $\fK_2 = n(12\log(2n+1)+h_{\mA})$
+    \item $\fK_3 = 2(2\fK_1+\fK_2)$
+    \item $\fK_4 = (15\log(2n+1)+h_{\mA^{-1}}).$
+    \item $H = h + n(h_{\bm A} + h_{\bm u} + h_{\bm v} + \log(d)).$
+\end{itemize}
+\end{enumerate}
+\begin{proof}
+\begin{enumerate}
+    \item Immediately from Proposition \ref{prop:CannyComplexity} we obtain 
+    \[
+    \fd_{R'} \leq n\frak{d}_0\fK^{j+1}\fK^{n-s-e+1}.
+    \]
+    Now our index $j$ is at most $\sqrt{n}$:
+    \[
+    \fd_{R'} \leq n\frak{d}_0\fK^{\sqrt{n}+1}\fK^{n-s-e+1}.
+    \]
+    Substitute $\fK=(2d^{6n}+d^{2n}+1)\leq 4d^{6n}$ gives
+    \[
+    \fd_{R'} \leq n\frak{d}_0(4d^{6n})^{\sqrt{n}+1}(4d^{6n})^{n-s-e+1}.
+    \]
+    Given that $s=n-e-\sqrt{n}$:
+    \[
+    \fd_{R'} \in O(n\frak{d}_0(d^{6n})^{\sqrt{n}+1}(d^{6n})^{\sqrt{n}+1})
+    \]
+    Therefore 
+    \[
+    \fd_{R'} \in O(n\frak{d}_0d^{12n^{3/2}+12n}) \in O(n\frak{d}_0d^{24n^{3/2}})
+    \]
+\item Immediately from Proposition \ref{prop:CannyComplexity}, using \[n-s-e = n-(n-e-\sqrt{n})-e = \sqrt{n},\] we obtain 
+\[
+n(\fK^{\sqrt{n}+2}\fK_3n+\fK^{\sqrt{n}+1}(\hat{h}_0+d_0\fK_1d^{2n})+\fK_4d_0\fK^{\sqrt{n}+1})
+\]
+Substitute $d_0\leq \fd_0\fK^{j+1}$:
+\[
+n(\fK^{\sqrt{n}+2}\fK_3n+\fK^{\sqrt{n}+1}(\hat{h}_0+\frak{d}_0\fK^{j+1}\fK_1d^{2n})+\fK_4\frak{d}_0\fK^{j+1}\fK^{\sqrt{n}+1})
+\]
+substitute $\hat{\fh}_0 \leq \fK^{j+2}\fK_4(j+1)+\hat{\fh}_0\fK^{j+1}$:
+\[
+n(\fK^{\sqrt{n}+2}\fK_3n+\fK^{\sqrt{n}+1}((\fK^{j+2}\fK_4(j+1)+\fhh_0\fK^{j+1})+\frak{d}_0\fK^{j+1}\fK_1d^{2n})+\fK_4\frak{d}_0\fK^{j+1}K^{\sqrt{n}+1})
+\]
+Substitute $j\leq \sqrt{n}$:
+\[
+n(\fK^{\sqrt{n}+2}\fK_3n+\fK^{\sqrt{n}+1}((\fK^{\sqrt{n}+2}\fK_4(\sqrt{n}+1)+\fhh_0\fK^{\sqrt{n}+1})+\frak{d}_0\fK^{\sqrt{n}+1}\fK_1d^{2n})+\fK_4\frak{d}_0\fK^{\sqrt{n}+1}\fK^{\sqrt{n}+1})
+\]
+Now finally substitute $\fK \leq 4d^{6n}$ and consider the asymptotic behavior to obtain the conclusion. 
+\end{enumerate}
+
+\end{proof}
+
+
+
+
+
+
+
+\item $R'' = \Union(R,R')$, and the degree and height increase by at most a factor of $\sqrt{n}:$ 
+\begin{itemize}
+    \item $\fd_{R''}\leq \sqrt{n} \fd_{R'} \in 
+        O(n^{3/2}\frak{d}_0d^{24n^{3/2}})$
+    \item $\hat{\fh}_{R''} \leq \sqrt{n} \hat{\fh}_{R'} \in$
+        \[
+    O\left((\frak{d}_0\fK_4+\frak{h}_0)n^{3/2}d^{24n^{3/2}} + (\fK_4\sqrt{n}+\frak{d}_0\fK_1+n\fK_3)n^{3/2}d^{30n^{3/2}}\right)
+    \]
+\end{itemize}
+
+\item $\ChangeVariables(\bm A^{-1},R'')$: 
+\begin{itemize}
+    \item $\fd_{R''}\leq \fd_{R''}$
+    \item $\hat{\fh}_{R''} \leq \hat{\fh}_{R'',i}+\fK_4\fd_{R'',i} \in$
+    \[
+    O\left((\frak{d}_0\fK_4+\frak{h}_0)n^{3/2}d^{24n^{3/2}} + (\fK_4\sqrt{n}+\frak{d}_0\fK_1+n\fK_3)n^{3/2}d^{30n^{3/2}}\right).
+    \]
+\end{itemize}
+%\begin{proof}
+%    \begin{itemize}
+%        \item By \cite[Proposition 2.39(5)]{EN}, 
+%        \[
+%        h_{R'',i} \leq \hat{h}_{R'',i}+(15\log(2n+1)+h_{\mA^{-1}})d_{R'',i}.
+%        \]
+%        \item By \cite[Proposition 2.4]{SharpEstimatesForTheEffectiveN},
+%        \[
+%        h_{R''^{\bm A},i} \leq h_{R'',i} + 2(h_{\bm A^{-1}} + 8\log(2n+1))d_{R'',i}
+%        \]
+%        \item By \cite[Proposition 2.39(5)]{EN},
+%        \begin{align*}
+%        \hat{h}_{R''^{\bm A^{-1}},i} &\leq h_{R''^{\bm A^{-1}},i} + 7\log(n+1)d_{R'',i} \\
+%        &\leq 7\log(n+1)d_{R'',i} + \left(h_{R'',i} + 2(h_{\bm A^{-1}} + 8\log(2n+1))d_{R'',i}\right)\\
+%        &\leq \hat{h}_{R'',i}+(15\log(2n+1)+h_{\mA^{-1}})d_{R'',i}
+%        \\
+%        &=\hat{h}_{R'',i}+\fK_4d_{R'',i}.
+%        \end{align*}
+%    \end{itemize}
+%\end{proof}
+
+
+
+\end{itemize}
+
+
+
+
+\begin{remark}
+We make a great deal of effort to obtain inequalities on degree and height. We do this because in future work we intend to develop a modular algorithm where inequalities on the output size are necessary to properly estimate prime size. Clearly, from the proof we can derive an inequality. However, the expression is complex and we therefore decided to use asymptotic notation for simplification in the main result.
+\end{remark}
+
+
+
+%%%%%%%%%%%%%%%%%%%%
+\subsection{Height of data structures}
+The output of Algorithm \ref{alg:MainRoadmap}, main roadmap, is a one-dimensional parameterization of the roadmap. However, the degree and canonical height bounds just derived  apply to the underlying algebraic set that is the roadmap itself. Let $\mathscr{R}$ denote this roadmap, and let
+\begin{itemize}
+    \item $\frak{d}_{\sR}$ be the degree of $\sR$,
+    \item $\fhh_{\sR}$ the canonical height of $\sR$, and
+    \item $\fh_{\sR}$ the height of $\sR$.
+\end{itemize}
+
+In what follows we bound the hight of the output of~\MainRoadmap~ in \cite{SchostMohabBabySteps2011}, a one-dimensional parameterization of $\sR$. 
+
+
+From the previous analysis:
+\begin{itemize}
+    \item The degree of $\sR$ is at most
+    \[
+    O(n^{3/2}\frak{d}_0d^{24n^{3/2}}).
+    \]
+    \item The canonical height of $\sR$ is at most 
+    \[
+    O\left((\frak{d}_0\fK_4+\frak{\hat{h}}_0)n^{3/2}d^{24n^{3/2}} + (\fK_4\sqrt{n}+\frak{d}_0\fK_1+n\fK_3)n^{3/2}d^{30n^{3/2}}\right).
+    \]
+\end{itemize}
+From \cite[Proposition 2.39(5)]{EN}, 
+\begin{itemize}
+    \item $\fh_0 \in O(\log(n)\frak{d}_0 + \frak{\hat{h}}_0)$
+    \item $\frak{h}_\mathscr{R} \in O(\log(n)\frak{d}_{\sR} + \frak{\hat{h}}_{\sR})$.
+\end{itemize}
+Therefore the height of $\sR$ is at most 
+\[
+O\left((\frak{d}_0\fK_4+\frak{h}_0)n^{3/2}d^{24n^{3/2}} + (\fK_4\sqrt{n}+\frak{d}_0\fK_1+n\fK_3)n^{3/2}d^{30n^{3/2}}\right).
+\]
+
+
+
+
+
+To bound the height of a one-dimensional parameterization of $\sR$, we can apply \cite[Theorem 1]{DAHAN2012109}. However, first we need to apply a certain generic change of coordinates to $\mathscr{R}$. Recall from the introduction of this Chapter (Chapter \ref{sec:chap5Int}) the definition of a one-dimensional parameterization: 
+a pair
+\[
+\scrQ = ((q, v_1, \ldots, v_n), (\lambda,\lambda')),
+\]
+with
+%
+\begin{itemize}
+    \item bi-variate polynomials $(q, v_1, \ldots, v_n) \in \mathbb{Q}[T,U] \), $q$ square-free and monic in $T$ and $U$, with $\gcd(q,v_1)=1$ and  $\deg(v_i) < \deg(q)$;
+    \item $\lambda= \lambda_1X_1 + \hdots + \lambda_nX_n, \lambda'=\lambda_1'X_1 + \hdots + \lambda_n'X_n$ linear forms in $X_1, \dotsc, X_n$, with
+    \begin{itemize}
+        \item \[
+\lambda(v_1, \dots, v_n) = T \frac{\partial q}{\partial T} \mod q;
+\]
+        \item 
+\[
+\lambda'(v_1, \dots, v_n) = U \frac{\partial q}{\partial T} \mod q.
+\]
+    \end{itemize}
+
+\end{itemize}
+Then $\sR$ is the Zariski closure 
+\[
+\Zeroes(\scrQ) :=\overline{
+\left\{ \left( \frac{v_1(\tau,\rho)}{\partial q / \partial T(\tau,\rho)}, \ldots, \frac{v_n(\tau,\rho)}{\partial q / \partial T(\tau,\rho)} \right) \in \mathbb{Q}^n \mid q(\tau,\rho) = 0, \frac{\partial q}{\partial T}(\tau,\rho) \neq 0 \right\}}.
+\]
+%
+We require $\sR$ to be in generic coordinates that allow a one-dimensional parameterization with the linear forms taken simply as:
+\begin{itemize}
+    \item $\lambda=X_1$;
+    \item $\lambda'=X_2$.
+\end{itemize}
+%
+We achieve this by choosing the entries of a change of coordinate matrix 
+\[
+\begin{bmatrix}
+b_{1,1} & b_{2,1} & \vert & 0   & \cdots & 0 \\
+b_{1,2} & b_{2,2} & \vert & 0   & \cdots & 0 \\
+b_{1,3} & b_{2,3} & \vert & 1   & \cdots & 0 \\
+\vdots & \vdots & \vert &   \vdots & \ddots & \vdots \\
+b_{1,n} & b_{2,n} & \vert  & 0  & \cdots & 1
+\end{bmatrix} \in \mathbb{Z}^{n\times n}
+\]
+in the following way, respectively for columns one and two.
+\begin{enumerate}
+    \item Proposition 4.5 in \cite{SharpEstimatesForTheEffectiveN} shows the existence of a polynomial of degree at most $2(\frak{d}_{\sR})^2$ with the property that when  not canceled by integers $b_{1,1},\hdots,b_{1,n}$, then $\sR$ is in Noether position for $\pi_1$. Consequently, $\lambda=X_1$ can be chosen.
+    
+    \item From \cite[Corollary 3.5]{DURVYE2008101}, there exists another polynomial, with the same degree bound, with the property that when not canceled by integers
+    $b_{2,1},\hdots,b_{2,n}$    
+    then \textit{$X_2$ is separating} in a sense that allows for $\lambda'=X_2$ to be the second linear form.  
+\end{enumerate}
+
+\begin{prop}
+    Let $f \in \mathbb{Q}[X_1,\hdots,X_n]$ be a polynomial with degree $d$. Put $S := \{0,1,2,\hdots,d\} \subset \mathbb{N}$. Then there exists $b_1,\hdots,b_n \in S$, $\htt(b_i) \leq \log(d)$, with \[f(b_1,\hdots,b_n)\not = 0.\]
+\end{prop}
+\begin{proof}
+        Consider $S^n = \{0,1,\hdots,d\}^n$ with cardinality $(d+1)^n$. By the DeMillo–Lipton–Schwartz–Zippel lemma, 
+        \[
+        |V(f) \cap S^n| \leq d|S|^{n-1}=d(d+1)^{n-1} < (d+1)^{n}.
+        \]
+        Therefore $S^n$ must contain a non-root $(b_1,\hdots,b_n)$ with $b_1,\hdots,b_n \in S$ and \[\htt(b_i) \leq \log(d).\]
+\end{proof}
+\noindent
+Therefore $b_{i,j}$ have height at most
+\[
+\log(4(\frak{d}_{\sR})^2)
+\in O(\log(n) + \log(\frak{d}_0) + n^{3/2}\log(d)),
+\]
+which when added to the height of $\sR$ does not change its asymptotic upper bound. 
+
+
+
+
+
+Now we can apply \cite[Theorem 1]{DAHAN2012109}, 
+which increases the height slightly. The heights of polynomials in a one-dimensional parameter of $\sR$ are bounded by 
+\[
+O\left((\frak{d}_0\fK_4'+\frak{h}_0)n^{3/2}d^{24n^{3/2}} + (\fK_4'\sqrt{n}+\frak{d}_0\log(\frak{d}_0)n^{1/2}\log(d)\fK_1'+n\fK_3')n^{3/2}d^{30n^{3/2}}\right)
+\]
+    with
+%
+\begin{itemize}
+    \item $\fK_1' = n(d\log(n)+H)$
+    \item $\fK_2' = n(\log(n)+h_{\mA})$
+    \item $\fK_3' = \fK_1'+\fK_2'$
+    \item $\fK_4' = \log(n)+h_{\mA^{-1}}$
+    \item $H = h + n(h_{\bm A} + h_{\bm u} + \log(d)).$
+\end{itemize}
+%
+After further simplification, particularly with soft-O notation which ignores polylogarithmic terms, the height of the data structure is bounded by 
+\[
+O^{\sim}\left( \frak{h}_0d^{24n^{3/2}} + \frak{d}_0(h+h_{\mA}+h_{\bm u} + h_{\mA^{-1}})d^{30n^{3/2}+1}\right).
+\]
+This completes the proof of Theorem \ref{theorem:mainHeight}.
+
+
+
+
+\begin{comment}
+    
+
+
+
+
+
+
+    \[
+    O\left((\frak{d}_0\fK_4'+\frak{h}_0)n^{3/2}d^{24n^{3/2}} + (\fK_4'\sqrt{n}+\frak{d}_0\fK_1'+n\fK_3')n^{3/2}d^{30n^{3/2}}\right)
+    \]
+
+    \begin{align*}
+&O\left((\frak{d}_0\fK_4'+\frak{h}_0)n^{3/2}d^{24n^{3/2}} + (\fK_4'\sqrt{n}+\frak{d}_0\log(\frak{d}_0)n^{1/2}\log(d)\fK_1'+n\fK_3')n^{3/2}d^{30n^{3/2}}\right)\\
+\in&
+O^{\sim}\left((\frak{d}_0\fK_4'+\frak{h}_0)d^{24n^{3/2}} + (\fK_4'\sqrt{n}+\frak{d}_0\log(\frak{d}_0)n^{1/2}\log(d)\fK_1'+n\fK_3')d^{30n^{3/2}}\right)
+    \end{align*}
+    with
+\begin{itemize}
+    \item $\fK_1' = n(d\log(n)+H)$
+    \item $\fK_2' = n(\log(n)+h_{\mA})$
+    \item $\fK_3' = \fK_1+\fK_2$
+    \item $\fK_4' = \log(n)+h_{\mA^{-1}})$
+    \item $H = h + n(h_{\bm A} + h_{\bm u} + h_{\bm v} + \log(d)).$
+\end{itemize}
+
+
+
+
+
+
+
+
+
+    \begin{align*}
+&O\left((\frak{d}_0\fK_4'+\frak{h}_0)n^{3/2}d^{24n^{3/2}} + (\fK_4'\sqrt{n}+\frak{d}_0\log(\frak{d}_0)n^{1/2}\log(d)\fK_1'+n\fK_3')n^{3/2}d^{30n^{3/2}}\right)\\
+\in&
+O^{\sim}\left((\frak{d}_0\fK_4'+\frak{h}_0)d^{24n^{3/2}} + (\fK_4'+\frak{d}_0\fK_1'+\fK_3')d^{30n^{3/2}}\right)\\
+\in&
+O^{\sim}\left((\frak{d}_0h_{\bm A^{-1}}+\frak{h}_0)d^{24n^{3/2}} + (h_{\mA^{-1}}+\frak{d}_0(d+H)+(d+h+h_{\bm A}+h_{\bm u}))d^{30n^{3/2}}\right)
+    \end{align*}
+
+
+\begin{itemize}
+    \item $\fK_1'' = d+H$
+    \item $\fK_2'' = h_{\bm A}$
+    \item $\fK_3'' = \fK_1''+\fK_2''= (d+(h+h_{\bm A}+h_{\bm u})) + (h_{\bm A}) = d+h+h_{\bm A} + h_{\bm u}$
+    \item $\fK_4''= h_{\mA^{-1}}$
+    \item $H = h + h_{\bm A} + h_{\bm u}$
+\end{itemize}
+\begin{itemize}
+    \item $\fK_1' = n(d\log(n)+H)$
+    \item $\fK_2' = n(\log(n)+h_{\mA})$
+    \item $\fK_3' = \fK_1'+\fK_2'$
+    \item $\fK_4' = \log(n)+h_{\mA^{-1}}$
+    \item $H = h + n(h_{\bm A} + h_{\bm u} + \log(d)).$
+\end{itemize}
+\begin{itemize}
+    \item $\fK_1 = (\log(4n+1)d+H)(4n)$
+    \item $\fK_2 = n(12\log(2n+1)+h_{\mA})$
+    \item $\fK_3 = 2(\fK_1+\fK_2)$
+    \item $\fK_4 = (15\log(2n+1)+h_{\mA^{-1}}).$
+    \item $H = h + n(h_{\bm A} + h_{\bm u} + \log(d)).$
+\end{itemize}
+
+\color{black}
+
+
+\end{comment}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\begin{comment}
+    
+
+
+%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Old version}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph*{Projections.}
+Then, $\CannyRoadmapL(\bm f, \Q(X_1,\hdots,X_e))$ proceeds to compute projections on $C$:
+\[
+Q' = \Projection(C, [X_1, \dots, X_{e+1}])
+\]
+The degree of $Q'$ stays at $d_e$, since degree does not increase under projection. The height $h_e$ changes by 
+\[
+\td.
+\]
+\color{red}
+\textbf{Proposition 2.4} \textit{Let \( V \subset \mathbb{A}^n \) be a variety of dimension \( r \), and let \( \varphi: \mathbb{A}^n \to \mathbb{A}^N \) be an affine map. Then}
+\[
+h(\varphi(V)) \leq h(V) + (r+1)(h(\varphi) + 8 \log(n+N+1)) \deg V.
+\]
+our context:
+\begin{align*}
+h(Q') &= h(\pi_{e+1}(Q)) \\
+&\leq h_e + (0+1)(0 + 8 \log(n+e+1)) d_e \\
+&= h_e+8 \log(n+e+1)d_e \\
+&\in O^{\sim}(h_e + d_e).
+\end{align*}
+\color{black}
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph*{Height of $\LiftWL(\bm f,Q')$.}
+Here, $\LiftWL(\bm f,Q')$ returns a parameterization $R$ containing 
+\[
+\mathscr{W}_{\bm u, 2, Q} \cap \pi_{e+2-1}^{-1}(Z(Q')) \subset \Zeroes(R).
+\] 
+Let $f_D^{(e)} \in \ZZ[X_1,\hdots,X_{n-e}]$ be the defining primitive polynomial of a divisor $D \in \Div^{+}(\P_{\Q})$ corresponding to a polynomial defining $\Zeroes(Q')$ 
+%
+\begin{remark}
+Effective divisors are defined by polynomials.    
+\end{remark}
+
+(\td{$f_D^{(e)}$ is in all variables? $N^{(e)}$ many?})
+
+By \cite[Proposition 2.53 (2)]{EN}, the class of the hypersurface defined by $f_D^{(e)}$ is 
+\[
+[D]_{\ZZ} = m(f_D^{(e)})\eta + \deg (f_D^{(e)}) \theta \in \R[\eta,\theta]/(\eta^2,\theta^{N^{(e)}+1}),
+\]
+%
+where recall the the Mahler measure \[m(f_D^{(e)})=\int_{S_1^{n+1}}\log(|f_D^{(e)}|)d\mu,\] with respect to that Haar measure $\mu$ of mass $1$ on the complex unit circle $S_1$.
+
+
+The polynomials defining $\Zeroes(C)$ have degrees bound by $d$ and height bound by $h$.
+
+(\td{Have I specified enough exactly what these equations are}?) 
+
+
+%
+where by \cite[Lemma 2.30 (4)]{SharpEstimatesForTheEffectiveN}, 
+
+\[m(f_D^{(e)}) \leq (\log (n-e)) \deg f_D^{(e)} + \log || f_D^{(e)}||_\infty \leq (\log (n-e)) d + h.\] 
+
+
+\color{red}
+It seems $m(f_D^{(e)}) \leq 
+(\log N^{(e)})\times \deg(f_D^{(e)}) + \htt(f_D^{(e)})$
+\color{black}
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph*{Degree and canonical height of $\Zeroes(Q')$.}
+The product $[S_e]_{\ZZ}\cdot [D]_{\ZZ}^{N^{(e)}}$ gives the degree and height bounds for the $e+1$ recursive step. 
+
+Therefore 
+%
+\begin{align*}
+    d_{e+1} &\leq d_e d^{N^{(e)}} = d_e d^{2n+2p-2e-1}\\
+    \hat{h}_{e+1} &\leq \hat{h}_e d^{N^{(e)}} + d_e N{^{(e)}}d^{N^{(e)}-1}m(f_D^{(e)}).
+\end{align*}
+\color{red}
+If
+\[
+ \hat{h_e}\gets O^{\sim}(\hat{h_e} + d_e)
+\]
+then
+\begin{align*}
+    \hat{h}_{e+1} &\leq O^{\sim}(\hat{h_e} + d_e)d^{N^{(e)}} + d_e N{^{(e)}}d^{N^{(e)}-1}m(f_D^{(e)})\\
+    &= O^{\sim}(\hat{h_e}d^{N^{(e)}} + d_ed^{N^{(e)}}) + d_e N{^{(e)}}d^{N^{(e)}-1}m(f_D^{(e)})\\
+    &= O^{\sim}\left(\hat{h_e}d^{N^{(e)}} + d_ed^{N^{(e)}}m(f_D^{(e)})\right)\\
+\end{align*}
+\color{black}
+%
+Let $l$ denote the depth of the recursion; we obtain 
+%
+\[
+d_l \leq d_0 d^{\sum_{i=0}^{l}N^{(i)}} =  d^{(\sum_{i=0}^{l}N^{(i)})+1}= d^{2(nl+ls+n+s)-l^2-2l} 
+\]
+Let 
+\[
+N' := \sum_{i=0}^{l}N^{(i)} = 2(nl+ls+n+s)-l^2-2l-1
+\]
+so that 
+\[
+d_l \leq d^{N'+1}. 
+\]
+\begin{align*}
+%
+\hat{h}_{l} &\leq \left( \hat{h}_{l-1} d^{N^{(l-1)} }+d_{l-1}N^{(l-1)}d^{N^{(l-1)}-1}m(f_D^{(l-1)})\right)d^{N^{(l)}} + d_lN^{(l)}d^{N^{(l)}-1}m(f_D^{(l)}) \\
+&\leq \hat{h_0}d^{\sum_{i=0}^lN^{(i)}} + \sum_{i=0}^lN^{(i)}m(f_D^{(i)})d_id^{\sum_{j=i}^lN^{(j)}}\\
+&\leq hd^{N'}+(l+1)(4n)(\ln(n)d+h)d^{N'+1}d^{N'}\\
+&\leq hd^{N'}+(l+1)(4n)\ln(n)d^{2N'+2}+(l+1)(4n)d^{2N'+1}h\\
+&\leq c_1(l,n)hd^{2N'+1} + c_2(l,n)d^{2N'+2},
+\end{align*}
+$c_1(l,n) = (l+1)(4n)+1, c_2(l,n)=(l+1)(4n)\ln(n)$. 
+\par 
+Or, 
+%
+\begin{align*}
+d_l &\leq d^{N'+1} \leq d^{N'+1} \\
+\hat{h}_{l} &\leq O^{\sim}(hd^{2N'+1} + d^{2N'+2}).
+\end{align*}
+%
+\begin{enumerate}
+    \item (\td{Define Soft oh $O^{\sim}$})
+    \item (\td{$\hat{h}_0=h$?, $\hat{d}_0=d$?})
+\end{enumerate}
+%
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph*{Height of $Z(Q')$.}
+
+
+By \cite[Proposition 2.39 (5)]{EN}, $h_l \leq \frac{7}{2} \ln (N^{(l)}+1) \deg(Z(Q')) + \hat{h}_l.$ Therefore
+%
+\begin{align*}
+    h_l &\leq \frac{7}{2} \ln (N^{(l)}+1) d^{N'+1} + c_1(l,n)hd^{2N'+1} + c_2(l,n)d^{2N'+2}\\
+        &\leq  c_1(n,l)hd^{2N'+1} + c_3(n,l)d^{2N'+2}  
+\end{align*}
+%
+$c_3(n,l)=c_2(n,l) + \frac{7}{2}\ln(N^{(l)}+1)$. 
+\par 
+\color{red}
+Or, 
+%
+\begin{align*}
+h_l &\leq O^{\sim}(hd^{2N'+1} + d^{2N'+2}) = O^{\sim}(\hat{h}_l).
+\end{align*}
+%
+\color{black}
+
+
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph*{Degree and height of the Chow form $Ch_{Z(Q')}.$}
+Next, for the primitive Chow form $Ch_{Z(Q')}$, we relate the height of $Z(Q')$ to the Mahler measure \[m(Ch_{Z(Q')})=\int_{S_1^{n+1}}\log(|Ch_{Z(Q')}|)d\mu,\] which is with respect to the Haar measure $\mu$ of mass $1$ on the complex unit circle $S_1$. We can then get a bound on the height of $C_{V_0}$. 
+    
+First, we need to introduce some additional notation from \cite{SharpEstimatesForTheEffectiveN} which is the following. The field of rational numbers \(\mathbb{Q}\) has a set of independent absolute values
+\[
+M_\mathbb{Q} = \{\infty, p \, | \, p \text{ prime}\},
+\]
+where:
+\begin{itemize}
+    \item \( |\cdot|_\infty \) is the ordinary absolute value, and \(\mathbb{Q}_\infty = \mathbb{R}\),
+    \item \( |\cdot|_p \) is the \( p \)-adic absolute value, and \(\mathbb{Q}_p \) is the \( p \)-adic field.
+\end{itemize}
+Each $ v \in M_\mathbb{Q} $ extends uniquely to an absolute value on the algebraic closure \(\overline{\mathbb{Q}}_v\). For \( v = \infty \), \(\mathbb{C}_\infty = \mathbb{C}\). The set \( M_{\mathbb{K}} \) of absolute values on a field \( {\mathbb{K}} \) extending the absolute values in \( M_\mathbb{Q} \) is called the \emph{canonical set}. The subset of archimedean absolute values is denoted by \( M_{\mathbb{K}}^\infty \).
+
+
+Now, at the beginning of Section 1.2.4 in \cite{SharpEstimatesForTheEffectiveN} it is shown that 
+    \begin{align*}
+        \htt(Z(Q')) &= \frac{1}{[\mathbb{Q}:\mathbb{Q}]}\left( \sum_{v \in M_{\mathbb{Q}}^{\infty}} [\mathbb{Q}:\mathbb{Q}] m(Z(Q'))+\sum_{v \not \in M_{\mathbb{Q}}^{\infty}} [\mathbb{Q}:\mathbb{Q}] \log_2 |Ch_{Z(Q')}|_v\right)\\
+        &+ \left(\sum_{i=1}^n 1/2i\right)\deg(V_0),
+    \end{align*}
+    %
+    The equation holds for all choices of the Chow form, we have taken $Ch_{Z(Q')}$ primitive with integer coefficients. Hence, in the second sum: $0 \leq \log_2 |Ch_{Z(Q')}|_v \leq 1$ for $v \not \in M_{\mathbb{Q}}^{\infty}$. As $C_{V_0}$ is primitive, some coefficient will not be divisible by $v$ and thus $\log_2 |C_V|_v =0.$ In addition, since $M_{\mathbb{Q}}^{\infty}$ is the set of Archimedean absolute values over $\mathbb{Q}, M_{\mathbb{Q}}^{\infty} = \{ |\cdot|_{\infty} \}$, and therefore 
+    %
+    \begin{align*}
+    \htt(\Zeroes(Q')) &= m(Ch_{\Zeroes(Q')}) + \frac{H_n}{2}\deg(\Zeroes(Q')), 
+    \end{align*} 
+    %
+    where $H_n$ is the $nth$ harmonic number, and as a consequence $m(Ch_{Z(Q')}) \leq \htt(Ch_{Z(Q')}).$ Now, by  \cite[Lemma 1.1]{SharpEstimatesForTheEffectiveN} (\td{you gave this lemma in the preliminaries}), it follows that  
+    %
+    \begin{align*}
+        \htt(Ch_{\Zeroes(Q')}) &\leq m(Ch_{\Zeroes(Q')}) + \ln(N^{(l)}+1)\deg(Ch_{\Zeroes(Q')})\\
+        &\leq \htt(\Zeroes(Q')) + \ln(N^{(l)}+1)\deg(Ch_{\Zeroes(Q')}) \\
+        &\leq h_l + \ln(N^{(l)}+1)d_l
+    \end{align*}
+    %
+\color{red}
+\[
+O^{\sim}(h_l + d_l)
+\]
+\color{black}
+
+(\td{introduce Chow forms in preliminaries and give proper notation})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph*{Degree and height of $Q'$.}
+
+(\td{Since you let $R \gets \LiftWL(\bm f,Q')$ it is actually $R$ you are speaking of now rather than $Q'$})
+
+Recall that $Q'=((q',v'_1,\dots,v'_{n-e+p}),\lambda')$ is a zero-dimensional parameterization; our goal is to obtain degree and height bounds for these polynomials. 
+We have $\deg (q') \leq d_l$ and from \cite[Lemma 24]{SchostMohabMultiH2017},
+if $\lambda$ is a separating linear form for $\Zeroes(Q')$ with integer coefficients of height at most $b$, all polynomials in $Q'$ have height at most
+\[
+\htt(Ch_{\Zeroes(Q')}) + 
+\deg (\Zeroes(Q'))(b + \log(N^{(l)}+1)).
+\]
+\color{red}
+\[
+\in O^{\sim}\left(h_l + d_lb\right)
+\]
+\color{black}
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph*{Degree and height of $\mathcal{R}$.}
+\td 
+
+It's the same as $Q'$ given $R =\CannyRoadmapL(\bm f,Q',P')$?
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph*{Degree and height of $\mathcal{R}'$.}
+\td 
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph*{Degree and height of $\mathcal{R}''$.}
+\td 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{comment}
+
+
+
+
+
+\begin{comment}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The height of the output of Main roadmap}
+
+Let $f$ be a squarefree polynomial in $\mathbb{Q}[X_1, \dots, X_n]$ of degree $d$ and height $h$, such that $V(f)$ has a finite number of singular points and $V(f) \cap \mathbb{R}^n$ is bounded.  
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph*{Cylindrical Containment of $\Zeroes(Q)$.} 
+As we did previously for the Canny roadmap analysis, we let $S_e \subset \P_{\C}^e$ denote the projective closure of $Q(X_1,\hdots,X_e)$, at the $e$th recursive step, and we let $H_e$ and $D_e$ be integers denoting the height and degree of $Q(X_1,\hdots,X_e)$ with $|S_e| \leq D_e$ and $\htt(S_e) \leq H_e$. For the same reasoning given for the  Canny roadmap analysis, the cylinder containing $Q(X_1,\hdots,X_e$ is represented by 
+\[
+[S_e]_{\ZZ} = H_e\eta \theta^{e-1} + D_e \theta^e \in \mathbb{R}[\eta,\theta]/(\eta^2,\theta^{e+1}).
+\]
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph*{Critical points.}
+Consider the Lagrangian polar variety $\mathscr{W}_{\bm v}(1,W(i,V(f)))$ Note that $W(i,V(f))$ is defined by the vanishing of $n-i+1$ polynomials
+\[
+\left(f,\frac{\pa f}{\pa
+  X_{i+1}},\hdots,\frac{\pa f}{\pa X_n}\right)
+\]
+in $\C[X_1,\hdots,X_n]^{n-i+1},$ and therefore $\mathscr{W}_{\bm v}(1,W(i,V(f)))$ is defined by the vanishing of the $2n-i+1$ equations
+%
+\begin{align*} 
+&\left(f,\frac{\pa f}{\pa
+  X_{i+1}},\hdots,\frac{\pa f}{\pa X_n},\lag((f,\frac{\pa f}{\pa
+  X_{i+1}},\hdots,\frac{\pa f}{\pa X_n}),i,[L_1~\cdots~L_{n-i+1}]),\sum_{i=1}^{n-i+1} v_iL_i -1 \right)
+\end{align*} 
+%
+in $\C[X_1,\hdots,X_n,L_1,\hdots,L_{n-i+1}]$. 
+%
+Now, consider 
+\[
+V ([f, Q]) = V(f) \cap \pi_e^{-1}(\Zeroes(Q))
+\]  
+and  
+\[
+W(i,V([f, Q])) = W(i,V(f) \cap \pi_e^{-1}(\Zeroes(Q))
+\] 
+defined by the vanishing of
+\[
+\left(f,\frac{\pa f}{\pa
+  X_{i+1}},\hdots,\frac{\pa f}{\pa X_{n-e}}\right) \in \C[X_1,\hdots,X_{n-e}]^{n-e-i+1}.
+\]
+The zero-dimensional polar variety $\mathscr{W}_{\bm v}(1,W(i,V([f, Q])))$ is defined by the vanishing of
+%
+\begin{align*}
+&\left(
+f,\frac{\pa f}{\pa
+  X_{i+1}},\hdots,\frac{\pa f}{\pa X_{n-e}},[L_1~\cdots~L_{n-e-i+1}]\cdot \jac\left(\left(f,\frac{\pa f}{\pa
+  X_{i+1}},\hdots,\frac{\pa f}{\pa X_{n-e}}\right), 1\right),\sum_{i=1}^{s+n-1} v_iL_i -1
+  \right) \\
+\end{align*}
+\begin{align*}
+&\left(
+f,\frac{\pa f}{\pa
+  X_{i+1}},\hdots,\frac{\pa f}{\pa X_{n-e}},\lag((f,\frac{\pa f}{\pa
+  X_{i+1}},\hdots,\frac{\pa f}{\pa X_{n-e}}),i,[L_1~\cdots~L_{n-e-i+1}]),\sum_{i=1}^{n-e-i+1} v_iL_i -1
+  \right) \\
+\end{align*}
+
+
+
+
+%
+in 
+\[
+    \C[X_{1},\hdots,X_{n-e},L_1,\hdots,L_{n-e-i+1}].
+\]
+Notice that $\mathscr{W}_{\bm v}(1,W(i,V([f, Q])))$ is a polynomial system with
+    \begin{itemize}
+        \item $2(n-e)-i+1$ equations, and
+        \item $2(n-e)-i+1$ unknowns. 
+    \end{itemize}
+Let 
+\[
+M^{(e)} := 2(n-e)-i+1
+\]
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph*{Projections.}
+
+\td{Note you dont speak to all steps?}
+
+
+Then, $\MainRoadmapL(f, \Q(X_1,\hdots,X_e))$ proceeds to compute projections on $C$:
+\[
+Q' = \Projection(C, [X_1, \dots, X_{e+1}])
+\]
+The degree of $Q'$ stays at $d_e$, since degree does not increase under projection. The height $h_e$ changes by 
+\[
+\td.
+\]
+\color{red}
+\textbf{Proposition 2.4} \textit{Let \( V \subset \mathbb{A}^n \) be a variety of dimension \( r \), and let \( \varphi: \mathbb{A}^n \to \mathbb{A}^N \) be an affine map. Then}
+\[
+h(\varphi(V)) \leq h(V) + (r+1)(h(\varphi) + 8 \log(n+N+1)) \deg V.
+\]
+our context:
+\begin{align*}
+h(Q') &= h(\pi_{e+1}(Q)) \\
+&\leq h_e + (0+1)(0 + 8 \log(n+e+1)) d_e \\
+&= h_e+8 \log(n+e+1)d_e \\
+&\in O^{\sim}(h_e + d_e).
+\end{align*}
+\color{black}
+
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph*{Height of $\LiftWL(f,Q')$.}
+Here, $\LiftWL(f,Q')$ returns a parameterization $R$ containing 
+\[
+\mathscr{W}_{\bm u, i, Q} \cap \pi_{e+i-1}^{-1}(Z(Q')) \subset \Zeroes(R).
+\] 
+Let $f_D^{(e)} \in \ZZ[X_1,\hdots,X_{n-e}]$ be the defining primitive polynomial of a divisor $D \in \Div^{+}(\P_{\Q})$ corresponding to a polynomial defining $\Zeroes(Q')$ 
+%
+Then
+%
+\begin{align*}
+    \hat{h}(R) \leq &[S_e]_{\ZZ}\cdot [D]_{\ZZ}^{M} 
+    \equiv \left( \hat{h}_ed^M + d_eMd^{M-1}m\right)\eta \theta^{M+e-1} + d_e d^M \theta ^{M+e-1} \mod (\eta^2,\theta^{M+e+1}).
+\end{align*}
+%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph*{Degree and height of $Z(Q')$.} 
+Since degree and height will not increase after projection (see Proposition 2.64 from \td):
+%
+\begin{align*}
+    d_{e+i} &\leq d_e d^M \\
+    \hat{h}_{e+i} &\leq \hat{h}_ed^M + d_eMd^{M-1}m \end{align*}
+
+\end{comment}
+
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Genericity statements}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Assumptions}
+Let $\bm f = (f_1,\hdots,f_s) \in  \C[X_1,\hdots,X_n]^s$ be a sequence of polynomials of degrees at most $d$ and dimension $D$. Consider the following genericity properties originally defined in \cite{SchostMohabBabySteps2011}. 
+\begin{description}
+\item [$\bm H(1):$] the ideal $\langle \bm f \rangle$ is squarefree; 
+\item [$\bm H(2):$] $V = V(\bm f)$ is equidimensional of positive dimension $D=n-p$;
+\item [$\bm H(3):$] $\sing(V)$ is finite;
+\item [$\bm H(4):$] $V \cap \R^n$ is bounded. 
+\end{description}
+%
+For $i \in \{2,\hdots,(d+3)/2\}$, we define the following additional properties: 
+%
+%
+\begin{description}
+\item [$\bm H_i'(1):$] $V$ is in Noether position for $\pi_d$; 
+\item [$\bm H_i'(2):$] either $W_i$ is empty or $(i-1)$-equidimensional and in Noether position for $\pi_{i-1}$;
+\item [$\bm H_i'(3):$] $K(1,V)$ is finite;
+\item [$\bm H_i'(4):$] $K(1,W(i,V))$ is finite; 
+\item [$\bm H_i'(5):$] for $\bm x \in W(i,V)-\sing(V), \jac_{\bm x}([\bm f, \Delta],[X_1,\hdots,X_n])$ has rank $n-(i-1).$
+\end{description}
+%
+The paper in \cite{SchostMohabBabySteps2011} also proves the following Lemmas specifying the genericity assumptions of the algorithm:
+%
+\begin{itemize}
+    \item \cite[Lemma 31:]{SchostMohabBabySteps2011} Suppose that $n - p - e > 1$ and that $[f, Q]$ satisfies $\bm H$. After a generic change of variables in $\operatorname{GL}(n, e)$, the system $[f, Q]$ satisfies $\bm H'_2$ as well.
+    \item \cite[Lemma 34.]{SchostMohabBabySteps2011} Suppose that $n - e > i$ and that $[f, Q]$ satisfies $\bm H$. After a generic change of variables in $\operatorname{GL}(n, e)$,
+    \begin{enumerate}\renewcommand{\labelenumi}{(\alph{enumi})}
+        \item $[f, Q]$ satisfies $\bm H$ and $\bm H'_i$;
+        \item $[f, Q]$ satisfies $\bm H$.
+    \end{enumerate}
+\end{itemize}
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Quantitative analysis}
+Here we give quantitative versions of \cite[Lemma 31]{SchostMohabBabySteps2011}, and \cite[Lemma 34]{SchostMohabBabySteps2011}, (respectively for for Canny roadmap and Main roadmap). 
+%
+\begin{prop}\label{prop:QuantGenIEqualTwo}
+For $n-s-e>1$, there exists a hypersurface $\Delta \subset \C[(\frak{A}_{k,m})_{1 \le k,m \le n}]$ with degree at most \td such that if $\Delta(\mA) \not = 0$ then $[\bm f^\mA,Q]$ satisfies $H_2'$.
+\end{prop}
+%
+\begin{prop}\label{prop:QuantGenIGreaterThanTwo}
+For $i$ in $\{2,\hdots,(d+3)/2\}$, there exists a hypersurface $\Gamma \subset \C[(\frak{A}_{k,m})_{1 \le k,m \le n}]$ with degree at most \td such that if $\Gamma(\mA) \not = 0$ then 
+\begin{enumerate}
+    \item $[f^\mA,Q]$ satisfies $H$ and $H_i'$;
+    \item $[\bm f^\mA,Q]$ satisfies $H$.
+\end{enumerate}
+\end{prop}
+%
+Note, many of the genericity properties for the roadmap algorithm in this chapter are the same from Chapter 2 (bit complexity for computing one point per connected comportment ...). We can reuse the analysis to cover some of the properties but not all. Of the remaining genericity properties to analyze, $\bm H_i'(4)$ is non-trivial. Here we prove the following proposition. 
+%
+\begin{prop}\label{prop:finitenessPolarVarietyOfPolarVariety}
+Let $\bm{f} = (f_1,\hdots,f_s)  \in \C[X_1,\hdots,X_n]^s$ with degrees at most $d$. There exists a hypersurface $\Delta$ in $\C[(\frak{A}_{k,m})_{1 \le k,m \le n}]$ of degree at most $n(2d)^{s+n}(s+n)^{d+1}$ with the property that $W(1,W(i,\bm{f}^\mA))$ is finite when $\Delta(\mA) \neq 0$, for all $i$ in $\{2,\hdots,\lfloor (D+3)/2 \rfloor\}$.
+%
+\end{prop}
+
+\color{red}
+\begin{remark}
+    What to do about the finite number of singularities when reusing the analysis from Chapter 2 where $V$ is assumed to be smooth?
+\end{remark}
+\color{black}
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Proof of Proposition \ref{prop:finitenessPolarVarietyOfPolarVariety}}
+Let $i\in\{2,\hdots,d' \}$ with $d':=\lfloor (D+3)/2\rfloor.$ First we prove the following proposition.
+%
+\begin{prop}\label{prop:finitenessPolarVarietyOfPolarVarietyi}
+Let $\bm{f} = (f_1,\hdots,f_s)  \in \C[X_1,\hdots,X_n]^s$ with degrees at most $d$. For $i\in\{2,\hdots,d',$ there exists $\Delta_i \in \C[(\frak{A}_{k,m})_{1 \le k,m \le n}]$ with degree at most $n(s+n-i)^i(2d)^{s+n}$ such that $W(1,W(i,\bm{f}^\mA))$ is finite when $\Delta_i(\mA) \neq 0$.
+\end{prop}
+%
+\noindent 
+Let $\bm g_i = (g_1,\hdots,g_i) \in \C[X_1,\hdots,X_n]^i$, and let $\rho_{\bm g}$ be the map: 
+%
+\begin{align*}
+\mathbb{C}^i &\rightarrow \C[X_1,\hdots,X_n]\\
+(x_1,\hdots,x_i) &\mapsto g_1x_1 + \hdots + g_ix_i.    
+\end{align*}
+%
+Consider the set 
+\[
+X^o = \left\{ (\bm A,\bm x,\bm g) ~|~ \bm A \in \color{red}K_3\color{black}, \bm x \in W(i,V^\mA), \rho_{\bm g} \circ \pi_i \textrm{ vanishes on } T_{\bm x}W(i,V^\mA) \right\}. 
+\]
+Let $\sigma$ denote the map: $(\mA,\bm x,\bm g) \mapsto (\mA,\bm g)$ and consider the set 
+\[Y = \overline{\{(\mA,\bm g)~|~\sigma^{-1}(\mA,g) \cap X^o \textrm{ is infinite}\}}.\]
+Our goal is to bound the degree of $Y$, which contains unlucky points. We prove the degree of $Y$ is at most  $n$ times the degree of $X^o$. Then we bound the degree of $X^o.$
+%
+\begin{prop}\label{prop:degYatMostnDegXo}
+The degree of $Y$ is at most $n\deg X^o$.
+\end{prop}
+%
+\begin{prop}\label{prop:degreeOfXo}
+The degree of $X^o$ is at most $(s+n-i)^i(2d)^{s+n}$.
+\end{prop}
+%
+\begin{corollary}\label{cor:degY}
+The degree of $Y$ is at most $n(s+n-i)^i(2d)^{s+n}$.
+\end{corollary}
+%
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph*{Proof of Proposition \ref{prop:degYatMostnDegXo}.}
+By \cite[Section D.2]{TWT}, the dimension of $X^o$ is equal to $\delta := i + n^2$. Let $\pi_\delta$ be the mapping: \[(x_1,\hdots,x_{n+\delta}) \mapsto (x_1,\hdots,x_\delta)\] and let $Z$ be an irreducible component $X^o$. 
+%
+\begin{theorem} (Theorem of the Dimension of Fibres\cite[Chapter 1.6.3]{Shafarevich77})
+For a generic $\alpha \in \C^{\delta}$, $\pi_{\delta}^{-1}(\alpha) \cap Z$ is finite. 
+\end{theorem} 
+%
+\noindent 
+If $\pi_\delta(Z) \subset \C^{\delta}$ is not dense then almost all fibers are empty. Non-empty fibers are contained in the image \[\pi_{\delta}(Z) \subset \overline{\pi_{\delta}(Z)} \subsetneqq \C^{\delta}\] where $\deg \left( \overline{\pi_{\delta}(Z)} \right) \leq \deg Z \leq \deg X^o.$ Now consider that $\pi_\delta(Z)$ is dense.
+%
+\begin{lemma}
+Let $Z \subset \C^{\delta + n}$ be irreducible with dimension $\delta$ and $\pi_\delta(Z)$ dense. There exists a hypersurface $\Delta \subset \C^{\delta}$ with $\deg \Delta \leq \deg Z$ and $\pi_\delta^{-1}(\alpha) \cap Z$ finite when $\alpha \in \C^\delta-\Delta$. 
+\end{lemma}
+%
+\begin{proof}
+For $\delta+1 \leq i \leq\delta + n,$ let $\Psi_i$ denote the mapping 
+%
+\begin{align*}
+Z &\rightarrow \C^{\delta+1} \\
+(x_1,\hdots,x_{n+\delta}) &\mapsto (x_1,\hdots,x_\delta,x_i) \C^{\delta+1}.
+\end{align*}
+%
+The algebraic closure of the image $\overline{\Image(\Psi_i)}$ is a hypersurface. Indeed, $\Psi_i(Z)$ cannot have dimension greater than $\delta < \delta+1 = \dim \C^{\delta + 1}$ because the dimension of $Z$ is $\delta$. And the dimension of $\Psi_i(Z)$ is at least $\delta$ because $\pi_\delta(Z)$ is dense and irreducible ($Z$ is irreducible). Now, let $M_i \in \C[ X_1,\hdots,X_\delta,X_i]$ denote the corresponding irreducible polynomial defining the image $\overline{\Image(\Psi_i)}$ with \[
+M_i = \sum_{j=0}^{d_i} m_{i,j} X_i^j, m_{i,j} \in \C[\bm X_\delta].\]
+%
+\begin{lemma}
+For $\alpha \in \C^\delta,$ if $m_{i,d_i}(\alpha) \not = 0$ for all $i$ then $\pi_\delta^{-1}(\alpha) \cap Z$ is finite. 
+\end{lemma}
+%
+\begin{proof}
+Take $(\alpha_1,\hdots,\alpha_\delta,\beta_{\delta+1},\hdots,\beta_n)$ in $\pi_\delta^{-1}(\alpha)$ so that \[\Psi_i(\alpha_1,\hdots,\alpha_\delta,\beta_{\delta+1},\hdots,\beta_n)
+\in \overline{\Image(\Psi_i)}.\]
+Therefore $M_i(\alpha_1,\hdots,\alpha_\delta,\beta_i)=0$ and $\beta_i$ is a root of the univariate polynomial \[M_{i,\alpha} := \sum_{j=1}^{d_i} m_{i,j}(\bm \alpha_\delta)X_i^j \in \C[X_i]-\{0\}\] which means there are finitely many choices for $\beta_i$ (finitely many options for each coordinate) because by assumption $m_{i,d_i}(\alpha) \not = 0$. 
+\end{proof}
+%
+\noindent
+Now take \[P := \prod_{i = \delta+1}^{\delta + n} m_{i,d_i} \in \C[X_1,\hdots,X_\delta]\]
+so that if $\alpha \in \C^\delta - V(P)$ then $\pi_{\delta}^{-1}(\alpha) \cap Z$ is finite.  The degree of $P$ is bound by the degree of $Z$ times $n$ because $\deg \left(\overline{\Image(\Psi_i)} \right)\leq \deg Z$ which implies that $\deg M_{i,\alpha} \leq \deg Z$ and degree of $m_{i,d_i} \leq  \deg Z$; hence $\deg P \leq n\deg Z.$
+\end{proof}
+%the leading term is bounded above by the degree of $Z$; 
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph*{Proof of Proposition \ref{prop:degreeOfXo}.}
+Fix $i \in \{2,\hdots,d'\}$ 
+ and let $\mathcal{X}^o$ denote
+\[
+ \left\{ (\bm A,\bm x,\bm l, \bm g) ~|~ \bm A \in \color{red}K_3\color{black}, (\bm x, \bm l) \in \mathcal{W}(i,V^\mA), \rho_{\bm g} \circ \pi_i \textrm{ vanishes on } T_{(\bm x,\bm l)}\mathcal{W}(i,V^\mA) \right\} \subset \C^{n^2 + n + s + i}. 
+\]
+%
+\begin{lemma}\label{lemma:XoAndLagXo} 
+Let $\pi_{\frak{A},\bm X, \frak{g}}$ be the projection mapping
+%
+\begin{align*}
+\C^{\delta + n + s} &\rightarrow \C^{\delta + n}\\    
+(x_1,\hdots,x_{\delta + n+s}) &\mapsto (x_1,\hdots,x_{\delta+n})    
+\end{align*}
+%
+Then, $X^o = \overline{\pi_{\frak{A},\bm X, \frak{g}}(\mathcal{X}^o)}.$
+\end{lemma} 
+%
+%
+\begin{proof}
+It is clear that $X^o \subset \overline{\pi_{\frak{A},\bm X, \frak{g}}(\mathcal{X}^o)}.$ Now, For $\bm A \in \color{red} K_3\color{black}$, $T_{\bm x}W ^{\bm A} = \pi_{\bm X} \left( T_{(\bm x, \bm l)} \mathcal{W}^{\bm A}\right),$ and it follows that $\overline{\pi_{\frak{A},\bm X, \frak{g}}(\mathcal{X}^o)} \subset X^o.$
+\end{proof}
+%
+\noindent
+If follows from Lemma \ref{lemma:XoAndLagXo} that $\deg X^o \leq \deg \mathcal{X}^o.$ 
+%
+Now, for simplicity let $\frak{A} = (\frak{A}_{k,m})_{1 \le k,m \le n}$, and put
+\[
+\mathscr{W}^{\frak{A}} =\mathscr{W}(i,V^{\frak{A}}) \subset\C^{n^2+n+s}, 
+\]
+and 
+\[
+\frak{G}^{\frak{A}} = \left(\bm f^{\frak{A}},\bm L_s\cdot \jac_{\bm X}(\bm f^{\frak{A}},i) \right) \in \C[X_1,\hdots,X_n, L_1,\hdots,L_p, \frak{A}_{1,1},\hdots,\frak{A}_{n,n}]^{s+n-i}.
+\]
+Note the rank of $\jac_{(\bm x, \bm l)}\frak{G}^{\frak{A}}$ equals $s + n-i$
+which is the number of rows (number of equations).
+%
+\begin{lemma}
+Considering $\mathcal{X}^o$, the degree contribution of $\rho_{\bm g} \circ \pi_i$ vanishing on  $T_{(\bm x,\bm l)}\mathcal{W}^{\frak{A}}$ is $\left((n+s-i)(2d)\right)^i.$
+%
+\end{lemma}
+%
+\begin{proof}
+%
+\begin{align*}
+    &\rho_{\bm g} \circ \pi_i \textrm{ vanishes on } T_{(\bm x,\bm l)}\mathcal{W}^{\frak{A}} = \ker \left(\jac_{(\bm x, \bm l)} \frak{G}^\frak{A} \right)\\
+    iff~& \lambda = 
+\begin{bmatrix}
+\frak{g}_1 \cdots \frak{g}_i ~0 \cdots 0
+\end{bmatrix} \textrm{ vanishes on }\ker \left(\jac_{(\bm x, \bm l)} \frak{G}^\frak{A} \right)\\
+    iff~&
+    \rank 
+    \begin{bmatrix}
+    \jac_{(\bm x, \bm l)} \frak{G}^\frak{A}\\
+    \lambda 
+    \end{bmatrix}
+    =\rank \left( \jac_{(\bm x, \bm l)} \frak{G}^{\frak{A}}\right) =s+n-i\\  
+    iff~& \textrm{ all }(s + n-i)\textrm{-minors of }\jac_{(\bm x, \bm l)} \frak{G}^\frak{A} \textrm{ vanish.}
+\end{align*}
+%
+The degree of an $(s + n-i)$-minor is $(s + n-i)(2d),$ and therefore the degree contribution is
+\[
+((s + n-i)(2d))^{\dim \mathcal{W}^{\frak{A}}}
+=
+((s + n-i)(2d))^i.
+\]
+\end{proof}
+%
+%
+\begin{lemma} 
+Considering $\mathcal{X}^o$, the degree contribution of $(\bm x, \bm l) \in \mathscr{W}^{\frak{A}}$ is $(2d)^{s+n-i}.$
+\end{lemma}
+%
+%
+\begin{proof}
+Since $\deg f_i^{\frak{A}} \leq (2d),$ the claim follows from B\'ezout.
+\end{proof}
+%
+\noindent 
+Henceforth, we have proven Proposition \ref{prop:degreeOfXo}: \[\deg X^o \leq \deg \mathcal{X}^o \leq ((s + n-i)(2d))^i \deg \mathscr{W}^{\frak{A}} \leq (s+n-i)^i(2d)^{s+n}.\]
+Consequently, the degree of $Y$ is at most $n(s+n-i)^i(2d)^{s+n}$, proving proposition \ref{prop:finitenessPolarVarietyOfPolarVariety}
+
+
+
+
+i
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph*{Proof of Propositions \ref{prop:finitenessPolarVarietyOfPolarVariety}.}
+Now take $\Delta := \prod_{i=2}^{d'}\Delta_i$ and bound the degree of $\Delta.$ Then
+\begin{align*}
+    \deg(\Delta) &= \sum_{i=2}^{d'} \deg (\Delta_i)\\
+    &\leq n(2d)^{s+n}\sum_{i=1}^{d'} (s+n)^i\\
+    &\leq n(2d)^{s+n}\left((s+n)\frac{(s+n)^d-1}{(s+n)-1}\right)\\
+    &\leq n(2d)^{s+n}(s+n)^{d+1}.
+\end{align*}
+This concludes the proof of Proposition \ref{prop:finitenessPolarVarietyOfPolarVariety}. 
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Main algorithm analysis
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Main algorithm analysis}
+\td 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%\blinddocument
+\bibliographystyle{plain}
+\bibliography{refs.bib}
+%\printbibliography
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
