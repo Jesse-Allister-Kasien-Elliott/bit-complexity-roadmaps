@@ -1,4 +1,4 @@
-\documentclass[11pt]{article}
+\documentclass[12pt]{article}
 \usepackage{amsmath}
 \usepackage{fullpage}
 \usepackage{amsfonts}
@@ -7,7 +7,7 @@
 \usepackage{verbatim}
 \immediate\write18{texcount -tex -sum  \jobname.tex > \jobname.wordcount.tex}
 \usepackage[ruled,vlined]{algorithm2e}
-\usepackage[titles]{tocloft}%----------------------------------------
+\usepackage[titles]{tocloft}
 \usepackage{mathrsfs}
 \usepackage{bm}
 \usepackage{enumitem}
@@ -24,30 +24,6 @@
     linkcolor=blue ,
     urlcolor=black
 }
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% new commands and shortcuts
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 \usepackage{amsmath}
 \usepackage{fullpage}
@@ -65,19 +41,6 @@
 \usepackage{chngcntr}
 \usepackage{titlesec}
 \usepackage{stfloats}
-%\usepackage{hyperref}
-%\hypersetup{linktocpage}
-%\hypersetup{
-%    colorlinks,
-%    citecolor=red,
-%    filecolor=black,
-%    linkcolor=blue ,
-%    urlcolor=black
-%}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% new commands and shortcuts
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 \newcommand\myeq{\mathrel{\stackrel{\makebox[0pt]{\mbox{\normalfont\tiny ?}}}{=}}}
@@ -94,20 +57,6 @@
 \def\sW{\mathscr{W}}
 \def\sI{\mathscr{I}}
 \DeclareMathOperator{\Image}{Im}
-% frak variables 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\def\frkJ{\mathfrak{J}}
-\def\frkL{\mathfrak{L}}
-\def\fA{{\mathfrak A}}
-\def\fZ{{\mathfrak Z}}
-\def\fZp{{\mathfrak Z^{'}}}
-\def\fB{{\mathfrak B}}
-\def\fN{{\mathfrak N}}
-\def\fD{{\mathfrak D}}
-\def\fp{\mathfrak{P}}
-\def\Z{\mathfrak{Z}}
-\def\A{\mathfrak{A}}
-%\def\L{\mathfrak{L}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % bold variables 
 \def\bs{\textit{\textbf{s}}}
@@ -155,7 +104,6 @@
 \DeclareMathOperator{\sing}{sing}
 \DeclareMathOperator{\codim}{codim}
 \DeclareMathOperator{\jac}{jac}
-%\DeclareMathOperator{\exp}{exp}
 \DeclareMathOperator{\grad}{grad}
 \DeclareMathOperator{\rank}{rank}
 \DeclareMathOperator{\reg}{reg}
@@ -179,64 +127,12 @@
 \def\P{\mathbb{P}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % polar varieties
-% minors 
-\def\Wi{W(i,\bm f)}
-\def\WiA{W(i,V(\bm f^{\mA}))}
-\def\WifA{W(i,V(\bm f^{\A}))}
-\def\I{\mathfrak{I}}
-\def\IA{\mathfrak{I}^{\mA}}
-\def\IfA{\mathfrak{I}^{\A}}
-\def\Ii{\mathfrak{I}(i,F)}
-\def\IiA{\mathfrak{I}(i,F^A)}
-\def\Ir{\sqrt{\mathfrak{I}}}
-\def\Iir{\sqrt{\mathfrak{I}(i,F)}}
-\def\IiAr{\sqrt{\mathfrak{I}(i,F^{\mA})}}
-\def\IAr{\sqrt{\mathfrak{I}^{\mA}}}
-\def\IfAr{\sqrt{\mathfrak{I}^{\A}}}
-\def\IifAr{\sqrt{\mathfrak{I}(\pi_i,F^{\A})}}
-\def\IifA{\mathfrak{I}(\pi_i,F^{\A})}
-\def\ji{\jac_{\xb}(F,i)}
-\def\jiA{\jac_{\xb}(F^{\mA},i)}
-\def\jifA{\jac_{\xb}(F^{\A},i)}
-%\DeclareMathOperator{\lag}{Lagrange}
-%\DeclareMathOperator{\lag}{Lagrange}
 \def\lag{{\bm{Lagrange}}}
-\def\lagF{{\bm{Lagrange}}(\bm f,i,(L_1,\hdots,L_s))}
-\def\lagFA{{\bm{Lagrange}}(\bm f^{\mA},i,(L_1,\hdots,L_s))}
-\def\lagFAl{{\bm{Lagrange}}(\bm f^{\mA},i,(l_1,\hdots,l_s))}
-\def\lagFfA{{\bm{Lagrange}}(\bm f^{\A},i,(L_1,\hdots,L_s))}
-%\def\W{\mathfrak{I}}
-% lagrange 
-\def\Il{\mathscr{I}_{\ub}}
-\def\Iil{\mathscr{I}_{\ub}(i,\bm f)}
-\def\IilA{\mathscr{I}_{\ub}(i,\bm f^{\mA})}
-\def\IilAnu{\mathscr{I}(i,\bm f^{\mA})}
-\def\IilfA{\mathscr{I}_{\ub}(i,\bm f^{\A})}
-\def\IilfAV{\mathscr{I}_{\bm V}(i,\bm f^{\A})}
-\DeclareMathOperator{\Div}{Div}
-\def\IlfA{\mathscr{I}_{\ub}^{\A}}
-\def\IlA{\mathscr{I}_{\ub}^{\mA}}
-\def\jiA{\jac_{\xb}(F^{\mA},i)}
-\def\Wil{\mathscr{W}_{\ub}(\pi_i,V)}
-\def\WilA{\mathscr{W}_{\ub}(\pi_i,V^{\mA})}
-\def\WilAnu{\mathscr{W}(\pi_i,V^{\mA})}
-\def\WilfA{\mathscr{W}_{\ub}(\pi_i,V^{\fA})}
-\def\Wl{\mathscr{W}_{\ub}}
-\def\WlA{\mathscr{W}_{\ub}^{\mA}}
-\def\udl{\sum_{i=1}^pu_iL_i}
-\def\Vdl{\sum_{i=1}^pV_iL_i}
-\def\Ab{\overline{A}}
-
 \def\fd{\frak{d}}
 \def\fh{\frak{h}}
 \def\fhh{\hat{\frak{h}}}
-
 \def\fK{\frak{K}}
-
 \def\sR {\mathscr{R}}
-
-
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % brackets
 \def\la{\langle}
@@ -254,13 +150,10 @@
 \def\gip{\Gamma_i^{'}}
 \def\gi{\Gamma_i}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Theorems 
 \newtheorem{theorem}{Theorem}[section]
 %\newtheorem{theorem}{Theorem}[section]
-
 \newtheorem*{theorem*}{Theorem}
-
 \newtheorem{corollary}[theorem]{Corollary}
 \newtheorem{lemma}[theorem]{Lemma}
 \newtheorem{ex}[theorem]{Example}
@@ -268,8 +161,6 @@
 \newtheorem{prop}[theorem]{Proposition}
 \newtheorem*{prop*}{Proposition}
 %\newtheorem*{theorem*}{Theorem}
-
-
 \newtheorem{problem}{Problem}
 \newtheorem*{definition}{Definition}
 \newtheorem{claim}[theorem]{Claim}
@@ -277,330 +168,11 @@
 \newtheorem{assumption}[theorem]{Assumption}
 \newtheorem{remark}[theorem]{Remark}
 \newtheorem*{remark*}{Remark}
-
 \newtheorem{question}{Question}
 %\newtheorem*{ex}{Example}
 \newtheorem{cor}[theorem]{Corollary}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-\def\pollambda{{\textcolor{black}{\mathfrak{l}}}}
-\def\polmu{{\textcolor{black}{\mathfrak{m}}}}
-\def\linearmu{{\textcolor{black}{\mathfrak{h}}}}
-\def\polnu{{\textcolor{black}{\mathfrak{n}}}}
-\def\poldelta{{\textcolor{black}{\mathfrak{d}}}}
-%% A simple open set
-\def\singSBasicOpen{{\textcolor{black}{\ensuremath{\mathcal{U}}}}}
-\def\BasicOpen{{\textcolor{black}{\ensuremath{\mathcal{O}}}}}
-\def\UOpen{{\textcolor{black}{\ensuremath{\mathcal{U}}}}}
-\def\openB{{\textcolor{black}{\ensuremath{\mathcal{B}}}}}
-%locally closed set
-\def\lcs{{\textcolor{black}{\ensuremath{V^\circ}}}}
-\def\lcswi{{\textcolor{black}{\ensuremath{Y_i^\circ}}}}
-\def\lcsw{{\textcolor{black}{\ensuremath{Y^\circ}}}}
-\def\SlocallyclosediA{{\textcolor{black}{\ensuremath{S_{i,\mA}^\circ}}}}
-\def\Slocallyclosed{{\textcolor{black}{\ensuremath{S^\circ}}}}
-\def\algxAX{{\textcolor{black}{\mathfrak{X}_{\mA,\x}^\circ}}}
-\def\algiAX{{\textcolor{black}{\mathfrak{X}_{i,\mA}^\circ}}}
-\def\algAX{{\textcolor{black}{\mathfrak{X}_\mA^\circ}}}
-\def\algX{{\textcolor{black}{\mathfrak{X}^\circ}}}
-%notation a changer car dans la section E, \Lambda est utilise comme un polynome 
-\def\lcLambda{{\textcolor{black}{Y^\circ}}}
-%% Zariski closed
-\def\closedX{{\textcolor{black}{X}}}
-\def\closedZ{{\textcolor{black}{Z}}}
-\def\algZ{{\textcolor{black}{Z}}}
-\def\alg2Z{{\textcolor{black}{Z}}}
-\def\Vmp{{\textcolor{black}{V^{mp}}}}
-
-%%Prime ideal
-\def\Prime{{\ensuremath{\mathcal{P}}}}
-
-%%% tau racine de q
-\def\roottau{{\alpha}}
-%%% tau noeud de l'arbre
-\def\nodetau{{\tau}}
-\def\nodeoherletter{{\tilde\tau}}
-%%% rho qui etait utilise dans geosolve-new pour la racine bivarie
-\def\rootrho{{\xi}}
-\def\depth{r}
-
-%% Zariski open for A12
-\def\ZOA12{\ensuremath{\mathscr{E}}}
-\def\ZOpropRK{\ensuremath{\mathscr{A}}}
-\def\ZOdeltapropRK{\ensuremath{\mathcal{U}}}
-\def\ZOK{\ensuremath{\mathscr{K}}}
-\def\ZOomega{\textcolor{black}{\ensuremath{\mathscr{M}}}}
-
-
-
-\def\Clos#1{\ensuremath{{\mathscr{Var}#1}}}
-
-
-\def\scrOpen{{\textcolor{black}{\ensuremath{\mathscr{G}}}}}
-\def\scrIopen{{\textcolor{black}{\ensuremath{\mathscr{I}}}}}
-
-
-
-\def\scrS{\ensuremath{\mathscr{S}}}
-
-%% used to be K_4, becomes K_3
-\def\Klastindex{3}
-%% used to be K_5, becomes K_4
-\def\Klastlastindex{4}
-
-%% used in Section E. Should be changed? 
-\def\scrX{\textcolor{black}{\ensuremath{\mathscr{X}}}}
-
-
-
-\def\scrP{\ensuremath{\mathscr{P}}}
-
-
-\def\degQ{\ensuremath{\kappa}}
-\def\degR{\ensuremath{\gamma}}
-\def\degS{\ensuremath{\sigma}}
-\def\degC{\ensuremath{\mu}}
-\def\degB{\ensuremath{\beta}}
-\def\degfiber{\ensuremath{\gamma}}
-\def\Ar{\sqrt{A}}
-\def\mult{\ensuremath{\mathsf{M}}}
-\def\softO{\ensuremath{{O}{\,\tilde{ }\,}}}
-\def\dalgo{{\ensuremath{c}}}
-%% \def\dalgo{{\ensuremath{\tilde d}}}
-\def\minor{{\ensuremath{m'}}}
-\def\pminor{{\ensuremath{m''}}}
-
-
-
-
-\def\dinit{\ensuremath{{d_{\rho}}}}
-\def\frakD{\ensuremath{\mathfrak{D}}}
-
-\def\Vc{\ensuremath{\mathcal{V}}}
-\def\A {\ensuremath{\mathbb{A}}}
-\def\B {\ensuremath{\mathbb{B}}}
-\def\Co {\ensuremath{\mathbb{C}}}
-\def\CC {\ensuremath{\overline{\mathbf{K}}}}
-\def\PP {\ensuremath{\mathsf{P}}}
-\def\BB {\ensuremath{H}}
-\def\P {\ensuremath{\mathbb{P}}}
-\def\Q {\ensuremath{\mathbb{Q}}}
-\def\N {\ensuremath{\mathbb{N}}}
-\def\Re {\ensuremath{\mathbb{R}}}
-\def\RP {\ensuremath{\tilde{\mathbf{R}}}}
-\def\CP {\ensuremath{\tilde{\mathbf{C}}}}
-\def\Z {\ensuremath{\mathbb{Z}}}
-\def\RR {\ensuremath{\mathbb{K}}}
-\def\k{\ensuremath{\mathbb{k}}}
-\def\kbar{\ensuremath{\bar{\mathbb{k}}}}
-
-\def\K {\ensuremath{\mathbb{K}}}
-\def\Kbar {\ensuremath{\overline{\mathbb{K}}}}
-\def\KKbar {\ensuremath{\overline{\mathbf{K}}}}
-\def\BS {\ensuremath{{B}}}
-\def\CS {\ensuremath{{C}}}
-\def\RS {\ensuremath{\mathsf{R}}}
-\def\LL {\ensuremath{\mathbb{L}}}
-\def\GG {\ensuremath{\mathbf{G}}}
-\def\KK {\ensuremath{\mathbf{K}}}
-\def\D {\ensuremath{\mathbf{D}}}
-\def\n {\ensuremath{\bm {n}}}
-\def\d {\ensuremath{\mathbf{d}}}
-\def\p {\ensuremath{\bm {p}}}
-\def\I {\ensuremath{\mathbf{I}}}
-\def\mI {\ensuremath{\mathbf{I}}}
-\def\mS {\ensuremath{\mathbf{S}}}
-\def\mzero {\ensuremath{\mathbf{0}}}
-\def\mT {\ensuremath{\mathbf{T}}}
-\def\mJ {\ensuremath{\mathbf{J}}}
-\def\JJ {\ensuremath{\mathbf{J}}}
-\def\sfB {\ensuremath{\sf B}}
-
-
-
-\DeclareMathOperator{\End}{End}
-
-
-\def\MM {\ensuremath{\mathbb{M}}}
-\def\mm {\ensuremath{\mathbf{m}}}
-\def\v {\ensuremath{\mathbf{v}}}
-\def\vc {\ensuremath{\mathbf{c}}}
-\def\vd {\ensuremath{\mathbf{d}}}
-
-\def\mA{\ensuremath{{\bm A}}}
-\def\mG{\ensuremath{\mathbf{G}}}
-\def\mH{\ensuremath{\mathbf{H}}}
-\def\mB{\ensuremath{{\bm B}}}
-\def\mC{\ensuremath{\mathbf{B}}}% sinon conflit avec les complexes
-\def\mD{\ensuremath{\mathbf{D}}}
-\def\mR{\ensuremath{\mathbf{R}}}
-\def\mM{\ensuremath{\mathbf{M}}}
-\def\G {\ensuremath{\mathrm{GL}}}
-\def\Mat{\ensuremath{{\rm M}}}
-\def\grad{\ensuremath{{\rm grad}}}
-\def\ker{\ensuremath{{\rm ker}}}
-\def\rank{\ensuremath{{\rm rank}}}
-\def\jac{\ensuremath{{\rm jac}}}
-\def\ext{\ensuremath{{\rm ext}}}
-\def\Zons{\ensuremath{\mathscr{D}}}
-\def\scrG{\ensuremath{\mathscr{G}}}
-\def\scrZ{\ensuremath{\mathscr{Z}}}
-\def\scrA{\ensuremath{\mathcal{A}}}
-\def\scrT{\ensuremath{\mathscr{T}}}
-\def\scrO{\ensuremath{\mathscr{O}}}
-\def\scrG{\ensuremath{\mathscr{G}}}
-\def\scrL{\ensuremath{\mathscr{L}}}
-\def\scrU{\ensuremath{\mathscr{U}}}
-\def\scrV{\ensuremath{\mathscr{V}}}
-\def\scrZ{\ensuremath{\mathscr{Z}}}
-\def\scrR{\ensuremath{\mathscr{R}}}
-\def\scrY{\ensuremath{\mathscr{Y}}}
-\def\scrB{\ensuremath{\mathscr{B}}}
-
-\def\y {\ensuremath{\mathbf{y}}}
-\def\e {\ensuremath{\mathbf{e}}}
-\def\a {\ensuremath{\bm{a}}}
-\def\b {\ensuremath{\bm{b}}}
-\def\z {\ensuremath{\mathbf{z}}}
-\def\x {\ensuremath{{\bm{x}}}}
-\def\w {\ensuremath{\bm{w}}}
-\def\f {\ensuremath{\mathbf{f}}}
-\def\r {\ensuremath{\mathbf{r}}}
-\def\s {\ensuremath{\bm{s}}}
-\def\L {\ensuremath{{\bm L}}}
-\def\F {\ensuremath{\bm{F}}}
-\def\G {\ensuremath{\bm{G}}}
-\def\I {\ensuremath{\bm{I}}}
-\def\E {\ensuremath{\mathbf{E}}}
-\def\X {\ensuremath{{\bm X}}}   
-\def\Y {\ensuremath{{\bm Y}}}
-\def\H {\ensuremath{{\bm H}}}
-\def\bfA {\ensuremath{\mathbf{A}}}
-\def\m {\ensuremath{\mathfrak{m}}}
-\def\v {\ensuremath{{\bm v}}}
-\def\u {\ensuremath{{\bm u}}}   
-\def\q {\ensuremath{\mathbf{q}}}
-\def\U {\ensuremath{\mathbf{S}}}
-\def\V {\ensuremath{\mathbf{B}}}
-\def\S {\ensuremath{\mathbf{S}}}
-\def\R {\ensuremath{\mathbb{R}}}
-\def\t {\ensuremath{{\bm t}}}
-
-
-\def\blambda{{\bm\lambda}}
-\def\bdelta{{\bm\delta}}
-\def\bzeta{{\bm\zeta}}
-\def\bkappa{{\bm\kappa}}
-\def\bmu{{\bm\mu}}
-\def\bmx{{\bm{x}}}
-\def\bmy{{\bm{y}}}
-\def\bmz{{\bm{z}}}
-\def\bsigma{{\bm\sigma}}
-\def\bpsi{{\bm\psi}}
-\def\bphi{{\bm\phi}}
-\def\sbdelta{{\bm\delta}}
-\def\brho{{\bm\rho}}
-\def\bell{{\bm\ell}}
-\def\sbell{{\bm\ell}}
-
-\def\Vfiber{\ensuremath{V''}}
-\def\fiber2{\ensuremath{Q''}}
-\def\fibersing2{\ensuremath{S''}}
-\def\param2{\ensuremath{\mathscr{Q}''}}
-\def\paramsing2{\ensuremath{\mathscr{S}''}}
-
-\def\gcd{\ensuremath{\mathrm{GCD}}}
-
-\def\cstn {\ensuremath{7}}
-\def\CONST {\ensuremath{4}}
-
-
-\def\control{{C}}
-\def\controleps{{C_\eps}}
-
-\def\rmp{{R}}
-\def\rmplift{{R_\eps}}
-\def\rmpproj{{S_\eps}}
-\def\rmpprojspec#1{{S_{#1}}}
-
-\def\limeps {\lim_{\varepsilon\rightarrow 0}}
-\def\eps{\varepsilon}
-\def\Qeps{\mathbf{Q}(\varepsilon)}
-\def\Reps{\mathbf{R}\langle\varepsilon\rangle}
-\def\Ceps{\mathbf{C}\langle\varepsilon\rangle}
-\def\Veps{V_\varepsilon}
-\def\ProjVeps{S_\varepsilon}
-
-\def\liftplus#1{{#1}_+}
-\def\liftmoins#1{{#1}_-}
-\def\lext#1{\mathcal{#1}}
-
-\def\codim {\text{codim}}
-\def\elim {\mathsf{Elim}}
-\def\newn{{k}}
-\def\myr{{r}}
-\def\myrank{{r}}
-\def\newg#1 {\mathsf{ElimLagrange}(#1) }%{{\tilde{\mathbf{g}}}}
-\def\newf#1 {\mathsf{ElimPolar}(#1 ) } % {{\tilde{\mathbf{f}}}}
-\def\frakg{{\tilde{\mathfrak{g}}}}
-\def\frakf{{\tilde{\mathfrak{f}}}}
-\def\bfm{{\mathbf{m}}}
-\def\mybound {\mathscr{B}}
-\def\newset {Y}
-\def\leftkernel {K}
-
-\def\xxx{\textbf{(xxx)}}
-\def\why{\textbf{(why?)}}
-\def\todo#1{(\textbf{todo:} {#1)}}
-\def\check{\textbf{(check!)}}
-\def\adeg{\ensuremath{\varepsilon\deg}}
-
-\def\Bez#1#2{\ensuremath{\mathscr{C}_{#1}(#2)}}
-
-\def\KKbar {\ensuremath{\overline{\mathbf{K}}}}
- 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Bold 
 \DeclareBoldMathCommand{\bM}{M}
 \DeclareBoldMathCommand{\bn}{n}
 \DeclareBoldMathCommand{\bbb}{b}
@@ -630,29 +202,15 @@
 
 \def\mult{\ensuremath{\mathrm{mult}}}
 
-%sous-routines
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% algorithm names  
 \def\Lift{{\sf Lift}}
 \def\LiftW{{\sf LiftW}}
 \def\LiftWL{{\sf LiftW}}
-
 \def\CriticalCurve{{\sf CriticalCurve}}
 \def\requiredCriticalPoints{{\sf requiredCriticalPoints}}
 \def\CriticalCurveL{{\sf CriticalCurve}}
 \def\requiredCriticalPointsL{{\sf requiredCriticalPoints}}
-
-\def\ElimLagrange{{\sf ElimLagrange}}
-\def\SingularPoints{{\sf SingularPoints}}
-\def\Lagrange{{\sf FirstOrderLagrange}}
-\def\PolarLagrange{{\sf LagrangeSystem\-For\-Polar\-Variety}}
-\def\SLagrange{{\sf SecondOrderLagrange}}
-\def\Polar{{\sf Polar}}
-\def\QuadPolarPoints{{\sf QuadPolarPoints}}
-\def\CannyPolarPoints{{\sf CannyPolarPoints}}
-\def\PolarCurve{{\sf PolarCurve}}
-\def\CannyPolarCurve{{\sf CannyPolarCurve}}
-\def\PolarParam{{\sf PolarParam}}
-\def\PolarPointsLagrange{{\sf PolarPoints}}
-\def\PolarPointsParameterization{{\sf PolarPointsParameterization}}
 \def\ChangeVariables{{\sf ChangeVariables}}
 \def\Union{{\sf Union}}
 \def\Solve{{\sf Solve}}
@@ -668,75 +226,9 @@
 \def\MainRoadmap{{\sf MainRoadmap}}
 \def\MainRoadmapL
 {{\sf MainRoadmap}}
-
 \def\RoadmapRec{{\sf RoadmapRec}}
 \def\CannyRoadmap{{\sf CannyRoadmap}}
-
-%\newcommand{\mainRoadmap}{\fontfamily{qcr}\selectfont mainRoadmap} % 
-%\newcommand{\modularRoadmap}{\fontfamily{qcr}\selectfont modularRoadmap} % 
-%\newcommand{\solve}{\fontfamily{qcr}\selectfont solve} % 
-%\newcommand{\projection}{\fontfamily{qcr}\selectfont projection} % 
-%\newcommand{\applyChangeOfVariables}{\fontfamily{qcr}\selectfont applyChangeOfVariables} % 
-%\newcommand{\lift}{\fontfamily{qcr}\selectfont lift} % 
-%\newcommand{\union}{\fontfamily{qcr}\selectfont union} % 
-%\newcommand{\liftW}{\fontfamily{qcr}\selectfont liftW} % 
-%\newcommand{\criticalCurve}{\fontfamily{qcr}\selectfont criticalCurve} % 
-%\newcommand{\requiredCriticalPoints}{\fontfamily{qcr}\selectfont requiredCriticalPoints} % 
-
-
-
-
-\def\scrF {\ensuremath{\mathscr{F}}}
-\def\scrW {\ensuremath{\mathscr{W}}}
-\def\myminor{{\ensuremath{\mathbf{m}}}}
-\def\c{{\bm{c}}}
-
-\def\dunder{{\underline{d}}}
-\def\polring#1{#1[X_1, \ldots, X_n]}
-\newcommand{\fbr}[2]{{#1}_{#2}}
-\newcommand{\fbrss}[3]{{#1}^{#2}_{#3}}
-\newcommand{\Wo}{W^\circ}
-\newcommand{\W}{W}
-\newcommand{\Kr}{K}
-
-
-\def\NOTE#1#2{{\begin{quote}\marginpar[\hfill{#1}]{{#1}}{{\textsf{[\![{#2}]\!]}}}\end{quote}}}
-\def\respond#1{\NOTE{\textcircled{\textsc{a}}}{Note:~{#1}}}
-\def\alert#1{\textcolor{red}{#1}}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % script variables 
 \def\sO{\mathscr{O}}
 \def\sL{\mathscr{L}}
@@ -747,8 +239,8 @@
 \def\rs{\mathscr{R}}
 \def\sW{\tilde{W}}
 \def\sI{\mathscr{I}}
-% frak variables 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% frak variables 
 \def\fA{{\mathfrak A}}
 \def\fZ{{\mathfrak Z}}
 \def\fZp{{\mathfrak Z^{'}}}
@@ -815,32 +307,7 @@
 \def\K{\mathbb{K}}
 \def\pr{\mathbb{P}}
 \def\P{\mathbb{P}}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% polar varieties
-% minors 
-\def\Wi{W(\pi_i,F)}
-\def\WiA{W(\pi_i,V(F^{\mA}))}
-\def\WifA{W(\pi_i,V(F^{\A}))}
-\def\I{\mathfrak{I}}
-\def\IA{\mathfrak{I}^{\mA}}
-\def\IfA{\mathfrak{I}^{\A}}
-\def\Ii{\mathfrak{I}(i,F)}
-\def\IiA{\mathfrak{I}(i,F^A)}
-\def\Ir{\sqrt{\mathfrak{I}}}
-\def\Iir{\sqrt{\mathfrak{I}(i,F)}}
-\def\IiAr{\sqrt{\mathfrak{I}(i,F^{\mA})}}
-\def\IAr{\sqrt{\mathfrak{I}^{\mA}}}
-\def\IfAr{\sqrt{\mathfrak{I}^{\A}}}
-\def\IifAr{\sqrt{\mathfrak{I}(\pi_i,F^{\A})}}
-\def\IifA{\mathfrak{I}(\pi_i,F^{\A})}
-\def\ji{\jac_{\xb}(F,i)}
-\def\jiA{\jac_{\xb}(F^{\mA},i)}
-\def\jifA{\jac_{\xb}(F^{\A},i)}
-\def\lagF{{\bm{Lagrange}}(F,i,(L_1,\hdots,L_c))}
-\def\lagFA{{\bm{Lagrange}}(F^{\mA},i,(L_1,\hdots,L_p))}
-\def\lagFAl{{\bm{Lagrange}}(F^{\mA},i,(l_1,\hdots,l_p))}
-\def\lagFfA{{\bm{Lagrange}}(F^{\A},i,(L_1,\hdots,L_p))}
-%\def\W{\mathfrak{I}}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % lagrange 
 \def\Il{\mathscr{I}_{\ub}}
 \def\Iil{\mathscr{I}_{\ub}(i,F)}
@@ -848,7 +315,6 @@
 \def\IilAnu{\mathscr{I}(i,F^{\mA})}
 \def\IilfA{\mathscr{I}_{\ub}(i,F^{\A})}
 \def\IilfAV{\mathscr{I}_{\bm V}(i,F^{\A})}
-
 \def\IlfA{\mathscr{I}_{\ub}^{\A}}
 \def\IlA{\mathscr{I}_{\ub}^{\mA}}
 \def\jiA{\jac_{\xb}(F^{\mA},i)}
@@ -875,10 +341,7 @@
 \def\td{(\textcolor{red}{{\bf todo}})}
 \def\gip{\Gamma_i^{'}}
 \def\gi{\Gamma_i}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Theorems 
-%
+
 %
 %
 % Keywords command
@@ -953,7 +416,8 @@ This is an abstract.
 To-Do:
 \begin{itemize}
     \item Give a deterministic homotopy algorithm for solving zero-dimensional systems. (The goal is to run the algorithm modulo $p$ for small primes and use the Chinese remainder theorem.) 
-    \item Analyze the bit complexity for each subroutine. 
+    \item Analyze the bit complexity for each subroutine.
+    \item Give the bit complexity for the special case of degree 2 input. 
 \end{itemize}
 }
 
@@ -4799,8 +4263,6 @@ This concludes the proof of Proposition \ref{prop:finitenessPolarVarietyOfPolarV
 
 
 
-
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Main algorithm analysis
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -4810,28 +4272,10 @@ This concludes the proof of Proposition \ref{prop:finitenessPolarVarietyOfPolarV
 
 
 
-
-
-
-
-
-
-
-
-
-
-
 %\blinddocument
 \bibliographystyle{plain}
 \bibliography{refs.bib}
 %\printbibliography
-
-
-
-
-
-
-
 
 
 
